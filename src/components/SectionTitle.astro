@@ -1,0 +1,17 @@
+---
+import cn from "@/libs/cn";
+
+interface Props {
+  title: string;
+  others?: string;
+}
+
+const { title, others } = Astro.props as Props;
+
+const secTit = cn(
+  "font-en text-6xl md:text-8xl lg:text-[88px] xl:text-9xl font-bold",
+  others,
+);
+---
+
+<h2 class={secTit}>{title}</h2>

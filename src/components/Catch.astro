@@ -1,0 +1,45 @@
+---
+import cn from "@/libs/cn";
+
+interface Props {
+  h1?: boolean;
+  others?: string;
+}
+
+const { h1 = true, others } = Astro.props as Props;
+
+const catchStyle = cn(
+  `font-en absolute left-4 md:left-6 portrait:md:text-8xl portrait:lg:text-[144px] lg:text-7xl xl:text-8xl 2xl:text-9xl md:leading-[1.1] xl:leading-none font-bold min-[1728px]:text-[7vw] text-6xl leading-[72px]`,
+  others,
+);
+---
+
+{
+  h1 ? (
+    <h1 class={catchStyle}>
+      <span class="lg:hidden portrait:lg:block">
+        Hype
+        <br />
+        Meets
+        <br />
+        Strategy.
+      </span>
+      <span class="hidden lg:block portrait:lg:hidden">
+        Hype Meets Strategy.
+      </span>
+    </h1>
+  ) : (
+    <span aria-hidden="true" class={catchStyle}>
+      <span class="lg:hidden portrait:lg:block">
+        Hype
+        <br />
+        Meets
+        <br />
+        Strategy.
+      </span>
+      <span class="hidden lg:block portrait:lg:hidden">
+        Hype Meets Strategy.
+      </span>
+    </span>
+  )
+}

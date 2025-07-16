@@ -1,0 +1,15 @@
+---
+import WorksGallery from "./WorksGallery.astro";
+---
+
+<div id="works" class="relative overflow-hidden pb-32 lg:pb-96">
+  <WorksGallery>
+    <slot />
+  </WorksGallery>
+  <div class="absolute bottom-20 -z-10 lg:bottom-40">
+    <span
+      class="font-en block w-[5000px] text-7xl opacity-20 md:text-9xl lg:text-[240px]"
+      >We Are Strategists with Purpose.</span
+    >
+  </div>
+</div>

@@ -1,0 +1,53 @@
+---
+import cn from "@/libs/cn";
+import Arrow from "@/components/Arrow.astro";
+
+interface Props {
+  right?: boolean;
+  text?: string;
+  en?: boolean;
+}
+
+const { right = true, text = "More", en = true } = Astro.props as Props;
+
+const btnWrapper = cn("flex pt-8", {
+  "justify-end": right,
+});
+
+const btnContent = cn(
+  "group/item flex items-end cursor-pointer lg:py-6 hover:opacity-80 duration-300",
+  {
+    "pl-6": right,
+    "flex-row-reverse pr-6": !right,
+  },
+);
+
+const btnText = cn(
+  "pb-1 lg:pb-2 text-lg lg:text-2xl tracking-wide text-black",
+  {
+    "pr-4 lg:pr-6": right,
+    "pl-4 lg:pl-6": !right,
+    "font-en": en,
+    "font-primary font-bold": !en,
+  },
+);
+
+const btnDeco = cn("relative", {
+  "scale-x-[-1]": !right,
+});
+---
+
+<div class={btnWrapper}>
+  <div class={btnContent}>
+    <p class={btnText}>{text}</p>
+    <div class={btnDeco}>
+      <Arrow
+        others="absolute bottom-3 -left-1 lg:-left-3 z-10 duration-300 group-hover/item:translate-x-1"
+      />
+      <div
+        class="-z-0 h-10 w-10 rounded-full bg-black duration-300 group-hover/item:scale-125 lg:h-12 lg:w-12"
+      >
+      </div>
+    </div>
+  </div>
+</div>
