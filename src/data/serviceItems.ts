@@ -3,17 +3,17 @@ import type { Service } from "@/types/Service.ts";
 const serviceItems: Service[] = [
   {
     text: "ブランド戦略",
-    src: "/images/service1.jpg",
+    src: "./images/service1.jpg",
     en: "Growth Lab",
   },
   {
     text: "ビジュアル制作",
-    src: "/images/service2.jpg",
+    src: "./images/service2.jpg",
     en: "Design Lab",
   },
   {
     text: "SNS・発信",
-    src: "/images/service3.jpg",
+    src: "./images/service3.jpg",
     en: "Social Lab",
   },
 ];
