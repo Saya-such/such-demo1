@@ -1,0 +1,41 @@
+---
+import sliders from "@/data/sliders";
+---
+
+<div class="swiper h-full w-full rounded">
+  <div class="swiper-wrapper h-full w-full">
+    {
+      sliders.map((img) => (
+        <>
+          <div class="swiper-slide h-full w-full">
+            <img src={img.sp} class="h-full w-full object-cover md:hidden" />
+            <img
+              src={img.src}
+              class="hidden h-full w-full object-cover md:block"
+            />
+          </div>
+        </>
+      ))
+    }
+  </div>
+</div>
+
+<script>
+  import Swiper from "swiper";
+  import "swiper/css/bundle";
+  import { Autoplay, Parallax, Navigation } from "swiper/modules";
+
+  export const initSwiper = {
+    modules: [Autoplay, Parallax, Navigation],
+    allowTouchMove: false,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+    },
+    centeredSlides: true,
+    loop: true,
+    speed: 600,
+  };
+
+  const swiper = new Swiper(".swiper", initSwiper);
+</script>
