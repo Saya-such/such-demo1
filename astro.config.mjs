@@ -5,7 +5,7 @@ import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   // ...
-  // base: process.env.TARGET === "gh-pages" ? "/triangle-inc/" : "/",
+  base: process.env.TARGET === "gh-pages" ? "/such-demo1/" : "./",
   integrations: [react()],
 
   vite: {
