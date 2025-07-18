@@ -14,9 +14,9 @@
     "@astrojs/react": "^4.3.0",
     "@tailwindcss/vite": "^4.1.11",
     "astro": "^5.10.1",
+    "astro-swiper": "^1.0.1",
     "clsx": "^2.1.1",
     "gsap": "^3.13.0",
-    "swiper": "^11.2.10",
     "tailwind-merge": "^3.3.1",
     "tailwindcss": "^4.1.11"
   },

@@ -1,7 +1,32 @@
 ---
+import { Swiper, SwiperWrapper, SwiperSlide } from "astro-swiper";
 import sliders from "@/data/sliders";
 ---
 
+<Swiper
+  options={{
+    // check options at https://swiperjs.com/swiper-api
+    autoplay: {
+      delay: 700,
+      disableOnInteraction: false,
+      waitForTransition: false,
+    },
+    loop: true,
+  }}
+>
+  <SwiperWrapper>
+    <!-- Slides -->
+    <SwiperSlide>
+      <img src="https://picsum.photos/455/256?nb=1" alt="" />
+    </SwiperSlide>
+    <SwiperSlide>
+      <img src="https://picsum.photos/455/256?nb=2" alt="" />
+    </SwiperSlide>
+    <SwiperSlide>
+      <img src="https://picsum.photos/455/256?nb=3" alt="" />
+    </SwiperSlide>
+  </SwiperWrapper>
+</Swiper>
 <div class="swiper h-full w-full rounded">
   <div class="swiper-wrapper h-full w-full">
     {
@@ -19,23 +44,3 @@ import sliders from "@/data/sliders";
     }
   </div>
 </div>
-
-<script>
-  import Swiper from "swiper";
-  import "swiper/css/bundle";
-  import { Autoplay, Parallax, Navigation } from "swiper/modules";
-
-  export const initSwiper = {
-    modules: [Autoplay, Parallax, Navigation],
-    allowTouchMove: false,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false,
-    },
-    centeredSlides: true,
-    loop: true,
-    speed: 600,
-  };
-
-  const swiper = new Swiper(".swiper", initSwiper);
-</script>
