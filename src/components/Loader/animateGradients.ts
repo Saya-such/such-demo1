@@ -15,7 +15,7 @@ const commonCatchStyles = {
   WebkitTextFillColor: "transparent",
 };
 
-const durations = [0.1, 0.08, 0.1, 0.05, 0.1, 0.08];
+const durations = [0.1, 0.08, 0.1, 0.05, 0.1, 0.05];
 
 const opacities = [0.7, 0.8, 0.9, 0.9, 0.9, 1.0];
 
