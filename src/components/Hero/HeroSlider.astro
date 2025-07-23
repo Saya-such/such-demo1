@@ -2,11 +2,7 @@
 import sliders from "@/data/sliders";
 ---
 
-<div
-  class="swiper-bg absolute inset-0 z-1000 h-lvh w-lvw origin-top-left overflow-y-hidden bg-white"
->
-</div>
-<div class="swiper h-full w-full rounded">
+<div class="swiper z-0 h-full w-full rounded">
   <div class="swiper-wrapper h-full w-full">
     {
       sliders.map((img) => (
@@ -21,27 +17,24 @@ import sliders from "@/data/sliders";
     }
   </div>
 </div>
+<!-- <div
+  class="swiper-bg absolute inset-0 z-1 h-lvh w-lvw origin-top-left overflow-y-hidden bg-white"
+>
+</div> -->
 
 <script>
   import Swiper from "swiper";
   import "swiper/css/bundle";
-  import { Autoplay } from "swiper/modules";
-  import { gsap } from "gsap";
-  import pageFlipAnimation from "@/libs/pageFlipAnimation";
+  import { Autoplay, EffectFade } from "swiper/modules";
 
   const swiper = new Swiper(".swiper", {
-    modules: [Autoplay],
+    modules: [Autoplay, EffectFade],
     loop: true,
     autoplay: {
       delay: 5000,
       disableOnInteraction: false,
       waitForTransition: false,
     },
-    on: {
-      slideChange() {
-        const tl = gsap.timeline();
-        pageFlipAnimation(".swiper-bg", tl);
-      },
-    },
+    effect: "fade",
   });
 </script>
