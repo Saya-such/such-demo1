@@ -1,4 +1,5 @@
 import { animateGradients } from "./animateGradients";
+import pageFlipAnimation from "@/libs/pageFlipAnimation";
 import { gsap } from "gsap";
 
 const animation = () => {
@@ -27,20 +28,9 @@ const animation = () => {
     } else if (loader?.classList.contains("loading")) {
       const tl = gsap.timeline();
 
-      tl.fromTo(
-        loader,
-        {
-          scale: 2,
-          aspectRatio: "1/cos(30deg)",
-          clipPath: "polygon(0 0, 100% 0, 0 100%)",
-        },
-        {
-          xPercent: -100,
-          yPercent: -100,
-          duration: 0.7,
-          ease: "power3.in",
-        },
-      ).to(loader, { duration: 0.7 });
+      pageFlipAnimation(loader, tl);
+
+      tl.to(loader, { duration: 0.7 });
 
       animateGradients(heroCatch, tl);
 

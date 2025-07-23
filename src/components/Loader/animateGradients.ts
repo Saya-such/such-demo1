@@ -1,5 +1,3 @@
-import { gsap } from "gsap";
-
 const gradients = [
   "linear-gradient(150deg,rgba(58, 129, 180, 1) 0%, rgba(255, 255, 255, 1) 15%, rgba(252, 176, 69, 1) 30%, rgba(211, 39, 81, 1) 50%, rgba(131, 58, 180, 1) 90%, rgba(58, 129, 180, 1) 100%)",
   "linear-gradient(150deg,rgba(131, 58, 180, 1) 0%, rgba(58, 129, 180, 1) 10%, rgba(255, 255, 255, 1) 25%, rgba(252, 176, 69, 1) 40%, rgba(211, 39, 81, 1) 60%, rgba(131, 58, 180, 1) 100%)",
