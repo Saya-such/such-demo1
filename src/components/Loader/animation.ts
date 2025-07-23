@@ -6,6 +6,7 @@ const animation = () => {
     const loader = document.getElementById("loader");
     const body = document.body;
     const loaderCatch = ".loader-catch";
+    const heroCatch = ".hero-catch";
 
     if (loader?.classList.contains("fs-loading")) {
       const tl = gsap.timeline();
@@ -39,12 +40,14 @@ const animation = () => {
           duration: 0.7,
           ease: "power3.in",
         },
-      )
-        .add(() => {
-          loader?.classList.remove("loading");
-          loader?.classList.add("-z-10000");
-        })
-        .to(loader, { opacity: 0, display: "none" });
+      ).to(loader, { duration: 0.7 });
+
+      animateGradients(heroCatch, tl);
+
+      tl.add(() => {
+        loader?.classList.remove("loading");
+        loader?.classList.add("-z-10000");
+      }).to(loader, { opacity: 0, display: "none" });
     }
   });
 };
