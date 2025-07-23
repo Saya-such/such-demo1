@@ -1,55 +1,47 @@
 ---
-import { Swiper, SwiperWrapper, SwiperSlide } from "astro-swiper";
 import sliders from "@/data/sliders";
-import { gsap } from "gsap";
-import pageFlipAnimation from "@/libs/pageFlipAnimation";
-
-const tl = gsap.timeline();
 ---
 
-<Swiper
-  class:list={["h-full w-full rounded"]}
-  options={{
+<div
+  class="swiper-bg absolute inset-0 z-1000 h-lvh w-lvw origin-top-left overflow-y-hidden bg-white"
+>
+</div>
+<div class="swiper h-full w-full rounded">
+  <div class="swiper-wrapper h-full w-full">
+    {
+      sliders.map((img) => (
+        <div class="swiper-slide h-full w-full">
+          <img src={img.sp} class="h-full w-full object-cover md:hidden" />
+          <img
+            src={img.src}
+            class="hidden h-full w-full object-cover md:block"
+          />
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<script>
+  import Swiper from "swiper";
+  import "swiper/css/bundle";
+  import { Autoplay } from "swiper/modules";
+  import { gsap } from "gsap";
+  import pageFlipAnimation from "@/libs/pageFlipAnimation";
+
+  const swiper = new Swiper(".swiper", {
+    modules: [Autoplay],
+    loop: true,
     autoplay: {
       delay: 5000,
       disableOnInteraction: false,
       waitForTransition: false,
     },
-    loop: true,
-  }}
->
-  <SwiperWrapper class:list={["h-full w-full"]}>
-    {
-      sliders.map((img) => (
-        <>
-          <SwiperSlide class:list={["h-full w-full"]}>
-            <img src={img.sp} class="h-full w-full object-cover md:hidden" />
-            <img
-              src={img.src}
-              class="hidden h-full w-full object-cover md:block"
-            />
-          </SwiperSlide>
-        </>
-      ))
-    }
-  </SwiperWrapper>
-  <!-- <div
-    class="swiper-bg absolute inset-0 z-1000 h-lvh w-lvw origin-top-left overflow-y-hidden bg-white"
-  >
-  </div> -->
-</Swiper>
-
-<!-- <script>
-  import { gsap } from "gsap";
-  import pageFlipAnimation from "@/libs/pageFlipAnimation";
-
-  const tl = gsap.timeline();
-  const swiperEl = document.querySelector("astro-swiper");
-  if (swiperEl) {
-    console.log("find swiperEl");
-  }
-  swiperEl?.addEventListener("slideChange", () => {
-    pageFlipAnimation(".swiper-bg", tl);
-    console.log("slidechange");
+    on: {
+      slideChange() {
+        const tl = gsap.timeline();
+        pageFlipAnimation(".swiper-bg", tl);
+      },
+    },
   });
-</script> -->
+</script>
