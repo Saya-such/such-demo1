@@ -1,6 +1,10 @@
 ---
 import { Swiper, SwiperWrapper, SwiperSlide } from "astro-swiper";
 import sliders from "@/data/sliders";
+import { gsap } from "gsap";
+import pageFlipAnimation from "@/libs/pageFlipAnimation";
+
+const tl = gsap.timeline();
 ---
 
 <Swiper
@@ -25,9 +29,27 @@ import sliders from "@/data/sliders";
               class="hidden h-full w-full object-cover md:block"
             />
           </SwiperSlide>
-          <div class="swiper-bg" />
         </>
       ))
     }
   </SwiperWrapper>
+  <!-- <div
+    class="swiper-bg absolute inset-0 z-1000 h-lvh w-lvw origin-top-left overflow-y-hidden bg-white"
+  >
+  </div> -->
 </Swiper>
+
+<!-- <script>
+  import { gsap } from "gsap";
+  import pageFlipAnimation from "@/libs/pageFlipAnimation";
+
+  const tl = gsap.timeline();
+  const swiperEl = document.querySelector("astro-swiper");
+  if (swiperEl) {
+    console.log("find swiperEl");
+  }
+  swiperEl?.addEventListener("slideChange", () => {
+    pageFlipAnimation(".swiper-bg", tl);
+    console.log("slidechange");
+  });
+</script> -->
