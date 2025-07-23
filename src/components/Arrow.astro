@@ -9,7 +9,7 @@ interface Props {
 const { lg = false, others } = Astro.props as Props;
 
 const arrowStyle = cn(
-  "lg:w-12 lg:h-[10px] bg-[url('/images/arrow.png')] bg-no-repeat bg-contain",
+  "lg:w-12 lg:h-[10px] bg-[url('images/arrow.png')] bg-no-repeat bg-contain",
   {
     "w-[50px]": lg,
     "w-[33px]": !lg,

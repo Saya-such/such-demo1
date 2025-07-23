@@ -1,0 +1,32 @@
+---
+import { Swiper, SwiperWrapper, SwiperSlide } from "astro-swiper";
+import sliders from "@/data/sliders";
+---
+
+<Swiper
+  class:list={["h-full w-full rounded"]}
+  options={{
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+      waitForTransition: false,
+    },
+    loop: true,
+  }}
+>
+  <SwiperWrapper class:list={["h-full w-full"]}>
+    {
+      sliders.map((img) => (
+        <>
+          <SwiperSlide class:list={["h-full w-full"]}>
+            <img src={img.sp} class="h-full w-full object-cover md:hidden" />
+            <img
+              src={img.src}
+              class="hidden h-full w-full object-cover md:block"
+            />
+          </SwiperSlide>
+        </>
+      ))
+    }
+  </SwiperWrapper>
+</Swiper>
