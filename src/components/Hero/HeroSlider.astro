@@ -16,12 +16,22 @@ import sliders from "@/data/sliders";
       ))
     }
   </div>
+  <div
+    class="swiper-bg absolute inset-0 z-1 h-lvh w-lvw origin-top-left overflow-y-hidden bg-white"
+  >
+  </div>
 </div>
-<!-- <div
-  class="swiper-bg absolute inset-0 z-1 h-lvh w-lvw origin-top-left overflow-y-hidden bg-white"
->
-</div> -->
 
 <script>
   import "./swiper.ts";
 </script>
+
+<style>
+  .swiper-slide img {
+    transition: transform 5s ease-in;
+  }
+
+  .swiper-slide-active img {
+    transform: scale(1.05);
+  }
+</style>
