@@ -29,7 +29,7 @@ const barClass = (position: "top" | "middle" | "bottom") =>
         <li class="pb-10 lg:pb-0 lg:pl-4 xl:pr-8 xl:pl-0">
           <a
             href={link.href}
-            class="font-menu p-4 text-4xl font-bold tracking-widest italic lg:text-lg lg:font-medium"
+            class="font-menu p-4 text-4xl font-bold tracking-widest italic duration-200 hover:opacity-50 lg:text-lg lg:font-medium"
           >
             {link.text}
           </a>
@@ -38,3 +38,8 @@ const barClass = (position: "top" | "middle" | "bottom") =>
     }
   </ul>
 </nav>
+
+<script>
+  import changeTextColor from "./changeTextColor";
+  changeTextColor("company");
+</script>
