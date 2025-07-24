@@ -1,33 +1,37 @@
 ---
-import { Swiper, SwiperWrapper, SwiperSlide } from "astro-swiper";
 import sliders from "@/data/sliders";
 ---
 
-<Swiper
-  class:list={["h-full w-full rounded"]}
-  options={{
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false,
-      waitForTransition: false,
-    },
-    loop: true,
-  }}
->
-  <SwiperWrapper class:list={["h-full w-full"]}>
+<div class="swiper z-0 h-full w-full rounded">
+  <div class="swiper-wrapper h-full w-full">
     {
       sliders.map((img) => (
-        <>
-          <SwiperSlide class:list={["h-full w-full"]}>
-            <img src={img.sp} class="h-full w-full object-cover md:hidden" />
-            <img
-              src={img.src}
-              class="hidden h-full w-full object-cover md:block"
-            />
-          </SwiperSlide>
-          <div class="swiper-bg" />
-        </>
+        <div class="swiper-slide h-full w-full">
+          <img src={img.sp} class="h-full w-full object-cover md:hidden" />
+          <img
+            src={img.src}
+            class="hidden h-full w-full object-cover md:block"
+          />
+        </div>
       ))
     }
-  </SwiperWrapper>
-</Swiper>
+  </div>
+  <div
+    class="swiper-bg absolute inset-0 z-1 h-lvh w-lvw origin-top-left overflow-y-hidden bg-white"
+  >
+  </div>
+</div>
+
+<script>
+  import "./swiper.ts";
+</script>
+
+<style>
+  .swiper-slide img {
+    transition: transform 5s ease-in;
+  }
+
+  .swiper-slide-active img {
+    transform: scale(1.05);
+  }
+</style>
