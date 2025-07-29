@@ -1,0 +1,96 @@
+---
+import cn from "@/libs/cn";
+import headerLinks from "@/data/headerLinks";
+import Btn from "@/components/Btn.astro";
+import Catch from "@/components/Catch.astro";
+
+const barClass = (position: "top" | "middle" | "bottom") =>
+  cn("absolute block w-full h-full bg-white duration-300", {
+    "-translate-y-[6px] group-[.is-open]/button:-translate-y-0 group-[.is-open]/button:rotate-45":
+      position === "top",
+    "group-[.is-open]/button:hidden": position === "middle",
+    "translate-y-[6px] group-[.is-open]/button:-translate-y-0 group-[.is-open]/button:-rotate-45":
+      position === "bottom",
+  });
+---
+
+<button
+  id="menu-button"
+  class="group/button absolute top-2 right-2 z-10 h-11 w-11 rounded-full bg-black lg:hidden"
+>
+  <span class="relative m-auto block h-[2px] w-5">
+    <span class={barClass("top")}></span>
+    <span class={barClass("middle")}></span>
+    <span class={barClass("bottom")}></span>
+  </span>
+</button>
+<div
+  id="menu-flip"
+  class="menu-flip absolute top-0 left-0 -z-10 h-screen w-screen translate-x-1/2 -translate-y-1/2 scale-200 bg-white lg:hidden"
+>
+</div>
+<div
+  id="sp-menu"
+  class="sp-menu invisible absolute top-0 left-0 h-screen w-screen lg:hidden"
+>
+  <nav id="sp-nav" class="flex h-full w-full items-center">
+    <ul class="flex flex-col p-2">
+      {
+        headerLinks.map((link) => (
+          <li class="pb-10 first:pt-10">
+            <a
+              href={link.href}
+              class="font-menu p-4 text-4xl font-bold tracking-widest italic duration-200 hover:opacity-50"
+            >
+              {link.text}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <Btn text="Back to such" sm={true} />
+    <div class="menu-deco z-1">
+      <Catch h1={false} others="top-3 right-5 rotate-180 opacity-5" />
+      <Catch h1={false} others="left-5 bottom-3 opacity-5" />
+    </div>
+  </nav>
+</div>
+
+<nav id="menu" class="z-10 hidden lg:block">
+  <ul class="flex flex-row p-2">
+    {
+      headerLinks.map((link) => (
+        <li class="pb-0 pl-4 xl:pr-8 xl:pl-0">
+          <a
+            href={link.href}
+            class="font-menu p-4 text-lg font-medium tracking-widest italic duration-200 hover:opacity-50"
+          >
+            {link.text}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<script>
+  import menuToggle from "./menuToggle";
+  import changeTextColor from "./changeTextColor";
+
+  menuToggle();
+  changeTextColor("company");
+</script>
+
+<style>
+  .menu-flip {
+    aspect-ratio: 1 / cos(30deg);
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+  }
+  .sp-menu {
+    transition: all 0.3s;
+    opacity: 0;
+  }
+  .sp-menu.is-open {
+    opacity: 1;
+  }
+</style>
