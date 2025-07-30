@@ -20,3 +20,8 @@
     -webkit-text-fill-color: transparent;
   }
 }
+
+.catch-scroll span.scroll {
+  display: block;
+  line-height: 1.05;
+}
