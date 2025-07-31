@@ -1,15 +1,14 @@
 ---
-import works from "@/data/works";
+import cn from "@/libs/cn";
+import type { Img } from "@/types/Img";
+
+interface Props {
+  work: Img;
+}
+
+const { work } = Astro.props as Props;
 ---
 
-<div class="works-gallery">
-  <ul class="works-list flex">
-    {
-      works.map((work) => (
-        <li>
-          <img src={work.src} class="w-full object-contain" />
-        </li>
-      ))
-    }
-  </ul>
-</div>
+<li class={`mx-7 h-full ${work.class}`}>
+  <img src={work.src} class="w-full rounded object-contain" />
+</li>

@@ -1,15 +1,26 @@
 ---
+import works from "@/data/works";
 import Gallery from "./Gallery.astro";
 ---
 
-<div id="works" class="relative overflow-hidden pb-32 lg:pb-96">
-  <Gallery>
-    <slot />
-  </Gallery>
-  <div class="absolute bottom-20 -z-10 lg:bottom-40">
+<div id="works" class="relative overflow-hidden bg-white pb-32 lg:pb-96">
+  <div class="works-gallery relative z-10 w-max -translate-x-20">
+    <ul id="works-list" class="works-list flex h-full w-full">
+      {works.map((work) => <Gallery work={work} />)}
+      {works.map((work) => <Gallery work={work} />)}
+    </ul>
+  </div>
+
+  <div class="absolute bottom-20 z-1 w-max lg:bottom-40">
     <span
       class="font-en block w-[5000px] text-7xl opacity-20 md:text-9xl lg:text-[240px]"
       >We Are Strategists with Purpose.</span
     >
   </div>
 </div>
+
+<script>
+  import initWorks from "./initWorks";
+
+  initWorks();
+</script>

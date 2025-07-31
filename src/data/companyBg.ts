@@ -1,6 +1,6 @@
-import type { Imgs } from "@/types/Imgs";
+import type { Img } from "@/types/Img";
 
-const companyBg: Imgs[] = [
+const companyBg: Img[] = [
   {
     src: "./images/company-bg.jpg",
     sp: "./images/company-sp.jpg",

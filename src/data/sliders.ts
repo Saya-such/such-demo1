@@ -1,6 +1,6 @@
-import type { Imgs } from "@/types/Imgs.ts";
+import type { Img } from "@/types/Img";
 
-const sliders: Imgs[] = [
+const sliders: Img[] = [
   {
     id: 1,
     src: "./images/slider1.jpg",
