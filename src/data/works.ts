@@ -4,37 +4,43 @@ const works: Img[] = [
   {
     id: 1,
     src: "./images/work-demo1.jpg",
-    class: "w-60",
+    class: "w-60 md:w-80 lg:w-120",
   },
   {
     id: 2,
     src: "./images/work-demo2.jpg",
-    class: "w-28 translate-y-25",
+    class:
+      "w-28 md:w-49 lg:w-60 translate-y-25 md:translate-y-44 lg:translate-y-50",
   },
   {
     id: 3,
     src: "./images/work-demo3.jpg",
-    class: "w-54 translate-y-10",
+    class:
+      "w-54 md:w-95 lg:w-108 translate-y-10 md:translate-y-18 lg:translate-y-20",
   },
   {
     id: 4,
     src: "./images/work-demo4.jpg",
-    class: "w-50 translate-y-35",
+    class:
+      "w-50 md:w-88 lg:w-100 translate-y-30 md:translate-y-53 lg:translate-y-60",
   },
   {
     id: 5,
     src: "./images/work-demo5.jpg",
-    class: "w-58 translate-y-12",
+    class:
+      "w-58 md:w-102 lg:w-116 translate-y-5 md:translate-y-9 lg:translate-y-10",
   },
   {
     id: 6,
     src: "./images/work-demo6.jpg",
-    class: "w-29 translate-y-30",
+    class:
+      "w-29 md:w-51 lg:w-58 translate-y-25 md:translate-y-44 lg:translate-y-50",
   },
   {
     id: 7,
     src: "./images/work-demo7.jpg",
-    class: "w-50 translate-y-20",
+    class:
+      "w-55 md:w-96 lg:w-110 translate-y-15 md:translate-y-26 lg:translate-y-30",
   },
 ];
 

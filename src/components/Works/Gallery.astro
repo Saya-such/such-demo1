@@ -9,6 +9,6 @@ interface Props {
 const { work } = Astro.props as Props;
 ---
 
-<li class={`mx-7 h-full ${work.class}`}>
+<li class={`mx-7 md:mx-12 lg:mx-16 h-full ${work.class}`}>
   <img src={work.src} class="w-full rounded object-contain" />
 </li>
