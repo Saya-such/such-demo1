@@ -49,9 +49,19 @@ const barClass = (position: "top" | "middle" | "bottom") =>
       }
     </ul>
     <Btn text="Back to such" sm={true} />
-    <div class="menu-deco z-1">
-      <Catch h1={false} others="top-3 right-5 rotate-180 opacity-5" />
-      <Catch h1={false} others="left-5 bottom-3 opacity-5" />
+    <div id="menu-deco" class="menu-deco z-1">
+      <!-- <Catch
+        h1={false}
+        others="deco-top top-3 right-5 rotate-180 opacity-5 origin-bottom-left"
+      /> -->
+      <Catch
+        h1={false}
+        others="deco-top bottom-full left-[95%] rotate-180 opacity-5 origin-bottom-left"
+      />
+      <Catch
+        h1={false}
+        others="deco-bottom left-5 bottom-0 opacity-5 origin-bottom-left"
+      />
     </div>
   </nav>
 </div>
