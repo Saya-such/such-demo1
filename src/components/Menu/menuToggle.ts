@@ -7,10 +7,10 @@ const menuToggle = () => {
   const menuEl = document.getElementById("sp-menu");
   const flipEl = document.getElementById("menu-flip");
 
+  if (!buttonEl || !menuEl || !flipEl) return;
+
   let menuTimeline: GSAPTimeline | null = null;
   let bgTextTimeline: GSAPTimeline | null = null;
-
-  if (!buttonEl || !menuEl || !flipEl) return;
 
   buttonEl?.addEventListener("click", () => {
     menuTimeline?.kill();
