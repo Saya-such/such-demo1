@@ -3,7 +3,10 @@ import Catch from "@/components/Catch.astro";
 import BoldText from "@/components/BoldText.astro";
 ---
 
-<section id="concept" class="relative overflow-hidden bg-white">
+<section
+  id="concept"
+  class="relative overflow-hidden bg-white portrait:lg:overflow-visible"
+>
   <div id="concept-fixed" class="relative h-lvh w-lvw p-1 md:p-2">
     <div
       id="concept-catch"
@@ -24,7 +27,7 @@ import BoldText from "@/components/BoldText.astro";
   </div>
   <div
     id="concept-main"
-    class="container-base m-auto flex flex-col bg-white pb-10 opacity-0 duration-1000 md:pb-34 xl:pb-50 2xl:pb-50 portrait:lg:pb-80"
+    class="container-base m-auto flex flex-col bg-white opacity-0 duration-1000"
   >
     <h2
       class="pt-20 pb-16 text-right text-[1.72rem] font-bold tracking-widest md:pt-64 md:pb-48 md:text-[3.2rem] lg:py-48 2xl:pt-80 landscape:lg:text-left"
