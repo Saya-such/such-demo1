@@ -1,3 +1,4 @@
+import enableGalleryScroll from "./enableGalleryScroll";
 import startGalleryLoop from "./startGalleryLoop";
 import startTextLoop from "./startTextLoop";
 
@@ -9,6 +10,7 @@ const initWorks = () => {
 
   startGalleryLoop(galleryList);
   startTextLoop(loopText);
+  enableGalleryScroll(galleryList);
 };
 
 export default initWorks;
