@@ -1,6 +1,7 @@
 import enableGalleryScroll from "./enableGalleryScroll";
 import startGalleryLoop from "./startGalleryLoop";
 import startTextLoop from "./startTextLoop";
+import { gsap } from "gsap";
 
 const initWorks = () => {
   const sectionEl = document.getElementById("works");
@@ -16,9 +17,11 @@ const initWorks = () => {
 
   const stopAnimations = () => {
     galleryTimeline?.kill();
+    gsap.set(galleryList, { x: 0 });
     galleryTimeline = null;
 
     textLoopTimeline?.kill();
+    gsap.set(loopText, { x: 0 });
     textLoopTimeline = null;
   };
 
