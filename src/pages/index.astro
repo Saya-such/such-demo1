@@ -7,20 +7,35 @@ import Service from "@/components/Service/index.astro";
 import News from "@/components/News/index.astro";
 import Company from "@/components/Company.astro";
 import Bottom from "@/components/Bottom.astro";
+import type { ColorMode } from "@/types/ColorMode";
+
+interface Props {
+  color: ColorMode;
+}
+
+const { color = "light" } = Astro.props as Props;
 ---
 
 <Layout>
-  <Hero />
+  <div id="page-root" data-color={color}>
+    <Hero />
 
-  <Concept />
+    <Concept />
 
-  <Works />
+    <Works color={color} />
 
-  <Service />
+    <Service color={color} />
 
-  <News />
+    <News color={color} />
 
-  <Company />
+    <Company />
 
-  <Bottom />
+    <Bottom />
+  </div>
 </Layout>
+
+<script>
+  import initServiceColorMode from "@/libs/initServiceColorMode";
+
+  initServiceColorMode();
+</script>
