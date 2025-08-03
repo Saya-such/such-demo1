@@ -1,4 +1,4 @@
-const initServiceColorMode = () => {
+const initColorMode = () => {
   const sectionEl = document.getElementById("service");
   const rootEl = document.getElementById("page-root");
 
@@ -17,4 +17,4 @@ const initServiceColorMode = () => {
   observer.observe(sectionEl);
 };
 
-export default initServiceColorMode;
+export default initColorMode;

@@ -1,5 +1,3 @@
-type ColorMode = {
-  color: "light" | "dark";
-};
+type ColorMode = "light" | "dark";
 
 export type { ColorMode };

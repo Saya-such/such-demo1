@@ -22,11 +22,11 @@ const { color = "light" } = Astro.props as Props;
 
     <Concept />
 
-    <Works color={color} />
+    <Works />
 
-    <Service color={color} />
+    <Service />
 
-    <News color={color} />
+    <News />
 
     <Company />
 
@@ -35,7 +35,7 @@ const { color = "light" } = Astro.props as Props;
 </Layout>
 
 <script>
-  import initServiceColorMode from "@/libs/initServiceColorMode";
+  import initColorMode from "@/libs/initColorMode";
 
-  initServiceColorMode();
+  initColorMode();
 </script>
