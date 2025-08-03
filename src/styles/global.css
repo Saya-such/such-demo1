@@ -25,3 +25,31 @@
   display: block;
   line-height: 1.05;
 }
+
+#page-root[data-color="light"] #concept,
+#page-root[data-color="light"] #works,
+#page-root[data-color="light"] #service,
+#page-root[data-color="light"] #news {
+  background: #fff;
+  transition: 0.3s;
+}
+
+#page-root[data-color="light"] #works #loop-text {
+  color: #000;
+  opacity: 0.15;
+  transition: 0.3s;
+}
+
+#page-root[data-color="dark"] #concept,
+#page-root[data-color="dark"] #works,
+#page-root[data-color="dark"] #service,
+#page-root[data-color="dark"] #news {
+  background: var(--color-light-gray);
+  transition: 0.3s;
+}
+
+#page-root[data-color="dark"] #works #loop-text {
+  color: #fff;
+  opacity: 0.45;
+  transition: 0.3s;
+}
