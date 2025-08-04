@@ -21,7 +21,7 @@
   }
 }
 
-.catch-scroll span.scroll {
+#concept #catch-scroll span.scroll {
   display: block;
   line-height: 1.05;
 }
@@ -31,25 +31,45 @@
 #page-root[data-color="light"] #service,
 #page-root[data-color="light"] #news {
   background-color: #fff;
-  transition: background-color 0.3s;
+  transition: background-color 0.5s ease-in 0.1s;
+}
+
+#page-root[data-color="light"] #concept #catch-scroll span.scroll {
+  color: #000;
+  opacity: 0.05;
+  transition:
+    color 0.2s,
+    opacity 0.2s;
 }
 
 #page-root[data-color="light"] #works #loop-text {
   color: #000;
   opacity: 0.15;
-  transition: color 0.3s;
+  transition:
+    color 0.2s,
+    opacity 0.2s;
 }
 
 #page-root[data-color="dark"] #concept,
 #page-root[data-color="dark"] #works,
 #page-root[data-color="dark"] #service,
 #page-root[data-color="dark"] #news {
-  background-color: var(--color-light-gray);
-  transition: background-color 0.3s;
+  background-color: #ddd;
+  transition: background-color 0.5s ease-in 0.1s;
+}
+
+#page-root[data-color="dark"] #concept #catch-scroll span.scroll {
+  color: #fff;
+  opacity: 0.2;
+  transition:
+    color 0.2s,
+    opacity 0.2s;
 }
 
 #page-root[data-color="dark"] #works #loop-text {
   color: #fff;
   opacity: 0.45;
-  transition: color 0.3s;
+  transition:
+    color 0.2s,
+    opacity 0.2s;
 }
