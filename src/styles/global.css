@@ -54,7 +54,7 @@
 #page-root[data-color="dark"] #works,
 #page-root[data-color="dark"] #service,
 #page-root[data-color="dark"] #news {
-  background-color: var(--color-light-gray);
+  background-color: #ddd;
   transition: background-color 0.5s ease-in 0.1s;
 }
 
