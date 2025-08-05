@@ -1,0 +1,37 @@
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+const startItemAnimation = () => {
+  const sectionEl = document.getElementById("service");
+
+  if (!sectionEl) return;
+
+  if (window.matchMedia("(min-width: 768px)").matches && sectionEl) {
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: sectionEl,
+          start: "top 150%",
+          end: "bottom center",
+          once: true,
+        },
+      })
+      .fromTo(
+        ".service-list li",
+        {
+          y: 30,
+          opacity: 0,
+        },
+        {
+          y: 0,
+          stagger: 0.3,
+          duration: 0.5,
+          opacity: 1.0,
+        },
+      );
+  }
+};
+
+export default startItemAnimation;
