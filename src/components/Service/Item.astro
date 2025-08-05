@@ -8,11 +8,11 @@ import Arrow from "@/components/Arrow.astro";
 >
   {
     serviceItems.map((item) => (
-      <li class="group/item relative cursor-pointer pb-4 md:w-3/10">
+      <li class="group/item relative h-full cursor-pointer pb-4 md:w-3/10">
         <span class="font-en absolute top-4 right-px z-10 pt-4 text-[50px] leading-1 text-white opacity-40 drop-shadow-md md:pt-0 md:text-3xl md:leading-none md:opacity-20 md:drop-shadow xl:text-5xl 2xl:text-6xl">
           {item.en}
         </span>
-        <div class="relative">
+        <div class="relative h-full">
           <div class="absolute h-full w-full rounded bg-black opacity-5 duration-300 group-hover/item:opacity-0 md:opacity-20" />
           <img src={item.src} class="w-full rounded" />
         </div>
