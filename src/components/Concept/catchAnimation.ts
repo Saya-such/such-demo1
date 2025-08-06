@@ -1,5 +1,6 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import resetScrollTriggers from "@/libs/resetScrollTriggers";
 
 const chatchAnimation = () => {
   gsap.registerPlugin(ScrollTrigger);
@@ -15,7 +16,6 @@ const chatchAnimation = () => {
 
   if (catchSize && conceptCatchEl && trigger && scrollCatchEl) {
     const offset = Number(catchSize + 50);
-    console.log(offset);
 
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -55,6 +55,9 @@ const chatchAnimation = () => {
         scaleY: 1.6,
         rotate: -12,
         duration: 3.0,
+        onComplete: () => {
+          resetScrollTriggers();
+        },
       },
     );
   }

@@ -1,4 +1,3 @@
-import enableGalleryScroll from "./enableGalleryScroll";
 import startGalleryLoop from "./startGalleryLoop";
 import startTextLoop from "./startTextLoop";
 import { gsap } from "gsap";
@@ -9,8 +8,6 @@ const initWorks = () => {
   const loopText = document.getElementById("loop-text");
 
   if (!sectionEl || !galleryList || !loopText) return;
-
-  enableGalleryScroll(galleryList);
 
   let galleryTimeline: GSAPTimeline | null = null;
   let textLoopTimeline: GSAPTimeline | null = null;
