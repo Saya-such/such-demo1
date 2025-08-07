@@ -1,6 +1,6 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import resetScrollTriggers from "@/libs/resetScrollTriggers";
+import resetScrollTriggerTls from "@/libs/resetScrollTriggerTls";
 
 const chatchAnimation = () => {
   gsap.registerPlugin(ScrollTrigger);
@@ -56,7 +56,7 @@ const chatchAnimation = () => {
         rotate: -12,
         duration: 3.0,
         onComplete: () => {
-          resetScrollTriggers();
+          resetScrollTriggerTls();
         },
       },
     );
