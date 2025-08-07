@@ -14,6 +14,8 @@ const chatchAnimation = () => {
     .getElementById("catch-scroll")
     ?.querySelector("span");
 
+  let isFirst: boolean = true;
+
   if (catchSize && conceptCatchEl && trigger && scrollCatchEl) {
     const offset = Number(catchSize + 50);
 
@@ -56,7 +58,10 @@ const chatchAnimation = () => {
         rotate: -12,
         duration: 3.0,
         onComplete: () => {
-          resetScrollTriggerTls();
+          if (isFirst) {
+            isFirst = false;
+            resetScrollTriggerTls();
+          }
         },
       },
     );

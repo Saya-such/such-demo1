@@ -8,10 +8,11 @@ export const addCreateScrollTriggerTlFns = (fn: CreateTlFn) => {
 };
 
 export const runAllScrollTriggerTls = () => {
-  scrollTriggerTls.forEach((tl) => {
-    tl.kill();
-  });
-  scrollTriggerTls.clear();
+  // catchAnimationが初回呼び出されたタイミングでのみ実行できれば良いので不要　※この関数を再利用するようであればコメントアウト解除！
+  // scrollTriggerTls.forEach((tl) => {
+  //   tl.kill();
+  // });
+  // scrollTriggerTls.clear();
 
   createScrollTriggerTlFns.forEach((fn) => {
     const tl = fn();
