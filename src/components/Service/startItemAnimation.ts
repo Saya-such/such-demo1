@@ -9,11 +9,12 @@ const startItemAnimation = () => {
   if (window.matchMedia("(min-width: 768px)").matches && sectionEl) {
     gsap.registerPlugin(ScrollTrigger);
 
-    gsap
+    const tl = gsap
       .timeline({
         scrollTrigger: {
           trigger: sectionEl,
-          start: "top 150%",
+          id: "service",
+          start: "top bottom",
           end: "bottom center",
           once: true,
         },
@@ -31,6 +32,8 @@ const startItemAnimation = () => {
           opacity: 1.0,
         },
       );
+
+    return tl;
   }
 };
 
