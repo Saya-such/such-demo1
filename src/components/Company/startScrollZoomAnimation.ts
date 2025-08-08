@@ -7,30 +7,49 @@ const startScrollZoomAnimation = () => {
   const tl = gsap
     .timeline({
       scrollTrigger: {
-        trigger: ".company-wrapper",
-        id: "company",
-        start: "top top",
-        end: "bottom top",
-        pin: true,
+        trigger: "#company",
+        id: "company-scale",
+        start: "top bottom",
+        end: "bottom+=180% top",
         scrub: true,
         markers: true,
       },
     })
-    .fromTo(
+    .set(".company-wrapper", {
+      scale: 0,
+      opacity: 0,
+    })
+    .to(".company-wrapper", {
+      scale: 0.9,
+      opacity: 0.9,
+      duration: 0.1,
+      ease: "none",
+    })
+    .to(
       ".company-wrapper",
       {
-        scale: 0.5,
-      },
-      {
         scale: 1.0,
+        opacity: 1.0,
         duration: 0.1,
         ease: "none",
       },
+      0.1,
     )
     .to(
       ".company-wrapper",
       {
-        scale: 0.5,
+        scale: 0.9,
+        opacity: 0.9,
+        duration: 0.1,
+        ease: "none",
+      },
+      0.8,
+    )
+    .to(
+      ".company-wrapper",
+      {
+        scale: 0,
+        opacity: 0,
         duration: 0.1,
         ease: "none",
       },
