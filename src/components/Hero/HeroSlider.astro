@@ -2,7 +2,7 @@
 import sliders from "@/data/sliders";
 ---
 
-<div class="swiper z-0 h-full w-full rounded">
+<div id="hero-slider" class="swiper z-0 h-full w-full rounded">
   <div class="swiper-wrapper h-full w-full">
     {
       sliders.map((img) => (
@@ -23,7 +23,9 @@ import sliders from "@/data/sliders";
 </div>
 
 <script>
-  import "./swiper.ts";
+  import initSwiperManager from "./initSwiperManager";
+
+  initSwiperManager();
 </script>
 
 <style>
