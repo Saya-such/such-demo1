@@ -5,8 +5,6 @@ const initColorMode = () => {
 
   if (!serviceEl || !newsEl || !rootEl) return;
 
-  const isSp = window.matchMedia("(max-width: 799px)").matches;
-
   const isPortrait = window.matchMedia(
     "(orientation: portrait) and (min-width: 800px)",
   ).matches;

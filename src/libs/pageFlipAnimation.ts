@@ -1,6 +1,6 @@
 const pageFlipAnimation = (
   selector: HTMLElement | string,
-  tl: gsap.core.Timeline,
+  tl: GSAPTimeline,
 ) => {
   tl.fromTo(
     selector,
