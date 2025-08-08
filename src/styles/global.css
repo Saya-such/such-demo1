@@ -29,7 +29,8 @@
 #page-root[data-color="light"] #concept,
 #page-root[data-color="light"] #works,
 #page-root[data-color="light"] #service,
-#page-root[data-color="light"] #news {
+#page-root[data-color="light"] #news,
+#page-root[data-color="light"] #company {
   background-color: #fff;
   transition: background-color 0.5s ease-in 0.1s;
 }
@@ -53,7 +54,8 @@
 #page-root[data-color="dark"] #concept,
 #page-root[data-color="dark"] #works,
 #page-root[data-color="dark"] #service,
-#page-root[data-color="dark"] #news {
+#page-root[data-color="dark"] #news,
+#page-root[data-color="dark"] #company {
   background-color: #ddd;
   transition: background-color 0.5s ease-in 0.1s;
 }
