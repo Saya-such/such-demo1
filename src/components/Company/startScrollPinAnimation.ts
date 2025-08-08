@@ -13,7 +13,6 @@ const startScrollPinAnimation = () => {
         end: "bottom top",
         pin: true,
         scrub: true,
-        markers: true,
       },
     })
     .set(".company-container", {

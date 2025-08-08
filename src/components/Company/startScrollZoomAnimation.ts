@@ -10,18 +10,16 @@ const startScrollZoomAnimation = () => {
         trigger: "#company",
         id: "company-scale",
         start: "top bottom",
-        end: "bottom+=180% top",
+        end: "bottom+=120% top",
         scrub: true,
-        markers: true,
       },
     })
     .set(".company-wrapper", {
-      scale: 0,
+      scale: 0.9,
       opacity: 0,
     })
     .to(".company-wrapper", {
-      scale: 0.9,
-      opacity: 0.9,
+      opacity: 1.0,
       duration: 0.1,
       ease: "none",
     })
@@ -48,7 +46,6 @@ const startScrollZoomAnimation = () => {
     .to(
       ".company-wrapper",
       {
-        scale: 0,
         opacity: 0,
         duration: 0.1,
         ease: "none",
