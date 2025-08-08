@@ -4,33 +4,67 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 const startScrollZoomAnimation = () => {
   gsap.registerPlugin(ScrollTrigger);
 
-  const tl = gsap
-    .timeline({
+  let mm = gsap.matchMedia();
+
+  let tl = gsap.timeline();
+
+  mm.add("(max-width: 1023px)", () => {
+    tl = gsap.timeline({
       scrollTrigger: {
-        trigger: ".company-wrapper",
-        id: "company",
-        start: "top top",
-        end: "bottom top",
-        pin: true,
+        trigger: "#company",
+        id: "company-scale",
+        start: "top bottom",
+        end: "bottom+=120% top",
         scrub: true,
-        markers: true,
       },
+    });
+  });
+
+  mm.add("(min-width: 1024px)", () => {
+    tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#company",
+        id: "company-scale",
+        start: "top bottom",
+        end: "bottom+=80% top",
+        scrub: true,
+      },
+    });
+  });
+
+  tl.set(".company-wrapper", {
+    scale: 0.9,
+    opacity: 0,
+  })
+    .to(".company-wrapper", {
+      opacity: 1.0,
+      duration: 0.1,
+      ease: "none",
     })
-    .fromTo(
+    .to(
       ".company-wrapper",
       {
-        scale: 0.5,
-      },
-      {
         scale: 1.0,
+        opacity: 1.0,
         duration: 0.1,
         ease: "none",
       },
+      0.1,
     )
     .to(
       ".company-wrapper",
       {
-        scale: 0.5,
+        scale: 0.9,
+        opacity: 0.9,
+        duration: 0.1,
+        ease: "none",
+      },
+      0.8,
+    )
+    .to(
+      ".company-wrapper",
+      {
+        opacity: 0,
         duration: 0.1,
         ease: "none",
       },
