@@ -4,8 +4,12 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 const startScrollZoomAnimation = () => {
   gsap.registerPlugin(ScrollTrigger);
 
-  const tl = gsap
-    .timeline({
+  let mm = gsap.matchMedia();
+
+  let tl = gsap.timeline();
+
+  mm.add("(max-width: 1023px)", () => {
+    tl = gsap.timeline({
       scrollTrigger: {
         trigger: "#company",
         id: "company-scale",
@@ -13,11 +17,25 @@ const startScrollZoomAnimation = () => {
         end: "bottom+=120% top",
         scrub: true,
       },
-    })
-    .set(".company-wrapper", {
-      scale: 0.9,
-      opacity: 0,
-    })
+    });
+  });
+
+  mm.add("(min-width: 1024px)", () => {
+    tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#company",
+        id: "company-scale",
+        start: "top bottom",
+        end: "bottom+=80% top",
+        scrub: true,
+      },
+    });
+  });
+
+  tl.set(".company-wrapper", {
+    scale: 0.9,
+    opacity: 0,
+  })
     .to(".company-wrapper", {
       opacity: 1.0,
       duration: 0.1,
