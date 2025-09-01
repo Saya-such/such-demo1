@@ -4,9 +4,11 @@ import { Autoplay, EffectFade } from "swiper/modules";
 import { gsap } from "gsap";
 
 const createSwiper = (selector: HTMLElement) => {
+  const slidesCount = selector.querySelectorAll(".swiper-slide").length;
+
   return new Swiper(selector, {
     modules: [Autoplay, EffectFade],
-    loop: true,
+    loop: slidesCount > 1,
     autoplay: {
       delay: 5000,
       disableOnInteraction: false,
