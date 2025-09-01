@@ -22,20 +22,20 @@ const initSwiperManager = () => {
         onEnter: () => {
           if (!heroSwiper) {
             heroSwiper = createSwiper(heroSlider);
-            heroSlider.style.display = "block";
+            heroSlider.style.visibility = "visible";
           }
         },
         onLeave: () => {
           if (heroSwiper) {
             heroSwiper.destroy(true, true);
-            heroSlider.style.display = "none";
+            heroSlider.style.visibility = "hidden";
             heroSwiper = null;
           }
         },
         onEnterBack: () => {
           if (!heroSwiper) {
             heroSwiper = createSwiper(heroSlider);
-            heroSlider.style.display = "block";
+            heroSlider.style.visibility = "visible";
           }
         },
       },
