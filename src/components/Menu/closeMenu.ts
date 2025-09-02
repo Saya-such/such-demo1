@@ -9,12 +9,12 @@ const closeMenu = ({
   menuEl: HTMLElement;
   buttonEl: HTMLElement;
 }) => {
-  return gsap
-    .timeline()
-    .add(() => {
-      menuEl.classList.add("invisible");
-      menuEl.classList.remove("is-open", "visible");
-    })
+  let tl = gsap.timeline();
+
+  tl.add(() => {
+    menuEl.classList.add("invisible");
+    menuEl.classList.remove("is-open", "visible");
+  })
     .to(flipEl, {
       xPercent: 50,
       yPercent: -50,
@@ -24,6 +24,8 @@ const closeMenu = ({
     .add(() => {
       buttonEl.classList.remove("is-open");
     });
+
+  return tl;
 };
 
 export default closeMenu;
