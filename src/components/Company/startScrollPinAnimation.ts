@@ -10,7 +10,7 @@ const startScrollPinAnimation = () => {
         trigger: ".company-wrapper",
         id: "company-pin",
         start: "top top",
-        end: "bottom top",
+        end: "+=100%",
         pin: true,
         scrub: true,
       },
