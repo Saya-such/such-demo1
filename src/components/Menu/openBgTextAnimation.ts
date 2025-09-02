@@ -4,32 +4,32 @@ const openBgTextAnimation = () => {
   const textTop = document.querySelector("#menu-deco .deco-top");
   const textBottom = document.querySelector("#menu-deco .deco-bottom");
 
-  return gsap
-    .timeline({
-      delay: 3.0,
-      repeat: -1,
-      repeatDelay: 3.0,
-    })
-    .fromTo(
-      textTop,
-      {
-        x: 0,
-        y: 0,
-        skewY: 0,
-        scale: 1.0,
-        rotate: 180,
-      },
-      {
-        x: 10,
-        y: -10,
-        skewY: -7,
-        scaleX: 1.02,
-        scaleY: 1.3,
-        rotate: 187,
-        duration: 0.1,
-        ease: "power1.in",
-      },
-    )
+  let tl = gsap.timeline({
+    delay: 3.0,
+    repeat: -1,
+    repeatDelay: 3.0,
+  });
+
+  tl.fromTo(
+    textTop,
+    {
+      x: 0,
+      y: 0,
+      skewY: 0,
+      scale: 1.0,
+      rotate: 180,
+    },
+    {
+      x: 10,
+      y: -10,
+      skewY: -7,
+      scaleX: 1.02,
+      scaleY: 1.3,
+      rotate: 187,
+      duration: 0.1,
+      ease: "power1.in",
+    },
+  )
     .fromTo(
       textBottom,
       {
@@ -77,6 +77,8 @@ const openBgTextAnimation = () => {
       },
       "<",
     );
+
+  return tl;
 };
 
 export default openBgTextAnimation;

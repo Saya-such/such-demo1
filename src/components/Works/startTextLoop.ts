@@ -4,24 +4,31 @@ const startTextLoop = (loopText: HTMLElement) => {
   const totalWidth = loopText.scrollWidth / 2;
   let mm = gsap.matchMedia();
 
-  const tl = gsap.timeline();
+  let tl: GSAPTimeline | null = null;
 
-  mm.add("(max-width: 1023px)", () => {
+  const createTimeline = (tl: GSAPTimeline, num: number) => {
     tl.to(loopText, {
       x: -totalWidth,
-      duration: 20,
+      duration: num,
       ease: "none",
       repeat: -1,
     });
+  };
+
+  mm.add("(max-width: 1023px)", () => {
+    tl = gsap.timeline();
+
+    createTimeline(tl, 20);
+
+    return tl;
   });
 
   mm.add("(min-width: 1024px)", () => {
-    tl.to(loopText, {
-      x: -totalWidth,
-      duration: 30,
-      ease: "none",
-      repeat: -1,
-    });
+    tl = gsap.timeline();
+
+    createTimeline(tl, 30);
+
+    return tl;
   });
 
   return tl;

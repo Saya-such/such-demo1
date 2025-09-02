@@ -9,11 +9,11 @@ const openMenu = ({
   menuEl: HTMLElement;
   buttonEl: HTMLElement;
 }) => {
-  return gsap
-    .timeline()
-    .add(() => {
-      buttonEl.classList.add("is-open");
-    })
+  let tl = gsap.timeline();
+
+  tl.add(() => {
+    buttonEl.classList.add("is-open");
+  })
     .to(flipEl, {
       xPercent: -100,
       yPercent: 50,
@@ -24,6 +24,8 @@ const openMenu = ({
       menuEl.classList.remove("invisible");
       menuEl.classList.add("is-open", "visible");
     });
+
+  return tl;
 };
 
 export default openMenu;
