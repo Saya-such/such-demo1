@@ -1,5 +1,5 @@
 import { gsap } from "gsap";
-import pageFlipAnimation from "@/libs/pageFlipAnimation";
+import pageFlipAnimation from "@/animations/common/pageFlipAnimation";
 
 const tl = gsap.timeline();
 

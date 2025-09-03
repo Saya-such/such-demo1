@@ -1,5 +1,5 @@
-import { animateGradients } from "@/libs/animateGradients";
-import pageFlipAnimation from "@/libs/pageFlipAnimation";
+import { animateGradients } from "@/animations/common/animateGradients";
+import pageFlipAnimation from "@/animations/common/pageFlipAnimation";
 import { gsap } from "gsap";
 
 const animation = () => {

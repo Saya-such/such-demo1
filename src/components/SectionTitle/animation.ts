@@ -1,5 +1,5 @@
 import type { CreateTlFn } from "@/types/CreateTlFn";
-import { animateGradients } from "@/libs/animateGradients";
+import { animateGradients } from "@/animations/common/animateGradients";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 

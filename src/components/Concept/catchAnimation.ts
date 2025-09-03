@@ -1,6 +1,6 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import resetScrollTriggerTls from "@/libs/resetScrollTriggerTls";
+import resetScrollTriggerTls from "@/animations/scrollTriggers/resetScrollTriggerTls";
 
 const chatchAnimation = () => {
   gsap.registerPlugin(ScrollTrigger);
