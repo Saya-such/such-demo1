@@ -1,11 +1,11 @@
 ---
-import sliders from "@/data/sliders";
+import heroSlidersData from "@/data/hero/heroSlidersData";
 ---
 
 <div id="hero-slider" class="swiper z-0 h-full w-full rounded">
   <div class="swiper-wrapper h-full w-full">
     {
-      sliders.map((img) => (
+      heroSlidersData.map((img) => (
         <div class="swiper-slide h-full w-full">
           <img src={img.sp} class="h-full w-full object-cover md:hidden" />
           <img
@@ -23,9 +23,9 @@ import sliders from "@/data/sliders";
 </div>
 
 <script>
-  import initSwiperManager from "./initSwiperManager";
+  import initHeroSwiperManager from "./initHeroSwiperManager";
 
-  initSwiperManager();
+  initHeroSwiperManager();
 </script>
 
 <style>
