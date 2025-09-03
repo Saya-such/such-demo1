@@ -1,6 +1,6 @@
 ---
 import cn from "@/libs/cn";
-import headerLinks from "@/data/headerLinks";
+import headerLinksData from "@/data/header/headerLinksData";
 import Btn from "@/components/Btn.astro";
 import Catch from "@/components/Catch.astro";
 
@@ -36,7 +36,7 @@ const barClass = (position: "top" | "middle" | "bottom") =>
   <nav id="sp-nav" class="flex h-full w-full items-center">
     <ul class="flex flex-col p-2">
       {
-        headerLinks.map((link) => (
+        headerLinksData.map((link) => (
           <li class="pb-10 first:pt-10">
             <a
               href={link.href}
@@ -65,7 +65,7 @@ const barClass = (position: "top" | "middle" | "bottom") =>
 <nav id="menu" class="z-10 hidden lg:block">
   <ul class="flex flex-row p-2">
     {
-      headerLinks.map((link) => (
+      headerLinksData.map((link) => (
         <li class="pb-0 pl-4 xl:pr-8 xl:pl-0">
           <a
             href={link.href}
@@ -80,9 +80,9 @@ const barClass = (position: "top" | "middle" | "bottom") =>
 </nav>
 
 <script>
-  import menuToggle from "./menuToggle";
+  import initMenuToggle from "./initMenuToggle";
 
-  menuToggle();
+  initMenuToggle();
 </script>
 
 <style>

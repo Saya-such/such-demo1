@@ -1,6 +1,6 @@
 ---
-import works from "@/data/works";
-import Gallery from "./Gallery.astro";
+import worksSlidersData from "@/data/works/worksSlidersData";
+import WorksGallery from "./WorksGallery.astro";
 ---
 
 <div
@@ -9,8 +9,8 @@ import Gallery from "./Gallery.astro";
 >
   <div class="works-gallery relative z-10 w-max -translate-x-20">
     <ul id="works-list" class="works-list flex h-full w-full">
-      {works.map((work) => <Gallery work={work} />)}
-      {works.map((work) => <Gallery work={work} />)}
+      {worksSlidersData.map((work) => <WorksGallery work={work} />)}
+      {worksSlidersData.map((work) => <WorksGallery work={work} />)}
     </ul>
   </div>
 
@@ -31,7 +31,7 @@ import Gallery from "./Gallery.astro";
 </div>
 
 <script>
-  import initWorks from "./initWorks";
+  import initWorksLoopController from "./initWorksLoopController";
 
-  initWorks();
+  initWorksLoopController();
 </script>
