@@ -1,4 +1,4 @@
-import { animateGradients } from "./animateGradients";
+import { animateGradients } from "@/libs/animateGradients";
 import pageFlipAnimation from "@/libs/pageFlipAnimation";
 import { gsap } from "gsap";
 
@@ -14,7 +14,7 @@ const animation = () => {
 
       tl.fromTo(loaderCatch, { opacity: 0 }, { opacity: 1, duration: 0.3 });
 
-      animateGradients(loaderCatch, tl);
+      animateGradients({ selector: loaderCatch, tl });
 
       tl.add(() => {
         body.classList.remove("overflow-y-hidden");
@@ -32,7 +32,7 @@ const animation = () => {
 
       tl.to(loader, { duration: 0.7 });
 
-      animateGradients(heroCatch, tl);
+      animateGradients({ selector: heroCatch, tl });
 
       tl.add(() => {
         loader?.classList.remove("loading");

@@ -3,6 +3,7 @@ import {
   runAllScrollTriggerTls,
 } from "./scrollTriggerTlsManager";
 import enableChangeWhite from "@/components/Header/enableChangeWhite";
+import animation from "@/components/SectionTitle/animation";
 import enableGalleryScroll from "@/components/Works/enableGalleryScroll";
 import startItemAnimation from "@/components/Service/startItemAnimation";
 import startScrollZoomAnimation from "@/components/Company/startScrollZoomAnimation";
@@ -11,6 +12,8 @@ import startImgAnimation from "@/components/Bottom/startImgAnimation";
 
 const resetScrollTriggerTls = () => {
   addCreateScrollTriggerTlFns(enableChangeWhite);
+  const arry = animation();
+  arry?.forEach((fn) => addCreateScrollTriggerTlFns(fn));
   addCreateScrollTriggerTlFns(enableGalleryScroll);
   addCreateScrollTriggerTlFns(startItemAnimation);
   addCreateScrollTriggerTlFns(startScrollZoomAnimation);
