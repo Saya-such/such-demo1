@@ -1,84 +1,32 @@
+import { startTextGradientAnimation } from "@/animations/common/startTextGradientAnimation";
 import { gsap } from "gsap";
 
 const startMenuBgAnimation = () => {
   const textTop = document.querySelector("#menu-deco .deco-top");
   const textBottom = document.querySelector("#menu-deco .deco-bottom");
 
-  let tl = gsap.timeline({
-    delay: 3.0,
-    repeat: -1,
-    repeatDelay: 3.0,
-  });
+  if (!textTop || !textBottom) return;
 
-  tl.fromTo(
-    textTop,
-    {
-      x: 0,
-      y: 0,
-      skewY: 0,
-      scale: 1.0,
-      rotate: 180,
-    },
-    {
-      x: 10,
-      y: -10,
-      skewY: -7,
-      scaleX: 1.02,
-      scaleY: 1.3,
-      rotate: 187,
-      duration: 0.1,
-      ease: "power1.in",
-    },
-  )
-    .fromTo(
-      textBottom,
-      {
-        x: 0,
-        y: 0,
-        skewY: 0,
-        scale: 1.0,
-        rotate: 0,
-      },
-      {
-        x: -10,
-        y: 10,
-        skewY: -7,
-        scaleX: 1.02,
-        scaleY: 1.3,
-        rotate: 7,
-        duration: 0.1,
-        ease: "power1.in",
-      },
-      "<",
-    )
-    .to(
-      textTop,
-      {
-        x: 0,
-        y: 0,
-        skewY: 0,
-        scale: 1.0,
-        rotate: 180,
-        duration: 0.1,
-        ease: "power1.in",
-      },
-      "<4.0",
-    )
-    .to(
-      textBottom,
-      {
-        x: 0,
-        y: 0,
-        skewY: 0,
-        scale: 1.0,
-        rotate: 0,
-        duration: 0.1,
-        ease: "power1.in",
-      },
-      "<",
-    );
+  const createTimeline = (selector: HTMLElement) => {
+    let tl = gsap.timeline({
+      delay: 3.0,
+      repeat: -1,
+      repeatDelay: 6.0,
+    });
 
-  return tl;
+    startTextGradientAnimation({
+      selector,
+      tl,
+      faded: true,
+      opacity: 0.05,
+    });
+
+    tl.timeScale(0.7);
+    return tl;
+  };
+
+  createTimeline(textTop as HTMLElement);
+  createTimeline(textBottom as HTMLElement);
 };
 
 export default startMenuBgAnimation;
