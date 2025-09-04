@@ -1,7 +1,9 @@
-const createScrollTriggerFns = new Set<GSAPTimeline[]>();
+import type { CreateTimelinesFn } from "@/types/CreateTimelinesFn";
+
+const createScrollTriggerFns = new Set<CreateTimelinesFn>();
 const scrollTriggerTls = new Set<GSAPTimeline>();
 
-export const addScrollTriggerFns = (fn: GSAPTimeline[]) => {
+export const addScrollTriggerFns = (fn: CreateTimelinesFn) => {
   createScrollTriggerFns.add(fn);
 };
 
@@ -15,11 +17,7 @@ export const runAllScrollTriggers = () => {
   createScrollTriggerFns.forEach((fn) => {
     const result = fn();
     if (result) {
-      if (result instanceof Array) {
-        result.forEach((tl) => scrollTriggerTls.add(tl));
-      } else {
-        scrollTriggerTls.add(result);
-      }
+      result.forEach((tl) => scrollTriggerTls.add(tl));
     }
   });
 };
