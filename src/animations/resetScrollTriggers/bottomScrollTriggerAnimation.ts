@@ -4,7 +4,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 const bottomScrollTriggerAnimation = () => {
   const sectionEl = document.getElementById("bottom");
 
-  if (!sectionEl) return;
+  let timelines: GSAPTimeline[] = [];
+
+  if (!sectionEl) return timelines;
 
   if (sectionEl) {
     gsap.registerPlugin(ScrollTrigger);
@@ -59,8 +61,10 @@ const bottomScrollTriggerAnimation = () => {
         ease: "sine.in",
       });
 
-    return tl;
+    timelines.push(tl);
   }
+
+  return timelines;
 };
 
 export default bottomScrollTriggerAnimation;

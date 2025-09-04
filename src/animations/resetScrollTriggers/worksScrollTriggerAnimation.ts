@@ -4,7 +4,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 const worksScrollTriggerAnimation = () => {
   const galleryList = document.getElementById("works-list");
 
-  if (!galleryList) return;
+  let timelines: GSAPTimeline[] = [];
+
+  if (!galleryList) return timelines;
 
   gsap.registerPlugin(ScrollTrigger);
 
@@ -26,7 +28,7 @@ const worksScrollTriggerAnimation = () => {
       y: num,
     });
 
-    return tl;
+    timelines.push(tl);
   };
 
   mm.add("(max-width: 1023px)", () => {
@@ -36,6 +38,8 @@ const worksScrollTriggerAnimation = () => {
   mm.add("(min-width: 1024px)", () => {
     createTimeLine(-80);
   });
+
+  return timelines;
 };
 
 export default worksScrollTriggerAnimation;

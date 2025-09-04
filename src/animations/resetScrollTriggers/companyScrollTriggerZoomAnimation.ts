@@ -6,6 +6,8 @@ const companyScrollTriggerZoomAnimation = () => {
 
   const mm = gsap.matchMedia();
 
+  let timelines: GSAPTimeline[] = [];
+
   mm.add("(orientation: portrait) and (max-width: 700px)", () => {
     let tl = gsap.timeline({
       scrollTrigger: {
@@ -60,7 +62,7 @@ const companyScrollTriggerZoomAnimation = () => {
         0.9,
       );
 
-    return tl;
+    timelines.push(tl);
   });
 
   mm.add("(min-width: 701px), (orientation: landscape)", () => {
@@ -109,8 +111,10 @@ const companyScrollTriggerZoomAnimation = () => {
         0.9,
       );
 
-    return tl;
+    timelines.push(tl);
   });
+
+  return timelines;
 };
 
 export default companyScrollTriggerZoomAnimation;

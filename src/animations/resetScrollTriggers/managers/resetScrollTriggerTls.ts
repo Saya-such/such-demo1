@@ -10,15 +10,20 @@ import companyScrollTriggerZoomAnimation from "@/animations/resetScrollTriggers/
 import companyScrollTriggerPinAnimation from "@/animations/resetScrollTriggers/companyScrollTriggerPinAnimation";
 import bottomScrollTriggerAnimation from "@/animations/resetScrollTriggers/bottomScrollTriggerAnimation";
 
+const scrollTriggerFns = [
+  headerScrollTriggerAnimation,
+  sectionTitleScrollTriggerAnimation,
+  worksScrollTriggerAnimation,
+  serviceScrollTriggerAnimation,
+  companyScrollTriggerZoomAnimation,
+  companyScrollTriggerPinAnimation,
+  bottomScrollTriggerAnimation,
+];
+
 const resetScrollTriggerTls = () => {
-  addScrollTriggerFns(headerScrollTriggerAnimation);
-  const arry = sectionTitleScrollTriggerAnimation();
-  arry?.forEach((fn) => addScrollTriggerFns(fn));
-  addScrollTriggerFns(worksScrollTriggerAnimation);
-  addScrollTriggerFns(serviceScrollTriggerAnimation);
-  addScrollTriggerFns(companyScrollTriggerZoomAnimation);
-  addScrollTriggerFns(companyScrollTriggerPinAnimation);
-  addScrollTriggerFns(bottomScrollTriggerAnimation);
+  scrollTriggerFns.forEach((fn) => {
+    addScrollTriggerFns(fn);
+  });
 
   runAllScrollTriggers();
 };
