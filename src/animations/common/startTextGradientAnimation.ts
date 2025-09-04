@@ -21,23 +21,30 @@ export const startTextGradientAnimation = ({
   selector,
   tl,
   color,
+  faded = false,
+  opacity = 1.0,
 }: {
   selector: string | HTMLElement;
   tl: GSAPTimeline;
   color?: string;
+  faded?: boolean;
+  opacity?: number;
 }) => {
+  const scale = faded ? 0.1 : 1;
+
   gradients.forEach((gradient, i) => {
     tl.to(selector, {
       ...commonCatchStyles,
       backgroundImage: gradient,
       duration: durations[i],
-      opacity: opacities[i],
+      opacity: opacities[i] * scale,
     });
   });
   tl.to(selector, {
     clearProps:
       "backgroundImage,backgroundClip,WebkitBackgroundClip,WebkitTextFillColor",
     color: color ? color : "black",
+    opacity: opacity,
     duration: 0.1,
   });
 
