@@ -1,3 +1,3 @@
-type CreateTimelinesFn = () => GSAPTimeline | undefined;
+type CreateTimelinesFn = () => GSAPTimeline[];
 
 export type { CreateTimelinesFn };

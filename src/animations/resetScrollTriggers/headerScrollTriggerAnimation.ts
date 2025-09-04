@@ -15,7 +15,9 @@ const headerScrollTriggerAnimation = () => {
     selector.classList.add("visible");
   };
 
-  if (!sectionEl || !menuLinks || !logoBlack || !logoWhite) return;
+  let timelines: GSAPTimeline[] = [];
+
+  if (!sectionEl || !menuLinks || !logoBlack || !logoWhite) return timelines;
 
   if (
     window.matchMedia("(min-width: 1024px)").matches &&
@@ -26,7 +28,7 @@ const headerScrollTriggerAnimation = () => {
   ) {
     gsap.registerPlugin(ScrollTrigger);
 
-    return gsap.timeline({
+    let tl = gsap.timeline({
       scrollTrigger: {
         trigger: sectionEl,
         id: "menu-color",
@@ -51,7 +53,11 @@ const headerScrollTriggerAnimation = () => {
         },
       },
     });
+
+    timelines.push(tl);
   }
+
+  return timelines;
 };
 
 export default headerScrollTriggerAnimation;

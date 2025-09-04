@@ -4,7 +4,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 const serviceScrollTriggerAnimation = () => {
   const sectionEl = document.getElementById("service");
 
-  if (!sectionEl) return;
+  let timelines: GSAPTimeline[] = [];
+
+  if (!sectionEl) return timelines;
 
   if (window.matchMedia("(min-width: 768px)").matches && sectionEl) {
     gsap.registerPlugin(ScrollTrigger);
@@ -33,8 +35,10 @@ const serviceScrollTriggerAnimation = () => {
         },
       );
 
-    return tl;
+    timelines.push(tl);
   }
+
+  return timelines;
 };
 
 export default serviceScrollTriggerAnimation;
