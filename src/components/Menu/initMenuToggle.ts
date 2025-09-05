@@ -10,23 +10,21 @@ const initMenuToggle = () => {
   if (!buttonEl || !menuEl || !flipEl) return;
 
   let menuTimeline: GSAPTimeline | null = null;
-  let bgTextTimeline: GSAPTimeline | null = null;
+  let bgTextTimelines: GSAPTimeline[] = [];
 
   buttonEl?.addEventListener("click", () => {
     menuTimeline?.kill();
-    bgTextTimeline?.kill();
+    bgTextTimelines.forEach((tl) => {
+      tl.kill();
+    });
     menuTimeline = null;
-    bgTextTimeline = null;
+    bgTextTimelines = [];
 
     if (!buttonEl.classList.contains("is-open")) {
-      if (flipEl && menuEl) {
-        menuTimeline = startMenuOpenAnimation({ flipEl, menuEl, buttonEl });
-        bgTextTimeline = startMenuBgAnimation();
-      }
+      menuTimeline = startMenuOpenAnimation({ flipEl, menuEl, buttonEl });
+      bgTextTimelines = startMenuBgAnimation();
     } else {
-      if (flipEl && menuEl) {
-        startMenuCloseAnimation({ flipEl, menuEl, buttonEl });
-      }
+      startMenuCloseAnimation({ flipEl, menuEl, buttonEl });
     }
   });
 };

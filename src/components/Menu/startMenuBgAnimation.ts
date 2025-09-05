@@ -5,7 +5,9 @@ const startMenuBgAnimation = () => {
   const textTop = document.querySelector("#menu-deco .deco-top");
   const textBottom = document.querySelector("#menu-deco .deco-bottom");
 
-  if (!textTop || !textBottom) return;
+  let timelines: GSAPTimeline[] = [];
+
+  if (!textTop || !textBottom) return timelines;
 
   const createTimeline = (selector: HTMLElement) => {
     let tl = gsap.timeline({
@@ -21,12 +23,14 @@ const startMenuBgAnimation = () => {
       opacity: 0.05,
     });
 
-    tl.timeScale(0.7);
-    return tl;
+    tl.timeScale(0.8);
+    timelines.push(tl);
   };
 
   createTimeline(textTop as HTMLElement);
   createTimeline(textBottom as HTMLElement);
+
+  return timelines;
 };
 
 export default startMenuBgAnimation;
