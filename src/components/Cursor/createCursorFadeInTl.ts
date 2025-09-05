@@ -1,16 +1,16 @@
 import { gsap } from "gsap";
 
-const createCustomCursorTl = () => {
+const createCursorFadeInTl = (cursor: HTMLElement) => {
   const tl = gsap.timeline({ paused: true });
   tl.fromTo(
-    ".custom-cursor",
+    cursor,
     {
       scale: 0,
       opacity: 0,
     },
     {
       scale: 1,
-      opacity: 0.7,
+      opacity: 0.8,
       duration: 0.3,
       ease: "power1.in",
     },
@@ -19,4 +19,4 @@ const createCustomCursorTl = () => {
   return tl;
 };
 
-export default createCustomCursorTl;
+export default createCursorFadeInTl;
