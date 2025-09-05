@@ -21,7 +21,7 @@ const startMenuBgAnimation = () => {
       opacity: 0.05,
     });
 
-    tl.timeScale(0.7);
+    tl.timeScale(0.8);
     return tl;
   };
 
