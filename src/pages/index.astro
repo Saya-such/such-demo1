@@ -5,8 +5,9 @@ import Concept from "@/components/Concept/index.astro";
 import Works from "@/components/Works/index.astro";
 import Service from "@/components/Service.astro";
 import News from "@/components/News/index.astro";
-import Company from "@/components/Company.astro";
+import Company from "@/components/Company/index.astro";
 import Bottom from "@/components/Bottom/index.astro";
+import Cursor from "@/components/Cursor/index.astro";
 import type { ColorMode } from "@/types/ColorMode";
 
 interface Props {
@@ -32,6 +33,8 @@ const { color = "light" } = Astro.props as Props;
 
     <Bottom />
   </div>
+
+  <Cursor />
 </Layout>
 
 <script>
