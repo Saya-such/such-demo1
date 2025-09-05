@@ -9,10 +9,10 @@ export const addScrollTriggerFns = (fn: CreateTimelinesFn) => {
 
 export const runAllScrollTriggers = () => {
   // startConceptCatchAnimationが初回呼び出されたタイミングでのみ実行できれば良いので不要　※この関数を再利用するようであればコメントアウト解除！
-  // scrollTriggerTls.forEach((tl) => {
-  //   tl.kill();
-  // });
-  // scrollTriggerTls.clear();
+  scrollTriggerTls.forEach((tl) => {
+    tl.kill();
+  });
+  scrollTriggerTls.clear();
 
   createScrollTriggerFns.forEach((fn) => {
     const result = fn();
