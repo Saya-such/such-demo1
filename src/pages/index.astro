@@ -7,6 +7,7 @@ import Service from "@/components/Service.astro";
 import News from "@/components/News/index.astro";
 import Company from "@/components/Company.astro";
 import Bottom from "@/components/Bottom/index.astro";
+import CustomCursor from "@/components/CustomCursor/index.astro";
 import type { ColorMode } from "@/types/ColorMode";
 
 interface Props {
@@ -32,6 +33,8 @@ const { color = "light" } = Astro.props as Props;
 
     <Bottom />
   </div>
+
+  <CustomCursor />
 </Layout>
 
 <script>

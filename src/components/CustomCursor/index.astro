@@ -1,0 +1,23 @@
+---
+
+---
+
+<div
+  class="custom-cursor fixed inset-0 flex h-30 w-30 items-center rounded-full bg-white opacity-70 drop-shadow-sm"
+>
+  <span class="font-en m-auto block text-center text-2xl">View</span>
+</div>
+
+<style>
+  @media (hover: hover) and (pointer: fine) {
+    .custom-cursor {
+      display: flex;
+    }
+  }
+
+  @media (hover: none) and (pointer: coarse) {
+    .custom-cursor {
+      display: none;
+    }
+  }
+</style>
