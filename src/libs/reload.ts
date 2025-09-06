@@ -11,6 +11,8 @@ const reload = () => {
     }
   });
 
+  window.addEventListener("orientationchange", () => window.location.reload());
+
   window.addEventListener("pageshow", () => window.scrollTo(0, 0));
 };
 
