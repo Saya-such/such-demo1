@@ -24,6 +24,7 @@ const startConceptCatchAnimation = () => {
         trigger,
         start: `top -${offset}px`,
         scrub: true,
+        markers: true,
         onEnter: () => {
           trigger.classList.remove("fixed");
           conceptFixed?.classList.remove("h-lvh");
@@ -56,7 +57,6 @@ const startConceptCatchAnimation = () => {
         scaleX: 1.05,
         scaleY: 1.6,
         rotate: -12,
-        duration: 3.0,
         onComplete: () => {
           if (isFirst) {
             isFirst = false;
