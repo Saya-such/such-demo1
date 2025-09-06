@@ -29,7 +29,6 @@ const resetScrollTriggerTls = () => {
 
   //配列を展開して値である各timelineを(再)生成
   runAllScrollTriggers();
-  console.log("resetScrollTriggerTls run");
 };
 
 export default resetScrollTriggerTls;
