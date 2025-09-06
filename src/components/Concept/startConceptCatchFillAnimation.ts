@@ -1,10 +1,7 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import resetScrollTriggerTls from "@/animations/resetScrollTriggers/managers/resetScrollTriggerTls";
 
-const startConceptCatchAnimation = () => {
-  gsap.registerPlugin(ScrollTrigger);
-
+const startConceptCatchFillAnimation = () => {
   const trigger = document.getElementById("concept-catch");
   const conceptCatchEl = trigger?.querySelector("span");
   const catchSize = conceptCatchEl?.clientHeight;
@@ -14,17 +11,16 @@ const startConceptCatchAnimation = () => {
     .getElementById("catch-scroll")
     ?.querySelector("span");
 
-  let isFirst: boolean = true;
-
   if (catchSize && conceptCatchEl && trigger && scrollCatchEl) {
+    gsap.registerPlugin(ScrollTrigger);
+
     const offset = Number(catchSize + 50);
 
-    const tl = gsap.timeline({
+    gsap.timeline({
       scrollTrigger: {
         trigger,
+        id: "catchFill",
         start: `top -${offset}px`,
-        scrub: true,
-        markers: true,
         onEnter: () => {
           trigger.classList.remove("fixed");
           conceptFixed?.classList.remove("h-lvh");
@@ -43,29 +39,7 @@ const startConceptCatchAnimation = () => {
         },
       },
     });
-
-    tl.fromTo(
-      scrollCatchEl,
-      {
-        skewY: 0,
-        scaleX: 1.0,
-        scaleY: 1.0,
-        rotate: 0,
-      },
-      {
-        skewY: 12,
-        scaleX: 1.05,
-        scaleY: 1.6,
-        rotate: -12,
-        onComplete: () => {
-          if (isFirst) {
-            isFirst = false;
-            resetScrollTriggerTls();
-          }
-        },
-      },
-    );
   }
 };
 
-export default startConceptCatchAnimation;
+export default startConceptCatchFillAnimation;
