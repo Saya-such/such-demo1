@@ -33,7 +33,7 @@ const barClass = (position: "top" | "middle" | "bottom") =>
   id="sp-menu"
   class="sp-menu invisible absolute top-0 left-0 h-screen w-screen lg:hidden"
 >
-  <nav id="sp-nav" class="flex h-full w-full items-center">
+  <nav id="sp-nav" class="flex h-svh w-svw items-center">
     <ul class="flex flex-col p-2">
       {
         headerLinksData.map((link) => (
@@ -52,7 +52,7 @@ const barClass = (position: "top" | "middle" | "bottom") =>
     <div id="menu-deco" class="menu-deco z-1">
       <Catch
         h1={false}
-        others="deco-top bottom-full left-[95%] rotate-180 opacity-5 origin-bottom-left"
+        others="deco-top bottom-full left-[95%] md:left-[97%] md:bottom-[99%] rotate-180 opacity-5 origin-bottom-left"
       />
       <Catch
         h1={false}
