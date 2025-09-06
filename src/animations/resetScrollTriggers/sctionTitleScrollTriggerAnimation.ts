@@ -22,7 +22,7 @@ const sectionTitleScrollTriggerAnimation = () => {
     });
 
     tl.set(el, {
-      y: 30,
+      y: 20,
       opacity: 0,
     })
       .to(
@@ -32,7 +32,7 @@ const sectionTitleScrollTriggerAnimation = () => {
           opacity: 1.0,
           duration: 0.3,
         },
-        "<0.2",
+        "<0.1",
       )
       .add(() => {
         startTextGradientAnimation({ selector: el as HTMLElement, tl });
