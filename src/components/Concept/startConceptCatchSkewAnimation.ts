@@ -1,6 +1,5 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import resetScrollTriggerTls from "@/animations/resetScrollTriggers/managers/resetScrollTriggerTls";
 
 const startConceptCatchSkewAnimation = () => {
   const trigger = document.getElementById("concept");
@@ -10,8 +9,6 @@ const startConceptCatchSkewAnimation = () => {
 
   if (trigger && scrollCatchEl) {
     gsap.registerPlugin(ScrollTrigger);
-
-    let isFirst: boolean = true;
 
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -36,12 +33,6 @@ const startConceptCatchSkewAnimation = () => {
         scaleX: 1.05,
         scaleY: 1.6,
         rotate: -12,
-        onComplete: () => {
-          if (isFirst) {
-            isFirst = false;
-            resetScrollTriggerTls();
-          }
-        },
       },
     );
   }

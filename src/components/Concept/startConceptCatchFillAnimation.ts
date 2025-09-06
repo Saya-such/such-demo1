@@ -1,5 +1,6 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import resetScrollTriggerTls from "@/animations/resetScrollTriggers/managers/resetScrollTriggerTls";
 
 const startConceptCatchFillAnimation = () => {
   const trigger = document.getElementById("concept-catch");
@@ -13,6 +14,8 @@ const startConceptCatchFillAnimation = () => {
 
   if (catchSize && conceptCatchEl && trigger && scrollCatchEl) {
     gsap.registerPlugin(ScrollTrigger);
+
+    let isFirst: boolean = true;
 
     const offset = Number(catchSize + 50);
 
@@ -37,6 +40,12 @@ const startConceptCatchFillAnimation = () => {
           conceptMain?.classList.add("opacity-0");
           scrollCatchEl.classList.remove("scroll");
         },
+      },
+      onComplete: () => {
+        if (isFirst) {
+          isFirst = false;
+          resetScrollTriggerTls();
+        }
       },
     });
   }
