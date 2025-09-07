@@ -1,8 +1,9 @@
 import createCursorFadeInTl from "@/components/Cursor/createCursorFadeInTl";
+import createCursorFadeOutTl from "@/components/Cursor/createCursorFadeOutTl";
 import createCursorFollowTl from "@/components/Cursor/createCursorFollowTl";
 
 const enableCursorEffect = (link: HTMLElement) => {
-  const cursor = document.querySelector(".custom-cursor");
+  const cursor: HTMLElement | null = document.querySelector(".custom-cursor");
 
   if (
     !cursor ||
@@ -10,19 +11,20 @@ const enableCursorEffect = (link: HTMLElement) => {
   )
     return;
 
-  const corsorFadeInTl = createCursorFadeInTl(cursor as HTMLElement);
-  const corsorFollowTl = createCursorFollowTl(cursor as HTMLElement);
-
   let isHover = false;
+  let fadeTl: GSAPTimeline | null = null;
+  const corsorFollowTl = createCursorFollowTl(cursor);
 
-  link.addEventListener("mouseenter", () => {
+  link.addEventListener("mouseenter", (e) => {
     isHover = true;
-    corsorFadeInTl.play();
+    fadeTl?.kill();
+    fadeTl = createCursorFadeInTl(cursor, e);
   });
 
   link.addEventListener("mouseleave", () => {
     isHover = false;
-    corsorFadeInTl.reverse();
+    fadeTl?.kill();
+    fadeTl = createCursorFadeOutTl(cursor);
   });
 
   link.addEventListener("mousemove", (e) => {
