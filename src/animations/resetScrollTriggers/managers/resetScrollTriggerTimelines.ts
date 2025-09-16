@@ -1,7 +1,7 @@
 import {
   addResetTimelineCreators,
   createAllScrollTimelines,
-} from "./initScrollTriggerManager";
+} from "./manageScrollTriggers";
 import headerScrollTriggerTimeline from "@/animations/resetScrollTriggers/headerScrollTriggerTimeline";
 import sectionTitleScrollTriggerTimeline from "@/animations/resetScrollTriggers/sctionTitleScrollTriggerTimeline";
 import worksScrollTriggerTimeline from "@/animations/resetScrollTriggers/worksScrollTriggerTimeline";
