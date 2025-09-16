@@ -4,8 +4,8 @@ import type SwiperType from "swiper";
 import createHeroSwiper from "./createHeroSwiper";
 
 const manageHeroSwiper = () => {
-  const trigger = document.getElementById("hero");
-  const sliderEl = document.getElementById("hero-slider");
+  const trigger: HTMLElement | null = document.getElementById("hero");
+  const sliderEl: HTMLElement | null = document.getElementById("hero-slider");
   let heroSwiper: SwiperType | null = null;
 
   if (!trigger || !sliderEl) return;
