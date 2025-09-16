@@ -2,14 +2,13 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const worksScrollTriggerTimeline = () => {
+  gsap.registerPlugin(ScrollTrigger);
+
   const trigger = document.getElementById("works-list");
 
-  let timelines: GSAPTimeline[] = [];
-
-  if (!trigger) return timelines;
-
-  gsap.registerPlugin(ScrollTrigger);
   let mm = gsap.matchMedia();
+
+  let timelines: GSAPTimeline[] = [];
 
   const createTimeLine = (yOffset: number) => {
     let tl = gsap.timeline({
