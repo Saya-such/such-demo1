@@ -2,10 +2,12 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const headerScrollTriggerTimeline = () => {
-  const trigger = document.getElementById("company");
+  const trigger: HTMLElement | null = document.getElementById("company");
   const menuLinks = document.querySelectorAll("#menu a");
-  const blackLogo = document.querySelector("#logo .logo-bl");
-  const whiteLogo = document.querySelector("#logo .logo-white");
+  const blackLogo: HTMLElement | null =
+    document.querySelector("#logo .logo-bl");
+  const whiteLogo: HTMLElement | null =
+    document.querySelector("#logo .logo-white");
   const hideElement = (selector: HTMLElement) => {
     selector.classList.remove("visible");
     selector.classList.add("invisible");
@@ -36,20 +38,20 @@ const headerScrollTriggerTimeline = () => {
         end: "bottom+=120% bottom",
         toggleClass: { targets: menuLinks, className: "text-white" },
         onEnter: () => {
-          hideElement(blackLogo as HTMLElement);
-          showElement(whiteLogo as HTMLElement);
+          hideElement(blackLogo);
+          showElement(whiteLogo);
         },
         onLeave: () => {
-          hideElement(whiteLogo as HTMLElement);
-          showElement(blackLogo as HTMLElement);
+          hideElement(whiteLogo);
+          showElement(blackLogo);
         },
         onEnterBack: () => {
-          hideElement(blackLogo as HTMLElement);
-          showElement(whiteLogo as HTMLElement);
+          hideElement(blackLogo);
+          showElement(whiteLogo);
         },
         onLeaveBack: () => {
-          hideElement(whiteLogo as HTMLElement);
-          showElement(blackLogo as HTMLElement);
+          hideElement(whiteLogo);
+          showElement(blackLogo);
         },
       },
     });

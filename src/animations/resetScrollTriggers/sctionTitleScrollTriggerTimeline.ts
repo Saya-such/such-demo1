@@ -3,7 +3,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const sectionTitleScrollTriggerTimeline = () => {
-  const triggers = document.querySelectorAll(".sec-tit.animation");
+  const triggers = document.querySelectorAll<HTMLElement>(".sec-tit.animation");
 
   let timelines: GSAPTimeline[] = [];
 
@@ -36,7 +36,7 @@ const sectionTitleScrollTriggerTimeline = () => {
       )
       .add(() => {
         createTextGradientTimeline({
-          selector: el as HTMLElement,
+          selector: el,
           tl,
         });
       }, "<0.5");
