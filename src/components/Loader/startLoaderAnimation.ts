@@ -4,7 +4,7 @@ import { gsap } from "gsap";
 
 const startLoaderAnimation = () => {
   document.addEventListener("DOMContentLoaded", () => {
-    const loaderEl = document.getElementById("loader");
+    const loaderEl: HTMLElement | null = document.getElementById("loader");
     const body = document.body;
     const loaderCatchEl: HTMLElement | null =
       document.querySelector(".loader-catch");
@@ -13,7 +13,7 @@ const startLoaderAnimation = () => {
 
     if (!loaderEl || !loaderCatchEl || !heroCatchEl) return;
 
-    if (loaderEl?.classList.contains("fs-loading")) {
+    if (loaderEl.classList.contains("fs-loading")) {
       const tl = gsap.timeline();
 
       tl.fromTo(loaderCatchEl, { opacity: 0 }, { opacity: 1, duration: 0.3 });
@@ -30,11 +30,11 @@ const startLoaderAnimation = () => {
           display: "none",
         })
         .add(() => {
-          loaderEl?.classList.remove("fs-loading");
-          loaderEl?.classList.add("-z-10000");
+          loaderEl.classList.remove("fs-loading");
+          loaderEl.classList.add("-z-10000");
           sessionStorage.setItem("hasVisited", "true");
         });
-    } else if (loaderEl?.classList.contains("loading")) {
+    } else if (loaderEl.classList.contains("loading")) {
       const tl = gsap.timeline();
 
       createPageFlipTimeline(loaderEl, tl);
@@ -44,8 +44,8 @@ const startLoaderAnimation = () => {
       createTextGradientTimeline({ selector: heroCatchEl, tl });
 
       tl.add(() => {
-        loaderEl?.classList.remove("loading");
-        loaderEl?.classList.add("-z-10000");
+        loaderEl.classList.remove("loading");
+        loaderEl.classList.add("-z-10000");
       }).to(loaderEl, { opacity: 0, display: "none" });
     }
   });
