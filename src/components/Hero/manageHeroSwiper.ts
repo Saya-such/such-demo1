@@ -3,39 +3,39 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import type SwiperType from "swiper";
 import createHeroSwiper from "./createHeroSwiper";
 
-const initHeroSwiperManager = () => {
-  const sectionEl = document.getElementById("hero");
-  const heroSlider = document.getElementById("hero-slider");
+const manageHeroSwiper = () => {
+  const trigger = document.getElementById("hero");
+  const sliderEl = document.getElementById("hero-slider");
   let heroSwiper: SwiperType | null = null;
 
-  if (!sectionEl || !heroSlider) return;
+  if (!trigger || !sliderEl) return;
 
-  if (sectionEl && heroSlider) {
+  if (trigger && sliderEl) {
     gsap.registerPlugin(ScrollTrigger);
 
-    const tl = gsap.timeline({
+    gsap.timeline({
       scrollTrigger: {
-        trigger: sectionEl,
+        trigger,
         id: "hero",
         start: "top bottom",
         end: "bottom top",
         onEnter: () => {
           if (!heroSwiper) {
-            heroSwiper = createHeroSwiper(heroSlider);
-            heroSlider.style.visibility = "visible";
+            heroSwiper = createHeroSwiper(sliderEl);
+            sliderEl.style.visibility = "visible";
           }
         },
         onLeave: () => {
           if (heroSwiper) {
             heroSwiper.destroy(true, true);
-            heroSlider.style.visibility = "hidden";
+            sliderEl.style.visibility = "hidden";
             heroSwiper = null;
           }
         },
         onEnterBack: () => {
           if (!heroSwiper) {
-            heroSwiper = createHeroSwiper(heroSlider);
-            heroSlider.style.visibility = "visible";
+            heroSwiper = createHeroSwiper(sliderEl);
+            sliderEl.style.visibility = "visible";
           }
         },
       },
@@ -43,4 +43,4 @@ const initHeroSwiperManager = () => {
   }
 };
 
-export default initHeroSwiperManager;
+export default manageHeroSwiper;

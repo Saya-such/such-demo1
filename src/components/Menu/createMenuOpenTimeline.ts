@@ -1,6 +1,6 @@
 import { gsap } from "gsap";
 
-const startMenuOpenAnimation = ({
+const createMenuOpenTimeline = ({
   flipEl,
   menuEl,
   buttonEl,
@@ -28,4 +28,4 @@ const startMenuOpenAnimation = ({
   return tl;
 };
 
-export default startMenuOpenAnimation;
+export default createMenuOpenTimeline;

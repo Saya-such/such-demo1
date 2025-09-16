@@ -1,6 +1,6 @@
 import enableCursorEffect from "@/libs/enableCursorEffect";
 
-const enableCompanyCursor = () => {
+const enableCompanyCursorEffect = () => {
   const link = document.querySelector(".company-container");
 
   if (link) {
@@ -8,4 +8,4 @@ const enableCompanyCursor = () => {
   }
 };
 
-export default enableCompanyCursor;
+export default enableCompanyCursorEffect;

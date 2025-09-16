@@ -1,6 +1,6 @@
 import { gsap } from "gsap";
 
-const createCursorFollowTl = (cursor: HTMLElement) => {
+const createCursorQuickToFn = (cursor: HTMLElement) => {
   const xTo = gsap.quickTo(cursor, "x");
   const yTo = gsap.quickTo(cursor, "y");
 
@@ -10,4 +10,4 @@ const createCursorFollowTl = (cursor: HTMLElement) => {
   };
 };
 
-export default createCursorFollowTl;
+export default createCursorQuickToFn;

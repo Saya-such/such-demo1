@@ -1,7 +1,7 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-const companyScrollTriggerZoomAnimation = () => {
+const companyScrollTriggerZoomTimeline = () => {
   gsap.registerPlugin(ScrollTrigger);
 
   const mm = gsap.matchMedia();
@@ -117,4 +117,4 @@ const companyScrollTriggerZoomAnimation = () => {
   return timelines;
 };
 
-export default companyScrollTriggerZoomAnimation;
+export default companyScrollTriggerZoomTimeline;

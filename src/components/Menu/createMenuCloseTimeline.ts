@@ -1,6 +1,6 @@
 import { gsap } from "gsap";
 
-const startMenuCloseAnimation = ({
+const createMenuCloseTimeline = ({
   flipEl,
   menuEl,
   buttonEl,
@@ -28,4 +28,4 @@ const startMenuCloseAnimation = ({
   return tl;
 };
 
-export default startMenuCloseAnimation;
+export default createMenuCloseTimeline;

@@ -1,15 +1,14 @@
-const initColorMode = () => {
-  const serviceEl = document.getElementById("service");
-  const newsEl = document.getElementById("news");
+const setupColorMode = () => {
   const rootEl = document.getElementById("page-root");
+  const targetEl = document.getElementById("service");
 
-  if (!serviceEl || !newsEl || !rootEl) return;
+  if (!rootEl || !targetEl) return;
 
   const isPortrait = window.matchMedia(
     "(orientation: portrait) and (min-width: 800px)",
   ).matches;
 
-  const serviceObserver = new IntersectionObserver(
+  const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (!isPortrait) {
@@ -31,7 +30,7 @@ const initColorMode = () => {
     },
   );
 
-  serviceObserver.observe(serviceEl);
+  observer.observe(targetEl);
 };
 
-export default initColorMode;
+export default setupColorMode;

@@ -1,4 +1,4 @@
-const gradients = [
+const gradientValues = [
   "linear-gradient(150deg,rgba(58, 129, 180, 1) 0%, rgba(255, 255, 255, 1) 15%, rgba(252, 176, 69, 1) 30%, rgba(211, 39, 81, 1) 50%, rgba(131, 58, 180, 1) 90%, rgba(58, 129, 180, 1) 100%)",
   "linear-gradient(150deg,rgba(131, 58, 180, 1) 0%, rgba(58, 129, 180, 1) 10%, rgba(255, 255, 255, 1) 25%, rgba(252, 176, 69, 1) 40%, rgba(211, 39, 81, 1) 60%, rgba(131, 58, 180, 1) 100%)",
   "linear-gradient(150deg,rgba(131, 58, 180, 1) 0%, rgba(58, 129, 180, 1) 20%, rgba(255, 255, 255, 1) 45%, rgba(252, 176, 69, 1) 60%, rgba(211, 39, 81, 1) 80%, rgba(131, 58, 180, 1) 100%)",
@@ -13,34 +13,34 @@ const commonCatchStyles = {
   WebkitTextFillColor: "transparent",
 };
 
-const durations = [0.1, 0.08, 0.1, 0.05, 0.1, 0.05];
+const durationValues = [0.1, 0.08, 0.1, 0.05, 0.1, 0.05];
 
-const opacities = [0.7, 0.8, 0.9, 0.9, 0.9, 1.0];
+const opacityValues = [0.7, 0.8, 0.9, 0.9, 0.9, 1.0];
 
-export const startTextGradientAnimation = ({
+export const createTextGradientTimeline = ({
   selector,
-  tl,
+  timeline,
   color,
   faded = false,
   opacity = 1.0,
 }: {
   selector: string | HTMLElement;
-  tl: GSAPTimeline;
+  timeline: GSAPTimeline;
   color?: string;
   faded?: boolean;
   opacity?: number;
 }) => {
-  const scale = faded ? 0.1 : 1;
+  const scaleValue = faded ? 0.1 : 1;
 
-  gradients.forEach((gradient, i) => {
-    tl.to(selector, {
+  gradientValues.forEach((gradient, i) => {
+    timeline.to(selector, {
       ...commonCatchStyles,
       backgroundImage: gradient,
-      duration: durations[i],
-      opacity: opacities[i] * scale,
+      duration: durationValues[i],
+      opacity: opacityValues[i] * scaleValue,
     });
   });
-  tl.to(selector, {
+  timeline.to(selector, {
     clearProps:
       "backgroundImage,backgroundClip,WebkitBackgroundClip,WebkitTextFillColor",
     color: color ? color : "black",
@@ -48,5 +48,5 @@ export const startTextGradientAnimation = ({
     duration: 0.1,
   });
 
-  return tl;
+  return timeline;
 };

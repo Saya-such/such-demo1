@@ -1,8 +1,8 @@
-import startMenuOpenAnimation from "./startMenuOpenAnimation";
-import startMenuBgAnimation from "./startMenuBgAnimation";
-import startMenuCloseAnimation from "./startMenuCloseAnimation";
+import createMenuOpenTimeline from "./createMenuOpenTimeline";
+import createMenuBgTextTimelines from "./createMenuBgTextTimelines";
+import createMenuCloseTimeline from "./createMenuCloseTimeline";
 
-const initMenuToggle = () => {
+const manageMenuAnimations = () => {
   const buttonEl = document.getElementById("menu-button");
   const menuEl = document.getElementById("sp-menu");
   const flipEl = document.getElementById("menu-flip");
@@ -12,7 +12,7 @@ const initMenuToggle = () => {
   let menuTimeline: GSAPTimeline | null = null;
   let bgTextTimelines: GSAPTimeline[] = [];
 
-  buttonEl?.addEventListener("click", () => {
+  buttonEl.addEventListener("click", () => {
     menuTimeline?.kill();
     bgTextTimelines.forEach((tl) => {
       tl.kill();
@@ -21,12 +21,12 @@ const initMenuToggle = () => {
     bgTextTimelines = [];
 
     if (!buttonEl.classList.contains("is-open")) {
-      menuTimeline = startMenuOpenAnimation({ flipEl, menuEl, buttonEl });
-      bgTextTimelines = startMenuBgAnimation();
+      menuTimeline = createMenuOpenTimeline({ flipEl, menuEl, buttonEl });
+      bgTextTimelines = createMenuBgTextTimelines();
     } else {
-      startMenuCloseAnimation({ flipEl, menuEl, buttonEl });
+      createMenuCloseTimeline({ flipEl, menuEl, buttonEl });
     }
   });
 };
 
-export default initMenuToggle;
+export default manageMenuAnimations;
