@@ -1,7 +1,7 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-const companyScrollTriggerPinAnimation = () => {
+const companyScrollTriggerPinTimeline = () => {
   gsap.registerPlugin(ScrollTrigger);
 
   const mm = gsap.matchMedia();
@@ -59,7 +59,7 @@ const companyScrollTriggerPinAnimation = () => {
   });
 
   mm.add("(min-width: 701px), (orientation: landscape)", () => {
-    let tl = gsap.timeline({
+    let timeline = gsap.timeline({
       scrollTrigger: {
         trigger: ".company-wrapper",
         id: "company-pin",
@@ -69,9 +69,10 @@ const companyScrollTriggerPinAnimation = () => {
         scrub: true,
       },
     });
-    tl.set(".company-container", {
-      opacity: 0,
-    })
+    timeline
+      .set(".company-container", {
+        opacity: 0,
+      })
       .set(".company-arrow", {
         opacity: 0,
       })
@@ -104,10 +105,10 @@ const companyScrollTriggerPinAnimation = () => {
         "<",
       );
 
-    timelines.push(tl);
+    timelines.push(timeline);
   });
 
   return timelines;
 };
 
-export default companyScrollTriggerPinAnimation;
+export default companyScrollTriggerPinTimeline;

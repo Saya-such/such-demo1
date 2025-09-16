@@ -1,15 +1,15 @@
 import { gsap } from "gsap";
 
-const startWorksTextLoopAnimation = (loopText: HTMLElement) => {
-  const totalWidth = loopText.scrollWidth / 2;
+const createWorksTextLoopTimeline = (textEl: HTMLElement) => {
+  const totalWidth = textEl.scrollWidth / 2;
   let mm = gsap.matchMedia();
 
   let tl: GSAPTimeline | null = null;
 
-  const createTimeline = (tl: GSAPTimeline, num: number) => {
-    tl.to(loopText, {
+  const createTimeline = (tl: GSAPTimeline, duration: number) => {
+    tl.to(textEl, {
       x: -totalWidth,
-      duration: num,
+      duration,
       ease: "none",
       repeat: -1,
     });
@@ -17,7 +17,6 @@ const startWorksTextLoopAnimation = (loopText: HTMLElement) => {
 
   mm.add("(max-width: 1023px)", () => {
     tl = gsap.timeline();
-
     createTimeline(tl, 20);
 
     return tl;
@@ -25,7 +24,6 @@ const startWorksTextLoopAnimation = (loopText: HTMLElement) => {
 
   mm.add("(min-width: 1024px)", () => {
     tl = gsap.timeline();
-
     createTimeline(tl, 30);
 
     return tl;
@@ -34,4 +32,4 @@ const startWorksTextLoopAnimation = (loopText: HTMLElement) => {
   return tl;
 };
 
-export default startWorksTextLoopAnimation;
+export default createWorksTextLoopTimeline;

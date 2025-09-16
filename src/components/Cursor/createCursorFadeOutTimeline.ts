@@ -1,6 +1,6 @@
 import { gsap } from "gsap";
 
-const createCursorFadeOutTl = (cursor: HTMLElement) => {
+const createCursorFadeOutTimeline = (cursor: HTMLElement) => {
   const tl = gsap.timeline();
 
   tl.fromTo(
@@ -20,4 +20,4 @@ const createCursorFadeOutTl = (cursor: HTMLElement) => {
   return tl;
 };
 
-export default createCursorFadeOutTl;
+export default createCursorFadeOutTimeline;

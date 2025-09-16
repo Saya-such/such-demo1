@@ -1,6 +1,6 @@
-import type { ServiceItem } from "@/types/ServiceItem";
+import type { ServiceItemsData } from "@/types/ServiceItemsData";
 
-const serviceItemsData: ServiceItem[] = [
+const serviceItemsData: ServiceItemsData[] = [
   {
     text: "ブランド戦略",
     src: "./images/service1.jpg",

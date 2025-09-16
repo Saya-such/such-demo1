@@ -1,6 +1,6 @@
 import type { Link } from "@/types/Link.ts";
 
-const headerLinksData: Link[] = [
+const menuLinksData: Link[] = [
   {
     text: "TOP",
     href: "#hero",
@@ -23,4 +23,4 @@ const headerLinksData: Link[] = [
   },
 ];
 
-export default headerLinksData;
+export default menuLinksData;

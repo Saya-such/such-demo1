@@ -1,6 +1,6 @@
-import createCursorFadeInTl from "@/components/Cursor/createCursorFadeInTl";
-import createCursorFadeOutTl from "@/components/Cursor/createCursorFadeOutTl";
-import createCursorFollowTl from "@/components/Cursor/createCursorFollowTl";
+import createCursorFadeInTimeline from "@/components/Cursor/createCursorFadeInTimeline";
+import createCursorFadeOutTimeline from "@/components/Cursor/createCursorFadeOutTimeline";
+import createCursorQuickToFn from "@/components/Cursor/createCursorQuickToFn";
 
 const enableCursorEffect = (link: HTMLElement) => {
   const cursor: HTMLElement | null = document.querySelector(".custom-cursor");
@@ -12,25 +12,25 @@ const enableCursorEffect = (link: HTMLElement) => {
     return;
 
   let isHover = false;
-  let fadeTl: GSAPTimeline | null = null;
-  const corsorFollowTl = createCursorFollowTl(cursor);
+  let fadeInOutTl: GSAPTimeline | null = null;
+  const quickToFns = createCursorQuickToFn(cursor);
 
   link.addEventListener("mouseenter", (e) => {
     isHover = true;
-    fadeTl?.kill();
-    fadeTl = createCursorFadeInTl(cursor, e);
+    fadeInOutTl?.kill();
+    fadeInOutTl = createCursorFadeInTimeline(cursor, e);
   });
 
   link.addEventListener("mouseleave", () => {
     isHover = false;
-    fadeTl?.kill();
-    fadeTl = createCursorFadeOutTl(cursor);
+    fadeInOutTl?.kill();
+    fadeInOutTl = createCursorFadeOutTimeline(cursor);
   });
 
   link.addEventListener("mousemove", (e) => {
     if (isHover) {
-      corsorFollowTl.xTo(e.clientX);
-      corsorFollowTl.yTo(e.clientY);
+      quickToFns.xTo(e.clientX);
+      quickToFns.yTo(e.clientY);
     }
   });
 };

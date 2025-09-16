@@ -3,11 +3,11 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const startConceptCatchSkewAnimation = () => {
   const trigger = document.getElementById("concept");
-  const scrollCatchEl = document
+  const catchScrollEl = document
     .getElementById("catch-scroll")
     ?.querySelector("span");
 
-  if (trigger && scrollCatchEl) {
+  if (trigger && catchScrollEl) {
     gsap.registerPlugin(ScrollTrigger);
 
     const tl = gsap.timeline({
@@ -21,7 +21,7 @@ const startConceptCatchSkewAnimation = () => {
     });
 
     tl.fromTo(
-      scrollCatchEl,
+      catchScrollEl,
       {
         skewY: 0,
         scaleX: 1.0,

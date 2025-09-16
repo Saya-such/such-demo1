@@ -1,20 +1,20 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-const serviceScrollTriggerAnimation = () => {
-  const sectionEl = document.getElementById("service");
+const serviceScrollTriggerTimeline = () => {
+  const trigger = document.getElementById("service");
 
   let timelines: GSAPTimeline[] = [];
 
-  if (!sectionEl) return timelines;
+  if (!trigger) return timelines;
 
-  if (window.matchMedia("(min-width: 768px)").matches && sectionEl) {
+  if (window.matchMedia("(min-width: 768px)").matches && trigger) {
     gsap.registerPlugin(ScrollTrigger);
 
     const tl = gsap
       .timeline({
         scrollTrigger: {
-          trigger: sectionEl,
+          trigger,
           id: "service",
           start: "top bottom",
           end: "bottom center",
@@ -41,4 +41,4 @@ const serviceScrollTriggerAnimation = () => {
   return timelines;
 };
 
-export default serviceScrollTriggerAnimation;
+export default serviceScrollTriggerTimeline;

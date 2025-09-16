@@ -1,17 +1,17 @@
-import { startTextGradientAnimation } from "@/animations/common/startTextGradientAnimation";
+import { createTextGradientTimeline } from "@/animations/common/createTextGradientTimeline";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-const sectionTitleScrollTriggerAnimation = () => {
-  const secTitles = document.querySelectorAll(".sec-tit.animation");
+const sectionTitleScrollTriggerTimeline = () => {
+  const triggers = document.querySelectorAll(".sec-tit.animation");
 
   let timelines: GSAPTimeline[] = [];
 
-  if (!secTitles) return timelines;
+  if (!triggers) return timelines;
 
   gsap.registerPlugin(ScrollTrigger);
 
-  secTitles.forEach((el) => {
+  triggers.forEach((el) => {
     let tl = gsap.timeline({
       scrollTrigger: {
         trigger: el,
@@ -35,7 +35,10 @@ const sectionTitleScrollTriggerAnimation = () => {
         "<0.1",
       )
       .add(() => {
-        startTextGradientAnimation({ selector: el as HTMLElement, tl });
+        createTextGradientTimeline({
+          selector: el as HTMLElement,
+          timeline: tl,
+        });
       }, "<0.5");
 
     timelines.push(tl);
@@ -44,4 +47,4 @@ const sectionTitleScrollTriggerAnimation = () => {
   return timelines;
 };
 
-export default sectionTitleScrollTriggerAnimation;
+export default sectionTitleScrollTriggerTimeline;

@@ -1,8 +1,8 @@
-const startPageFlipAnimation = (
+const createPageFlipTimeline = (
   selector: HTMLElement | string,
-  tl: GSAPTimeline,
+  timeline: GSAPTimeline,
 ) => {
-  tl.fromTo(
+  timeline.fromTo(
     selector,
     {
       scale: 2,
@@ -17,7 +17,7 @@ const startPageFlipAnimation = (
     },
   );
 
-  return tl;
+  return timeline;
 };
 
-export default startPageFlipAnimation;
+export default createPageFlipTimeline;

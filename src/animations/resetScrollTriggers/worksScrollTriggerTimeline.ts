@@ -1,19 +1,17 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-const worksScrollTriggerAnimation = () => {
-  const galleryList = document.getElementById("works-list");
+const worksScrollTriggerTimeline = () => {
+  const trigger = document.getElementById("works-list");
 
   let timelines: GSAPTimeline[] = [];
 
-  if (!galleryList) return timelines;
+  if (!trigger) return timelines;
 
   gsap.registerPlugin(ScrollTrigger);
-
-  const trigger = galleryList;
   let mm = gsap.matchMedia();
 
-  const createTimeLine = (num: number) => {
+  const createTimeLine = (yOffset: number) => {
     let tl = gsap.timeline({
       scrollTrigger: {
         trigger,
@@ -25,7 +23,7 @@ const worksScrollTriggerAnimation = () => {
     });
 
     tl.to(trigger, {
-      y: num,
+      y: yOffset,
     });
 
     timelines.push(tl);
@@ -42,4 +40,4 @@ const worksScrollTriggerAnimation = () => {
   return timelines;
 };
 
-export default worksScrollTriggerAnimation;
+export default worksScrollTriggerTimeline;

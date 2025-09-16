@@ -1,43 +1,52 @@
-import { startTextGradientAnimation } from "@/animations/common/startTextGradientAnimation";
-import startPageFlipAnimation from "@/animations/common/startPageFlipAnimation";
+import { createTextGradientTimeline } from "@/animations/common/createTextGradientTimeline";
+import createPageFlipTimeline from "@/animations/common/createPageFlipTimeline";
 import { gsap } from "gsap";
 
 const startLoaderAnimation = () => {
   document.addEventListener("DOMContentLoaded", () => {
-    const loader = document.getElementById("loader");
+    const loaderEl = document.getElementById("loader");
     const body = document.body;
-    const loaderCatch = ".loader-catch";
-    const heroCatch = ".hero-catch";
+    const loaderCatchEl: HTMLElement | null =
+      document.querySelector(".loader-catch");
+    const heroCatchEl: HTMLElement | null =
+      document.querySelector(".hero-catch");
 
-    if (loader?.classList.contains("fs-loading")) {
+    if (!loaderEl || !loaderCatchEl || !heroCatchEl) return;
+
+    if (loaderEl?.classList.contains("fs-loading")) {
       const tl = gsap.timeline();
 
-      tl.fromTo(loaderCatch, { opacity: 0 }, { opacity: 1, duration: 0.3 });
+      tl.fromTo(loaderCatchEl, { opacity: 0 }, { opacity: 1, duration: 0.3 });
 
-      startTextGradientAnimation({ selector: loaderCatch, tl });
+      createTextGradientTimeline({ selector: loaderCatchEl, timeline: tl });
 
       tl.add(() => {
         body.classList.remove("overflow-y-hidden");
       })
-        .to(loader, { opacity: 0, duration: 0.3, delay: 0.3, display: "none" })
+        .to(loaderEl, {
+          opacity: 0,
+          duration: 0.3,
+          delay: 0.3,
+          display: "none",
+        })
         .add(() => {
-          loader?.classList.remove("fs-loading");
-          loader?.classList.add("-z-10000");
+          loaderEl?.classList.remove("fs-loading");
+          loaderEl?.classList.add("-z-10000");
           sessionStorage.setItem("hasVisited", "true");
         });
-    } else if (loader?.classList.contains("loading")) {
+    } else if (loaderEl?.classList.contains("loading")) {
       const tl = gsap.timeline();
 
-      startPageFlipAnimation(loader, tl);
+      createPageFlipTimeline(loaderEl, tl);
 
-      tl.to(loader, { duration: 0.7 });
+      tl.to(loaderEl, { duration: 0.7 });
 
-      startTextGradientAnimation({ selector: heroCatch, tl });
+      createTextGradientTimeline({ selector: heroCatchEl, timeline: tl });
 
       tl.add(() => {
-        loader?.classList.remove("loading");
-        loader?.classList.add("-z-10000");
-      }).to(loader, { opacity: 0, display: "none" });
+        loaderEl?.classList.remove("loading");
+        loaderEl?.classList.add("-z-10000");
+      }).to(loaderEl, { opacity: 0, display: "none" });
     }
   });
 };

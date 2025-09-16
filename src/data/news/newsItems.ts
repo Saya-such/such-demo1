@@ -1,6 +1,6 @@
-import type { News } from "@/types/News.ts";
+import type { Article } from "@/types/Article";
 
-const newsItemsData: News[] = [
+const newsItemsData: Article[] = [
   {
     date: "2025.07.01",
     title: "コーポレイトサイトをリニューアルしました",
