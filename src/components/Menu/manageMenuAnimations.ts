@@ -3,9 +3,9 @@ import createMenuBgTextTimelines from "./createMenuBgTextTimelines";
 import createMenuCloseTimeline from "./createMenuCloseTimeline";
 
 const manageMenuAnimations = () => {
-  const buttonEl = document.getElementById("menu-button");
-  const menuEl = document.getElementById("sp-menu");
-  const flipEl = document.getElementById("menu-flip");
+  const buttonEl: HTMLElement | null = document.getElementById("menu-button");
+  const menuEl: HTMLElement | null = document.getElementById("sp-menu");
+  const flipEl: HTMLElement | null = document.getElementById("menu-flip");
 
   if (!buttonEl || !menuEl || !flipEl) return;
 

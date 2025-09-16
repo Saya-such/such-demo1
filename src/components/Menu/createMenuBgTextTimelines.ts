@@ -2,14 +2,18 @@ import { createTextGradientTimeline } from "@/animations/common/createTextGradie
 import { gsap } from "gsap";
 
 const createMenuBgTextTimelines = () => {
-  const textTopEl = document.querySelector("#menu-deco .deco-top");
-  const textBottomEl = document.querySelector("#menu-deco .deco-bottom");
+  const textTopEl: HTMLElement | null = document.querySelector(
+    "#menu-deco .deco-top",
+  );
+  const textBottomEl: HTMLElement | null = document.querySelector(
+    "#menu-deco .deco-bottom",
+  );
 
   let timelines: GSAPTimeline[] = [];
 
   if (!textTopEl || !textBottomEl) return timelines;
 
-  const createTimeline = (selector: HTMLElement) => {
+  const addTimeline = (selector: HTMLElement) => {
     let tl = gsap.timeline({
       delay: 3.0,
       repeat: -1,
@@ -27,8 +31,8 @@ const createMenuBgTextTimelines = () => {
     timelines.push(tl);
   };
 
-  createTimeline(textTopEl as HTMLElement);
-  createTimeline(textBottomEl as HTMLElement);
+  addTimeline(textTopEl);
+  addTimeline(textBottomEl);
 
   return timelines;
 };
