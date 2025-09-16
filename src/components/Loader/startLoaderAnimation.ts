@@ -18,7 +18,7 @@ const startLoaderAnimation = () => {
 
       tl.fromTo(loaderCatchEl, { opacity: 0 }, { opacity: 1, duration: 0.3 });
 
-      createTextGradientTimeline({ selector: loaderCatchEl, timeline: tl });
+      createTextGradientTimeline({ selector: loaderCatchEl, tl });
 
       tl.add(() => {
         body.classList.remove("overflow-y-hidden");
@@ -41,7 +41,7 @@ const startLoaderAnimation = () => {
 
       tl.to(loaderEl, { duration: 0.7 });
 
-      createTextGradientTimeline({ selector: heroCatchEl, timeline: tl });
+      createTextGradientTimeline({ selector: heroCatchEl, tl });
 
       tl.add(() => {
         loaderEl?.classList.remove("loading");

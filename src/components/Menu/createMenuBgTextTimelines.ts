@@ -18,7 +18,7 @@ const createMenuBgTextTimelines = () => {
 
     createTextGradientTimeline({
       selector,
-      timeline: tl,
+      tl,
       faded: true,
       opacity: 0.05,
     });

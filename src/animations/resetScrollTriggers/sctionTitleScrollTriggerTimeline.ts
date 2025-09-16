@@ -37,7 +37,7 @@ const sectionTitleScrollTriggerTimeline = () => {
       .add(() => {
         createTextGradientTimeline({
           selector: el as HTMLElement,
-          timeline: tl,
+          tl,
         });
       }, "<0.5");
 
