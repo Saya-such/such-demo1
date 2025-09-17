@@ -5,113 +5,106 @@ const companyScrollTriggerZoomTimeline = () => {
   gsap.registerPlugin(ScrollTrigger);
 
   const mm = gsap.matchMedia();
-
   let timelines: GSAPTimeline[] = [];
 
-  mm.add("(orientation: portrait) and (max-width: 700px)", () => {
-    let tl = gsap.timeline({
+  const createTimeline = ({
+    start,
+    end,
+    fadeInDuration,
+    fadeInPos,
+    scaleUpPos,
+  }: {
+    start: string;
+    end: string;
+    fadeInDuration: number;
+    fadeInPos?: string | number;
+    scaleUpPos?: string | number;
+  }) => {
+    const tl = gsap.timeline({
       scrollTrigger: {
         trigger: "#company",
         id: "company-scale",
-        start: "top-=15% bottom",
-        end: "bottom+=100% top",
+        start,
+        end,
         scrub: true,
       },
     });
 
+    //初期状態
     tl.set(".company-wrapper", {
       scale: 0.9,
       opacity: 0,
-    })
-      .to(
-        ".company-wrapper",
-        {
-          opacity: 1.0,
-          duration: 0.1,
-          ease: "none",
-        },
-        "<0.15",
-      )
-      .to(
-        ".company-wrapper",
-        {
-          scale: 1.0,
-          opacity: 1.0,
-          duration: 0.1,
-          ease: "none",
-        },
-        0.25,
-      )
-      .to(
-        ".company-wrapper",
-        {
-          scale: 0.9,
-          opacity: 0.9,
-          duration: 0.1,
-          ease: "none",
-        },
-        0.8,
-      )
-      .to(
-        ".company-wrapper",
-        {
-          opacity: 0,
-          duration: 0.1,
-          ease: "none",
-        },
-        0.9,
-      );
-
-    timelines.push(tl);
-  });
-
-  mm.add("(min-width: 701px), (orientation: landscape)", () => {
-    let tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: "#company",
-        id: "company-scale",
-        start: "top bottom",
-        end: "bottom+=50% top",
-        scrub: true,
-      },
     });
 
-    tl.set(".company-wrapper", {
-      scale: 0.9,
-      opacity: 0,
-    })
-      .to(".company-wrapper", {
+    //フェードイン
+    tl.to(
+      ".company-wrapper",
+      {
         opacity: 1.0,
-        duration: 0.2,
+        duration: fadeInDuration,
         ease: "none",
-      })
-      .to(".company-wrapper", {
+      },
+      fadeInPos,
+    );
+
+    //スケールアップ
+    tl.to(
+      ".company-wrapper",
+      {
         scale: 1.0,
         opacity: 1.0,
         duration: 0.1,
         ease: "none",
-      })
-      .to(
-        ".company-wrapper",
-        {
-          scale: 0.9,
-          opacity: 0.9,
-          duration: 0.1,
-          ease: "none",
-        },
-        0.8,
-      )
-      .to(
-        ".company-wrapper",
-        {
-          opacity: 0,
-          duration: 0.1,
-          ease: "none",
-        },
-        0.9,
-      );
+      },
+      scaleUpPos,
+    );
 
-    timelines.push(tl);
+    //スケールダウン
+    tl.to(
+      ".company-wrapper",
+      {
+        scale: 0.9,
+        opacity: 0.9,
+        duration: 0.1,
+        ease: "none",
+      },
+      0.8,
+    );
+
+    //フェードアウト
+    tl.to(
+      ".company-wrapper",
+      {
+        opacity: 0,
+        duration: 0.1,
+        ease: "none",
+      },
+      0.9,
+    );
+
+    return tl;
+  };
+
+  mm.add("(orientation: portrait) and (max-width: 700px)", () => {
+    timelines.push(
+      createTimeline({
+        start: "top-=15% bottom",
+        end: "bottom+=100% top",
+        fadeInDuration: 0.1,
+        fadeInPos: "<0.15",
+        scaleUpPos: 0.25,
+      }),
+    );
+  });
+
+  mm.add("(min-width: 701px), (orientation: landscape)", () => {
+    timelines.push(
+      createTimeline({
+        start: "top bottom",
+        end: "bottom+=50% top",
+        fadeInDuration: 0.2,
+      }),
+    );
   });
 
   return timelines;

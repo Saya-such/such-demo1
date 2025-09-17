@@ -2,17 +2,13 @@ import { createTextGradientTimeline } from "@/animations/common/createTextGradie
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+gsap.registerPlugin(ScrollTrigger);
+
 const sectionTitleScrollTriggerTimeline = () => {
   const triggers = document.querySelectorAll<HTMLElement>(".sec-tit.animation");
 
-  let timelines: GSAPTimeline[] = [];
-
-  if (!triggers) return timelines;
-
-  gsap.registerPlugin(ScrollTrigger);
-
-  triggers.forEach((el) => {
-    let tl = gsap.timeline({
+  return Array.from(triggers).map((el) => {
+    const tl = gsap.timeline({
       scrollTrigger: {
         trigger: el,
         id: "sec-tit",
@@ -41,10 +37,8 @@ const sectionTitleScrollTriggerTimeline = () => {
         });
       }, "<0.5");
 
-    timelines.push(tl);
+    return tl;
   });
-
-  return timelines;
 };
 
 export default sectionTitleScrollTriggerTimeline;
