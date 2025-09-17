@@ -2,6 +2,8 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import resetScrollTriggerTimelines from "@/animations/resetScrollTriggers/managers/resetScrollTriggerTimelines";
 
+gsap.registerPlugin(ScrollTrigger);
+
 const startConceptCatchFillAnimation = () => {
   const trigger = document.getElementById("concept-catch");
   const catchEl = trigger?.querySelector("span");
@@ -13,8 +15,6 @@ const startConceptCatchFillAnimation = () => {
     ?.querySelector("span");
 
   if (catchHeight && catchEl && trigger && catchScrollEl) {
-    gsap.registerPlugin(ScrollTrigger);
-
     let isFirst: boolean = true;
 
     const offset = Number(catchHeight + 50);

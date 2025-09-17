@@ -1,14 +1,14 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+gsap.registerPlugin(ScrollTrigger);
+
 const bottomScrollTriggerTimeline = () => {
   const trigger = document.getElementById("bottom");
 
   let timelines: GSAPTimeline[] = [];
 
   if (!trigger) return timelines;
-
-  gsap.registerPlugin(ScrollTrigger);
 
   const tl = gsap
     .timeline({

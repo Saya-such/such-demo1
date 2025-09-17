@@ -3,6 +3,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import type SwiperType from "swiper";
 import createHeroSwiper from "./createHeroSwiper";
 
+gsap.registerPlugin(ScrollTrigger);
+
 const manageHeroSwiper = () => {
   const trigger: HTMLElement | null = document.getElementById("hero");
   const sliderEl: HTMLElement | null = document.getElementById("hero-slider");
@@ -11,8 +13,6 @@ const manageHeroSwiper = () => {
   if (!trigger || !sliderEl) return;
 
   if (trigger && sliderEl) {
-    gsap.registerPlugin(ScrollTrigger);
-
     gsap.timeline({
       scrollTrigger: {
         trigger,

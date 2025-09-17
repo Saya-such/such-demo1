@@ -1,9 +1,9 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-const companyScrollTriggerPinTimeline = () => {
-  gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger);
 
+const companyScrollTriggerPinTimeline = () => {
   const mm = gsap.matchMedia();
   let timelines: GSAPTimeline[] = [];
 

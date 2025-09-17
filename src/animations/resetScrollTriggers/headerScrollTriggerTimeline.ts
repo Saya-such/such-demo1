@@ -1,6 +1,8 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+gsap.registerPlugin(ScrollTrigger);
+
 const headerScrollTriggerTimeline = () => {
   const trigger = document.getElementById("company");
   const menuLinks = document.querySelectorAll("#menu a");
@@ -27,8 +29,6 @@ const headerScrollTriggerTimeline = () => {
   };
 
   if (window.matchMedia("(min-width: 1024px)").matches) {
-    gsap.registerPlugin(ScrollTrigger);
-
     let tl = gsap.timeline({
       scrollTrigger: {
         trigger,
