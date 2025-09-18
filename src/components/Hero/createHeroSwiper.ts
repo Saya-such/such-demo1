@@ -17,9 +17,7 @@ const createHeroSwiper = (selector: HTMLElement) => {
     effect: "fade",
     on: {
       slideChange() {
-        const tl = gsap.timeline();
-
-        tl.fromTo(
+        gsap.timeline().fromTo(
           ".swiper-bg",
           {
             opacity: 1,

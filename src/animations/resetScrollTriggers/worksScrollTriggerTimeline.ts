@@ -1,18 +1,18 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+gsap.registerPlugin(ScrollTrigger);
+
 const worksScrollTriggerTimeline = () => {
   const trigger = document.getElementById("works-list");
-
-  let timelines: GSAPTimeline[] = [];
+  const timelines: GSAPTimeline[] = [];
 
   if (!trigger) return timelines;
 
-  gsap.registerPlugin(ScrollTrigger);
-  let mm = gsap.matchMedia();
+  const mm = gsap.matchMedia();
 
   const createTimeLine = (yOffset: number) => {
-    let tl = gsap.timeline({
+    const tl = gsap.timeline({
       scrollTrigger: {
         trigger,
         id: "works",
@@ -26,15 +26,15 @@ const worksScrollTriggerTimeline = () => {
       y: yOffset,
     });
 
-    timelines.push(tl);
+    return tl;
   };
 
   mm.add("(max-width: 1023px)", () => {
-    createTimeLine(-50);
+    timelines.push(createTimeLine(-50));
   });
 
   mm.add("(min-width: 1024px)", () => {
-    createTimeLine(-80);
+    timelines.push(createTimeLine(-80));
   });
 
   return timelines;

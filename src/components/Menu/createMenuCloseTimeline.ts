@@ -8,8 +8,8 @@ const createMenuCloseTimeline = ({
   flipEl: HTMLElement;
   menuEl: HTMLElement;
   buttonEl: HTMLElement;
-}) => {
-  let tl = gsap.timeline();
+}): GSAPTimeline => {
+  const tl = gsap.timeline();
 
   tl.add(() => {
     menuEl.classList.add("invisible");

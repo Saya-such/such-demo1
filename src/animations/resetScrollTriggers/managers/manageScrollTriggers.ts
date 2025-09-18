@@ -17,7 +17,7 @@ export const createAllScrollTimelines = () => {
   scrollTimelineCreators.forEach((fn) => {
     const result = fn();
     if (result) {
-      result.forEach((timeline) => scrollTimelines.add(timeline));
+      result.forEach((tl) => scrollTimelines.add(tl));
     }
   });
 };

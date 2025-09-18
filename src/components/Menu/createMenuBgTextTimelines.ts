@@ -1,16 +1,20 @@
 import { createTextGradientTimeline } from "@/animations/common/createTextGradientTimeline";
 import { gsap } from "gsap";
 
-const createMenuBgTextTimelines = () => {
-  const textTopEl = document.querySelector("#menu-deco .deco-top");
-  const textBottomEl = document.querySelector("#menu-deco .deco-bottom");
+const createMenuBgTextTimelines = (): GSAPTimeline[] => {
+  const textTopEl: HTMLElement | null = document.querySelector(
+    "#menu-deco .deco-top",
+  );
+  const textBottomEl: HTMLElement | null = document.querySelector(
+    "#menu-deco .deco-bottom",
+  );
 
   let timelines: GSAPTimeline[] = [];
 
   if (!textTopEl || !textBottomEl) return timelines;
 
-  const createTimeline = (selector: HTMLElement) => {
-    let tl = gsap.timeline({
+  const addTimeline = (selector: HTMLElement) => {
+    const tl = gsap.timeline({
       delay: 3.0,
       repeat: -1,
       repeatDelay: 6.0,
@@ -18,7 +22,7 @@ const createMenuBgTextTimelines = () => {
 
     createTextGradientTimeline({
       selector,
-      timeline: tl,
+      tl,
       faded: true,
       opacity: 0.05,
     });
@@ -27,8 +31,8 @@ const createMenuBgTextTimelines = () => {
     timelines.push(tl);
   };
 
-  createTimeline(textTopEl as HTMLElement);
-  createTimeline(textBottomEl as HTMLElement);
+  addTimeline(textTopEl);
+  addTimeline(textBottomEl);
 
   return timelines;
 };

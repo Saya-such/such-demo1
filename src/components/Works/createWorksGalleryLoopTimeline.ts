@@ -1,9 +1,11 @@
 import { gsap } from "gsap";
 
-const createWorksGalleryLoopTimeline = (galleryEl: HTMLElement) => {
+const createWorksGalleryLoopTimeline = (
+  galleryEl: HTMLElement,
+): GSAPTimeline => {
   const totalWidth = galleryEl.scrollWidth / 2;
 
-  let tl = gsap.timeline();
+  const tl = gsap.timeline();
 
   tl.to(galleryEl, {
     x: -totalWidth,

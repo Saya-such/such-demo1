@@ -19,28 +19,28 @@ const opacityValues = [0.7, 0.8, 0.9, 0.9, 0.9, 1.0];
 
 export const createTextGradientTimeline = ({
   selector,
-  timeline,
+  tl,
   color,
   faded = false,
   opacity = 1.0,
 }: {
   selector: string | HTMLElement;
-  timeline: GSAPTimeline;
+  tl: GSAPTimeline;
   color?: string;
   faded?: boolean;
   opacity?: number;
-}) => {
+}): GSAPTimeline => {
   const scaleValue = faded ? 0.1 : 1;
 
   gradientValues.forEach((gradient, i) => {
-    timeline.to(selector, {
+    tl.to(selector, {
       ...commonCatchStyles,
       backgroundImage: gradient,
       duration: durationValues[i],
       opacity: opacityValues[i] * scaleValue,
     });
   });
-  timeline.to(selector, {
+  tl.to(selector, {
     clearProps:
       "backgroundImage,backgroundClip,WebkitBackgroundClip,WebkitTextFillColor",
     color: color ? color : "black",
@@ -48,5 +48,5 @@ export const createTextGradientTimeline = ({
     duration: 0.1,
   });
 
-  return timeline;
+  return tl;
 };

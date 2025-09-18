@@ -1,111 +1,92 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-const companyScrollTriggerPinTimeline = () => {
-  gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger);
 
+const companyScrollTriggerPinTimeline = (): GSAPTimeline[] => {
   const mm = gsap.matchMedia();
-
   let timelines: GSAPTimeline[] = [];
 
-  mm.add("(orientation: portrait) and (max-width: 700px)", () => {
-    let tl = gsap.timeline({
+  const createTimeline = ({
+    end,
+    fadeInDuration,
+    fadeOutDuration,
+    fadeOutAt,
+  }: {
+    end: string;
+    fadeInDuration: number;
+    fadeOutDuration: number;
+    fadeOutAt: number;
+  }) => {
+    const tl = gsap.timeline({
       scrollTrigger: {
         trigger: ".company-wrapper",
         id: "company-pin",
         start: "top top",
-        end: "+=150%",
+        end,
         pin: true,
         scrub: true,
       },
     });
 
-    tl.set(".company-container", {
+    //初期状態
+    tl.set([".company-container", ".company-arrow"], {
       opacity: 0,
-    })
-      .set(".company-arrow", {
-        opacity: 0,
-      })
-      .to(".company-container", {
-        duration: 0.2,
-        opacity: 1.0,
-      })
-      .to(
-        ".company-arrow",
-        {
-          duration: 0.2,
-          opacity: 1.0,
-        },
-        "<",
-      )
-      .to(
-        ".company-container",
-        {
-          duration: 0.1,
-          opacity: 0,
-        },
-        0.9,
-      )
-      .to(
-        ".company-arrow",
-        {
-          duration: 0.1,
-          opacity: 0,
-        },
-        "<",
-      );
+    });
 
-    timelines.push(tl);
+    //フェードイン
+    tl.to(".company-container", {
+      duration: fadeInDuration,
+      opacity: 1.0,
+    }).to(
+      ".company-arrow",
+      {
+        duration: fadeInDuration,
+        opacity: 1.0,
+      },
+      "<",
+    );
+
+    //フェードアウト
+    tl.to(
+      ".company-container",
+      {
+        duration: fadeOutDuration,
+        opacity: 0,
+      },
+      fadeOutAt,
+    ).to(
+      ".company-arrow",
+      {
+        duration: fadeOutDuration,
+        opacity: 0,
+      },
+      "<",
+    );
+
+    return tl;
+  };
+
+  mm.add("(orientation: portrait) and (max-width: 700px)", () => {
+    timelines.push(
+      createTimeline({
+        end: "+=150%",
+        fadeInDuration: 0.2,
+        fadeOutDuration: 0.1,
+        fadeOutAt: 0.9,
+      }),
+    );
   });
 
   mm.add("(min-width: 701px), (orientation: landscape)", () => {
-    let timeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".company-wrapper",
-        id: "company-pin",
-        start: "top top",
+    timelines.push(
+      createTimeline({
         end: "+=100%",
-        pin: true,
-        scrub: true,
-      },
-    });
-    timeline
-      .set(".company-container", {
-        opacity: 0,
-      })
-      .set(".company-arrow", {
-        opacity: 0,
-      })
-      .to(".company-container", {
-        duration: 0.1,
-        opacity: 1.0,
-      })
-      .to(
-        ".company-arrow",
-        {
-          duration: 0.1,
-          opacity: 1.0,
-        },
-        "<",
-      )
-      .to(
-        ".company-container",
-        {
-          duration: 0.2,
-          opacity: 0,
-        },
-        0.8,
-      )
-      .to(
-        ".company-arrow",
-        {
-          duration: 0.2,
-          opacity: 0,
-        },
-        "<",
-      );
-
-    timelines.push(timeline);
+        fadeInDuration: 0.1,
+        fadeOutDuration: 0.2,
+        fadeOutAt: 0.8,
+      }),
+    );
   });
 
   return timelines;

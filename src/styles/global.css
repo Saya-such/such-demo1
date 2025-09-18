@@ -23,7 +23,6 @@
 
 #concept #catch-scroll span.scroll {
   display: block;
-  line-height: 1.05;
 }
 
 #page-root[data-color="light"] #concept,
