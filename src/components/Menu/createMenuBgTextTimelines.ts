@@ -1,7 +1,7 @@
 import { createTextGradientTimeline } from "@/animations/common/createTextGradientTimeline";
 import { gsap } from "gsap";
 
-const createMenuBgTextTimelines = () => {
+const createMenuBgTextTimelines = (): GSAPTimeline[] => {
   const textTopEl: HTMLElement | null = document.querySelector(
     "#menu-deco .deco-top",
   );
@@ -14,7 +14,7 @@ const createMenuBgTextTimelines = () => {
   if (!textTopEl || !textBottomEl) return timelines;
 
   const addTimeline = (selector: HTMLElement) => {
-    let tl = gsap.timeline({
+    const tl = gsap.timeline({
       delay: 3.0,
       repeat: -1,
       repeatDelay: 6.0,

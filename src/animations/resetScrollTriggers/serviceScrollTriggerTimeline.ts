@@ -3,7 +3,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const serviceScrollTriggerTimeline = () => {
+const serviceScrollTriggerTimeline = (): GSAPTimeline[] => {
   const trigger = document.getElementById("service");
 
   let timelines: GSAPTimeline[] = [];

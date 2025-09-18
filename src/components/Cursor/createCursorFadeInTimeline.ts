@@ -1,6 +1,9 @@
 import { gsap } from "gsap";
 
-const createCursorFadeInTimeline = (cursor: HTMLElement, e: MouseEvent) => {
+const createCursorFadeInTimeline = (
+  cursor: HTMLElement,
+  e: MouseEvent,
+): GSAPTimeline => {
   const tl = gsap.timeline();
 
   tl.set(cursor, { scale: 0, opacity: 0 }).fromTo(

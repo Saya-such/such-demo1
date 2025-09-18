@@ -3,12 +3,10 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const bottomScrollTriggerTimeline = () => {
+const bottomScrollTriggerTimeline = (): GSAPTimeline[] => {
   const trigger = document.getElementById("bottom");
 
-  let timelines: GSAPTimeline[] = [];
-
-  if (!trigger) return timelines;
+  if (!trigger) return [];
 
   const tl = gsap
     .timeline({
@@ -60,9 +58,7 @@ const bottomScrollTriggerTimeline = () => {
       ease: "sine.in",
     });
 
-  timelines.push(tl);
-
-  return timelines;
+  return [tl];
 };
 
 export default bottomScrollTriggerTimeline;

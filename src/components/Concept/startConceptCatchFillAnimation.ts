@@ -14,41 +14,36 @@ const startConceptCatchFillAnimation = () => {
     .getElementById("catch-scroll")
     ?.querySelector("span");
 
-  if (catchHeight && catchEl && trigger && catchScrollEl) {
-    let isFirst: boolean = true;
+  if (!trigger || !catchEl || !catchHeight || !catchScrollEl) return;
 
-    const offset = Number(catchHeight + 50);
+  let isFirst: boolean = true;
+  const offset = Number(catchHeight + 50);
 
-    gsap.timeline({
-      scrollTrigger: {
-        trigger,
-        id: "catchFill",
-        start: `top -${offset}px`,
-        onEnter: () => {
-          trigger.classList.remove("fixed");
-          fixedEl?.classList.remove("h-lvh");
-          fixedEl?.classList.add("hidden");
-          mainEl?.classList.remove("opacity-0");
-          mainEl?.classList.add("opacity-100");
-          catchScrollEl.classList.add("scroll");
-        },
-        onLeaveBack: () => {
-          trigger.classList.add("fixed");
-          fixedEl?.classList.add("h-lvh");
-          fixedEl?.classList.remove("hidden");
-          mainEl?.classList.remove("opacity-100");
-          mainEl?.classList.add("opacity-0");
-          catchScrollEl.classList.remove("scroll");
-        },
+  gsap.timeline({
+    scrollTrigger: {
+      trigger,
+      id: "catchFill",
+      start: `top -${offset}px`,
+      onEnter: () => {
+        trigger.classList.remove("fixed");
+        fixedEl?.classList.replace("h-svh", "hidden");
+        mainEl?.classList.replace("opacity-0", "opacity-100");
+        catchScrollEl.classList.add("scroll");
       },
-      onComplete: () => {
-        if (isFirst) {
-          isFirst = false;
-          resetScrollTriggerTimelines();
-        }
+      onLeaveBack: () => {
+        trigger.classList.add("fixed");
+        fixedEl?.classList.replace("hidden", "h-svh");
+        mainEl?.classList.replace("opacity-100", "opacity-0");
+        catchScrollEl.classList.remove("scroll");
       },
-    });
-  }
+    },
+    onComplete: () => {
+      if (isFirst) {
+        isFirst = false;
+        resetScrollTriggerTimelines();
+      }
+    },
+  });
 };
 
 export default startConceptCatchFillAnimation;

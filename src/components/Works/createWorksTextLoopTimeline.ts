@@ -1,8 +1,8 @@
 import { gsap } from "gsap";
 
-const createWorksTextLoopTimeline = (textEl: HTMLElement) => {
+const createWorksTextLoopTimeline = (textEl: HTMLElement): GSAPTimeline => {
   const totalWidth = textEl.scrollWidth / 2;
-  let mm = gsap.matchMedia();
+  const mm = gsap.matchMedia();
 
   let tl: GSAPTimeline | null = null;
 
@@ -15,21 +15,17 @@ const createWorksTextLoopTimeline = (textEl: HTMLElement) => {
     });
   };
 
-  mm.add("(max-width: 1023px)", () => {
+  if (window.matchMedia("(max-width: 1023px)").matches) {
     tl = gsap.timeline();
     createTimeline(tl, 20);
 
     return tl;
-  });
-
-  mm.add("(min-width: 1024px)", () => {
+  } else {
     tl = gsap.timeline();
     createTimeline(tl, 30);
 
     return tl;
-  });
-
-  return tl;
+  }
 };
 
 export default createWorksTextLoopTimeline;

@@ -29,7 +29,7 @@ export const createTextGradientTimeline = ({
   color?: string;
   faded?: boolean;
   opacity?: number;
-}) => {
+}): GSAPTimeline => {
   const scaleValue = faded ? 0.1 : 1;
 
   gradientValues.forEach((gradient, i) => {

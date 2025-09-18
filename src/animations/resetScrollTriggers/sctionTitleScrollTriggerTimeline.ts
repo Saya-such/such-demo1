@@ -4,7 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const sectionTitleScrollTriggerTimeline = () => {
+const sectionTitleScrollTriggerTimeline = (): GSAPTimeline[] => {
   const triggers = document.querySelectorAll<HTMLElement>(".sec-tit.animation");
 
   return Array.from(triggers).map((el) => {

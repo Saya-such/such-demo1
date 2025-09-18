@@ -3,7 +3,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const headerScrollTriggerTimeline = () => {
+const headerScrollTriggerTimeline = (): GSAPTimeline[] => {
   const trigger = document.getElementById("company");
   const menuLinks = document.querySelectorAll("#menu a");
   const blackLogo = document.querySelector<HTMLElement>("#logo .logo-bl");
@@ -29,7 +29,7 @@ const headerScrollTriggerTimeline = () => {
   };
 
   if (window.matchMedia("(min-width: 1024px)").matches) {
-    let tl = gsap.timeline({
+    const tl = gsap.timeline({
       scrollTrigger: {
         trigger,
         id: "menu-color",
