@@ -1,5 +1,12 @@
 import { gsap } from "gsap";
 
+/**
+ * @description カーソル用要素cursorのフェードアウトアニメーションを実行する。
+ * - DOM要素の取得やイベントリスナー登録は行わない。
+ *
+ * @param {HTMLElement} cursor - カーソル用のDOM要素
+ * @returns {GSAPTimeline} GSAPTimelineインスタンス
+ */
 const createCursorFadeOutTimeline = (cursor: HTMLElement): GSAPTimeline => {
   const tl = gsap.timeline();
 

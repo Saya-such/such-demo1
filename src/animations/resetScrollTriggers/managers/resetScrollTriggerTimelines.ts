@@ -10,9 +10,9 @@ import companyScrollTriggerZoomTimeline from "@/animations/resetScrollTriggers/c
 import companyScrollTriggerPinTimeline from "@/animations/resetScrollTriggers/companyScrollTriggerPinTimeline";
 import bottomScrollTriggerTimeline from "@/animations/resetScrollTriggers/bottomScrollTriggerTimeline";
 
+//下記の配列内の各関数は「必ずGSAPTimeline配列（または空配列）を返す」仕様とする。
+//→ 管理側で一括展開・登録できるようにするため。
 const scrollTimelineCreators = [
-  //下記の各関数は必ず配列(GSAPTimelineが値として格納されている、もしくは空配列)を戻り値にする
-  //→ 管理側で一括展開できるようにするため
   headerScrollTriggerTimeline,
   sectionTitleScrollTriggerTimeline,
   worksScrollTriggerTimeline,
@@ -22,11 +22,13 @@ const scrollTimelineCreators = [
   bottomScrollTriggerTimeline,
 ];
 
-//対象の関数の戻り値を展開して登録
+//上記の配列を展開し、対象の各関数を登録
 scrollTimelineCreators.forEach(addResetTimelineCreators);
 
+/**
+ * @description scrollTimelineCreatorsに登録された関数をすべて実行し、Timelineを一括再生成する。
+ */
 const resetScrollTriggerTimelines = () => {
-  //配列を展開して値である各timelineを(再)生成
   createAllScrollTimelines();
 };
 

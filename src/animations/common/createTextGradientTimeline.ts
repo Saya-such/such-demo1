@@ -17,10 +17,26 @@ const durationValues = [0.1, 0.08, 0.1, 0.05, 0.1, 0.05];
 
 const opacityValues = [0.7, 0.8, 0.9, 0.9, 0.9, 1.0];
 
+/**
+ * @description 渡されたtlに対してselectorへのテキストグラデーションのアニメーションを追加し、更新したTimelineを返す。
+ * DOM要素の取得は行わない。
+ *
+ * @param {Object} params - アニメーション設定オブジェクト
+ * @param {string | HTMLElement} params.selector - アニメーションの対象の要素
+ * @param {GSAPTimeline} params.tl - アニメーションを追加するTimeline
+ * @param {string} [params.color="black"] - アニメーション後のselectorの色
+ * @param {boolean} [params.faded=false] - trueの時にアニメーション中のselectorの不透明度の変化(opacityValues)に ×0.1する。
+ * @param {number} [params.opacity=1.0] - アニメーション後のselectorの不透明度
+ *
+ * @returns {GSAPTimeline} GSAPTimelineインスタンス
+ *
+ * @remarks
+ * - Timelineは事前に作成されたものを渡すこと
+ */
 export const createTextGradientTimeline = ({
   selector,
   tl,
-  color,
+  color = "black",
   faded = false,
   opacity = 1.0,
 }: {
@@ -43,7 +59,7 @@ export const createTextGradientTimeline = ({
   tl.to(selector, {
     clearProps:
       "backgroundImage,backgroundClip,WebkitBackgroundClip,WebkitTextFillColor",
-    color: color ? color : "black",
+    color: color,
     opacity: opacity,
     duration: 0.1,
   });

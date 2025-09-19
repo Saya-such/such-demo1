@@ -1,5 +1,8 @@
 import createLoaderTimeline from "./createLoaderTimeline";
 
+/**
+ * @description DOM読み込み完了時にローディングアニメーションを開始する
+ */
 const startLoaderAnimation = () => {
   document.addEventListener(
     "DOMContentLoaded",
@@ -12,9 +15,10 @@ const startLoaderAnimation = () => {
 
       if (!loaderEl || !loaderCatchEl || !heroCatchEl) return;
 
+      //ローディングアニメーション実行
       createLoaderTimeline({ loaderEl, loaderCatchEl, heroCatchEl });
     },
-    //イベントの登録は1回だけにする
+    //イベントの重複登録を防ぐため1回のみ実行
     { once: true },
   );
 };
