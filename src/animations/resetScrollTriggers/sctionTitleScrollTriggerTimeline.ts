@@ -4,6 +4,11 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+/**
+ * 各セクションタイトル用のScrollTriggerのTimelineを生成する。
+ * - DOM取得 → 展開してTimelineを各々生成 → 配列で返却
+ * - resetScrollTriggerTimelinesによって一括再生成される。
+ */
 const sectionTitleScrollTriggerTimeline = (): GSAPTimeline[] => {
   const triggers = document.querySelectorAll<HTMLElement>(".sec-tit.animation");
 
@@ -31,6 +36,7 @@ const sectionTitleScrollTriggerTimeline = (): GSAPTimeline[] => {
         "<0.1",
       )
       .add(() => {
+        //テキストグラデーションのアニメーションをtlに追加
         createTextGradientTimeline({
           selector: el,
           tl,

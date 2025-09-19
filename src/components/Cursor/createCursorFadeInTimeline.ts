@@ -1,5 +1,13 @@
 import { gsap } from "gsap";
 
+/**
+ * @description カーソル用要素cursorの位置を現在のマウス位置に合わせた上でフェードインアニメーションを実行する。
+ * - DOM要素の取得やイベントリスナー登録は行わない。
+ *
+ * @param {HTMLElement} cursor - カーソル用のDOM要素
+ * @param {MouseEvent} e - mouseenterイベント
+ * @returns {GSAPTimeline} GSAPTimelineインスタンス
+ */
 const createCursorFadeInTimeline = (
   cursor: HTMLElement,
   e: MouseEvent,

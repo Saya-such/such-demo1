@@ -3,6 +3,12 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+/**
+ * conceptセクション上のキャッチコピーのアニメーションの実行をする。
+ * - スクロールに応じてscale, skewが変化する。
+ *
+ * ※この前に実行されるアニメーションであるstartConceptCatchFillAnimationにより、catchScrollElは.scrollを付与され表示される (CSS記述場所はglobal.css)
+ */
 const startConceptCatchSkewAnimation = () => {
   const trigger = document.getElementById("concept");
   const catchScrollEl = document

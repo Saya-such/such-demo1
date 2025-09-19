@@ -1,3 +1,7 @@
+/**
+ * @description dataset.colorを更新する。
+ * - DOM取得 → serviceセクションをIntersectionObserverで監視 → 画面内に入ったときにdataset.colorを更新する。
+ */
 const setupColorMode = () => {
   const rootEl = document.getElementById("page-root");
   const targetEl = document.getElementById("service");

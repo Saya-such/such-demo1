@@ -3,6 +3,11 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+/**
+ * bottomセクション用のScrollTriggerのTimelineを生成する。
+ * - DOM取得 → Timeline生成 → 配列で返却
+ * - resetScrollTriggerTimelinesによって一括再生成される。
+ */
 const bottomScrollTriggerTimeline = (): GSAPTimeline[] => {
   const trigger = document.getElementById("bottom");
 

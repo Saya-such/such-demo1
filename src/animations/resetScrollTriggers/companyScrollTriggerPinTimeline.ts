@@ -3,6 +3,11 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+/**
+ * companyセクション用のPinアニメーションのTimelineを生成する。
+ * - Timeline生成 → 配列で返却
+ * - resetScrollTriggerTimelinesによって一括再生成される。
+ */
 const companyScrollTriggerPinTimeline = (): GSAPTimeline[] => {
   const mm = gsap.matchMedia();
   let timelines: GSAPTimeline[] = [];

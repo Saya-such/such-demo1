@@ -3,6 +3,11 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+/**
+ * worksセクション内画像リストの慣性スクロールのTimelineを生成する。
+ * - DOM取得 → Timelineを生成 → 配列で返却
+ * - resetScrollTriggerTimelinesによって一括再生成される。
+ */
 const worksScrollTriggerTimeline = () => {
   const trigger = document.getElementById("works-list");
   const timelines: GSAPTimeline[] = [];

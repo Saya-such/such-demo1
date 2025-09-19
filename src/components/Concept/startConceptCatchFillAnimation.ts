@@ -4,6 +4,13 @@ import resetScrollTriggerTimelines from "@/animations/resetScrollTriggers/manage
 
 gsap.registerPlugin(ScrollTrigger);
 
+/**
+ * conceptセクション上のキャッチコピーのアニメーションの実行をする。
+ * - スクロールに応じて固定・非固定を切り替え、関連要素の表示/非表示を制御する。
+ * - 視覚的には「固定要素上の淡いキャッチコピーcatchElが、スクロールによりheroの黒い文字からこの淡いグレーに満たされていく」演出。
+ *
+ * ※後続のアニメーションであるstartConceptCatchSkewAnimationのアニメーション対象のDOM要素はcatchScrollEl(このTimelineにて.scrollを付与することにより表示される CSS記述場所はglobal.css)
+ */
 const startConceptCatchFillAnimation = () => {
   const trigger = document.getElementById("concept-catch");
   const catchEl = trigger?.querySelector("span");
@@ -38,6 +45,8 @@ const startConceptCatchFillAnimation = () => {
       },
     },
     onComplete: () => {
+      //初回のみ実行
+      //※fixedElが非表示になるので、以降のセクションのScrollTriggerのtrigger位置を合わせる必要があるため、このタイミングでTimelineを生成
       if (isFirst) {
         isFirst = false;
         resetScrollTriggerTimelines();
