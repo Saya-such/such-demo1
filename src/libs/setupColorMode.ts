@@ -6,25 +6,24 @@ const setupColorMode = () => {
   const rootEl = document.getElementById("page-root");
   const targetEl = document.getElementById("service");
 
-  if (!rootEl || !targetEl) return;
-
-  const isPortrait = window.matchMedia(
-    "(orientation: portrait) and (min-width: 800px)",
-  ).matches;
+  if (
+    !rootEl ||
+    !targetEl ||
+    window.matchMedia("(orientation: portrait) and (min-width: 800px)").matches
+  )
+    return;
 
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        if (!isPortrait) {
-          if (entry.isIntersecting) {
-            if ((entry.intersectionRatio >= 0, entry.intersectionRatio < 0.3)) {
-              rootEl.dataset.color = "light";
-            } else {
-              rootEl.dataset.color = "dark";
-            }
-          } else {
+        if (entry.isIntersecting) {
+          if ((entry.intersectionRatio >= 0, entry.intersectionRatio < 0.3)) {
             rootEl.dataset.color = "light";
+          } else {
+            rootEl.dataset.color = "dark";
           }
+        } else {
+          rootEl.dataset.color = "light";
         }
       });
     },
