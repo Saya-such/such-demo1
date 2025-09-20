@@ -1,6 +1,5 @@
 import bottomScrollTriggerTimeline from "@/animations/resetScrollTriggers/bottomScrollTriggerTimeline";
-import companyScrollTriggerPinTimeline from "@/animations/resetScrollTriggers/companyScrollTriggerPinTimeline";
-import companyScrollTriggerZoomTimeline from "@/animations/resetScrollTriggers/companyScrollTriggerZoomTimeline";
+import companyScrollTriggerTimeline from "@/animations/resetScrollTriggers/companyScrollTriggerTimeline";
 import headerScrollTriggerTimeline from "@/animations/resetScrollTriggers/headerScrollTriggerTimeline";
 import sectionTitleScrollTriggerTimeline from "@/animations/resetScrollTriggers/sctionTitleScrollTriggerTimeline";
 import serviceScrollTriggerTimeline from "@/animations/resetScrollTriggers/serviceScrollTriggerTimeline";
@@ -14,8 +13,7 @@ import {
 //→ 管理側で一括展開・登録できるようにするため。
 const scrollTimelineCreators = [
   bottomScrollTriggerTimeline,
-  companyScrollTriggerPinTimeline,
-  companyScrollTriggerZoomTimeline,
+  companyScrollTriggerTimeline,
   headerScrollTriggerTimeline,
   sectionTitleScrollTriggerTimeline,
   serviceScrollTriggerTimeline,
