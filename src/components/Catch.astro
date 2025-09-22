@@ -10,7 +10,7 @@ interface Props {
 const { h1 = true, scroll = false, others } = Astro.props as Props;
 
 const catchStyle = cn(
-  `font-en absolute left-4 md:left-6 portrait:md:text-8xl portrait:lg:text-[144px] lg:text-7xl xl:text-8xl 2xl:text-9xl md:leading-[1.1] xl:leading-none font-bold min-[1728px]:text-[7vw] text-6xl leading-[72px] z-10`,
+  `font-en absolute left-4 font-bold text-6xl leading-[72px] z-10 md:left-6 md:leading-[1.1] lg:text-7xl xl:text-8xl xl:leading-none 2xl:text-9xl min-[1728px]:text-[7vw] portrait:md:text-8xl portrait:lg:text-[144px]`,
   {
     "pb-5": !scroll,
   },

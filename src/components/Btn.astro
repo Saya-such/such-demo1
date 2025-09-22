@@ -23,14 +23,14 @@ const btnWrapper = cn({
 });
 
 const btnContent = cn(
-  "group/item flex items-end cursor-pointer lg:py-6 hover:opacity-80 duration-300",
+  "group/item flex items-end cursor-pointer duration-300 lg:py-6 hover:opacity-80",
   {
     "pl-6": right,
     "flex-row-reverse pr-6": !right,
   },
 );
 
-const btnText = cn("lg:pb-2 lg:text-2xl text-black", {
+const btnText = cn("text-black lg:pb-2 lg:text-2xl", {
   "pr-4 lg:pr-6": right && !sm,
   "pl-4 lg:pl-6": !right,
   "font-en": en && !sm,
@@ -44,7 +44,7 @@ const btnDeco = cn("relative", {
 });
 
 const arrowStyle = cn(
-  "absolute lg:-left-3 z-10 duration-300 group-hover/item:translate-x-1",
+  "absolute z-10 duration-300 group-hover/item:translate-x-1 lg:-left-3",
   {
     "bottom-3 -left-1": !sm,
     "bottom-1.5 -left-3 scale-75": sm,
