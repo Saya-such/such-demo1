@@ -4,14 +4,10 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 /**
- * companyセクション用のZOOMアニメーションのTimelineを生成する。
- * - Timeline生成 → 配列で返却
- * - resetScrollTriggerTimelinesによって一括再生成される。
+ * @description companyセクション用のZOOMアニメーションのTimelineを生成する。
+ * - Timeline生成 → 配列で返却 → companyScrollTriggerTimelineにて管理
  */
-const companyScrollTriggerZoomTimeline = (): GSAPTimeline[] => {
-  const mm = gsap.matchMedia();
-  let timelines: GSAPTimeline[] = [];
-
+const companyScrollTriggerZoomTimeline = (): GSAPTimeline | void => {
   const createTimeline = ({
     start,
     end,
@@ -90,29 +86,23 @@ const companyScrollTriggerZoomTimeline = (): GSAPTimeline[] => {
     return tl;
   };
 
-  mm.add("(orientation: portrait) and (max-width: 700px)", () => {
-    timelines.push(
-      createTimeline({
-        start: "top-=15% bottom",
-        end: "bottom+=100% top",
-        fadeInDuration: 0.1,
-        fadeInPos: "<0.15",
-        scaleUpPos: 0.25,
-      }),
-    );
-  });
-
-  mm.add("(min-width: 701px), (orientation: landscape)", () => {
-    timelines.push(
-      createTimeline({
-        start: "top bottom",
-        end: "bottom+=50% top",
-        fadeInDuration: 0.2,
-      }),
-    );
-  });
-
-  return timelines;
+  if (
+    window.matchMedia("(orientation: portrait) and (max-width: 700px)").matches
+  ) {
+    return createTimeline({
+      start: "top-=15% bottom",
+      end: "bottom+=100% top",
+      fadeInDuration: 0.1,
+      fadeInPos: "<0.15",
+      scaleUpPos: 0.25,
+    });
+  } else {
+    return createTimeline({
+      start: "top bottom",
+      end: "bottom+=50% top",
+      fadeInDuration: 0.2,
+    });
+  }
 };
 
 export default companyScrollTriggerZoomTimeline;

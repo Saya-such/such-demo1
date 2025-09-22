@@ -1,6 +1,6 @@
-import createMenuOpenTimeline from "./createMenuOpenTimeline";
 import createMenuBgTextTimelines from "./createMenuBgTextTimelines";
 import createMenuCloseTimeline from "./createMenuCloseTimeline";
+import createMenuOpenTimeline from "./createMenuOpenTimeline";
 
 /**
  * メニュー開閉時のアニメーションの制御。

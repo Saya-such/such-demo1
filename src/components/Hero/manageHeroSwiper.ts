@@ -1,6 +1,6 @@
+import type SwiperType from "swiper";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import type SwiperType from "swiper";
 import createHeroSwiper from "./createHeroSwiper";
 
 gsap.registerPlugin(ScrollTrigger);

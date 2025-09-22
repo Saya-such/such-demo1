@@ -21,10 +21,6 @@
   }
 }
 
-#concept #catch-scroll span.scroll {
-  display: block;
-}
-
 #page-root[data-color="light"] #concept,
 #page-root[data-color="light"] #works,
 #page-root[data-color="light"] #service,
@@ -57,6 +53,10 @@
 #page-root[data-color="dark"] #company {
   background-color: #ddd;
   transition: background-color 0.5s ease-in 0.1s;
+}
+
+#concept #catch-scroll span.scroll {
+  display: block;
 }
 
 #page-root[data-color="dark"] #concept #catch-scroll span.scroll {

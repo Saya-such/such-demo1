@@ -1,6 +1,6 @@
-import { createTextGradientTimeline } from "@/animations/common/createTextGradientTimeline";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { createTextGradientTimeline } from "@/animations/common/createTextGradientTimeline";
 
 gsap.registerPlugin(ScrollTrigger);
 
