@@ -1,6 +1,7 @@
 import createMenuBgTextTimelines from "./createMenuBgTextTimelines";
 import createMenuCloseTimeline from "./createMenuCloseTimeline";
 import createMenuOpenTimeline from "./createMenuOpenTimeline";
+import startMenuClickHandler from "./startMenuClickHandler";
 
 /**
  * メニュー開閉時のアニメーションの制御。
@@ -11,22 +12,27 @@ const manageMenuAnimations = () => {
   const buttonEl: HTMLElement | null = document.getElementById("menu-button");
   const menuEl: HTMLElement | null = document.getElementById("sp-menu");
   const flipEl: HTMLElement | null = document.getElementById("menu-flip");
+  const PCMenuEl: HTMLElement | null = document.getElementById("menu");
 
-  if (!buttonEl || !menuEl || !flipEl) return;
+  if (!buttonEl || !menuEl || !flipEl || !PCMenuEl) return;
 
   //メニュー開閉時のTimelineを扱う変数
   let menuTimeline: GSAPTimeline | null = null;
   //メニュー背景のテキストアニメーションのTimelineを扱う変数
   let bgTextTimelines: GSAPTimeline[] = [];
 
-  buttonEl.addEventListener("click", () => {
-    //メニューボタンクリックにて一度メニューに関するすべてのTimelineを削除
+  //メニューボタンクリックにて一度メニューに関するすべてのTimelineを削除
+  const resetTimelines = () => {
     menuTimeline?.kill();
     bgTextTimelines.forEach((tl) => {
       tl.kill();
     });
     menuTimeline = null;
     bgTextTimelines = [];
+  };
+
+  buttonEl.addEventListener("click", () => {
+    resetTimelines();
 
     if (!buttonEl.classList.contains("is-open")) {
       //開く際のアニメーションとメニュー背景のアニメーション開始
@@ -36,6 +42,16 @@ const manageMenuAnimations = () => {
       //閉じた際のアニメーション開始
       createMenuCloseTimeline({ flipEl, menuEl, buttonEl });
     }
+  });
+
+  menuEl.addEventListener("click", (e) => {
+    resetTimelines();
+    startMenuClickHandler(e);
+    createMenuCloseTimeline({ flipEl, menuEl, buttonEl });
+  });
+
+  PCMenuEl.addEventListener("click", (e) => {
+    startMenuClickHandler(e);
   });
 };
 
