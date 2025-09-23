@@ -4,7 +4,7 @@ import createMenuOpenTimeline from "./createMenuOpenTimeline";
 import startMenuClickHandler from "./startMenuClickHandler";
 
 /**
- * メニュー開閉時のアニメーションの制御。
+ * メニュー開閉時・クリック時のアニメーションの制御。
  * - DOM取得 → クリックイベントでTimeline生成もしくは削除
  * - createMenuBgTextTimelinesでは初期状態では非表示の要素(メニュー背景のテキスト)を含むため内部でDOM要素を取得
  */
@@ -12,9 +12,9 @@ const manageMenuAnimations = () => {
   const buttonEl: HTMLElement | null = document.getElementById("menu-button");
   const menuEl: HTMLElement | null = document.getElementById("sp-menu");
   const flipEl: HTMLElement | null = document.getElementById("menu-flip");
-  const PCMenuEl: HTMLElement | null = document.getElementById("menu");
+  const menuPCEl: HTMLElement | null = document.getElementById("menu");
 
-  if (!buttonEl || !menuEl || !flipEl || !PCMenuEl) return;
+  if (!buttonEl || !menuEl || !flipEl || !menuPCEl) return;
 
   //メニュー開閉時のTimelineを扱う変数
   let menuTimeline: GSAPTimeline | null = null;
@@ -22,7 +22,7 @@ const manageMenuAnimations = () => {
   let bgTextTimelines: GSAPTimeline[] = [];
 
   //メニューボタンクリックにて一度メニューに関するすべてのTimelineを削除
-  const resetTimelines = () => {
+  const resetMenuTimelines = () => {
     menuTimeline?.kill();
     bgTextTimelines.forEach((tl) => {
       tl.kill();
@@ -32,7 +32,7 @@ const manageMenuAnimations = () => {
   };
 
   buttonEl.addEventListener("click", () => {
-    resetTimelines();
+    resetMenuTimelines();
 
     if (!buttonEl.classList.contains("is-open")) {
       //開く際のアニメーションとメニュー背景のアニメーション開始
@@ -45,12 +45,12 @@ const manageMenuAnimations = () => {
   });
 
   menuEl.addEventListener("click", (e) => {
-    resetTimelines();
+    resetMenuTimelines();
     startMenuClickHandler(e);
     createMenuCloseTimeline({ flipEl, menuEl, buttonEl });
   });
 
-  PCMenuEl.addEventListener("click", (e) => {
+  menuPCEl.addEventListener("click", (e) => {
     startMenuClickHandler(e);
   });
 };
