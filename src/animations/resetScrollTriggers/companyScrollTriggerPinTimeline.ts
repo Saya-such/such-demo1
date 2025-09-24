@@ -8,23 +8,13 @@ gsap.registerPlugin(ScrollTrigger);
  * - Timeline生成 → 配列で返却 → companyScrollTriggerTimelineにて管理
  */
 const companyScrollTriggerPinTimeline = (): GSAPTimeline | void => {
-  const createTimeline = ({
-    end,
-    fadeInDuration,
-    fadeOutDuration,
-    fadeOutAt,
-  }: {
-    end: string;
-    fadeInDuration: number;
-    fadeOutDuration: number;
-    fadeOutAt: number;
-  }) => {
+  const createTimeline = (fadeInDuration: number) => {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: ".company-wrapper",
         id: "company-pin",
         start: "top top",
-        end,
+        end: "+=100%",
         pin: true,
         scrub: true,
       },
@@ -52,14 +42,14 @@ const companyScrollTriggerPinTimeline = (): GSAPTimeline | void => {
     tl.to(
       ".company-container",
       {
-        duration: fadeOutDuration,
+        duration: 0.1,
         opacity: 0,
       },
-      fadeOutAt,
+      0.9,
     ).to(
       ".company-arrow",
       {
-        duration: fadeOutDuration,
+        duration: 0.1,
         opacity: 0,
       },
       "<",
@@ -71,19 +61,9 @@ const companyScrollTriggerPinTimeline = (): GSAPTimeline | void => {
   if (
     window.matchMedia("(orientation: portrait) and (max-width: 700px)").matches
   ) {
-    return createTimeline({
-      end: "+=150%",
-      fadeInDuration: 0.2,
-      fadeOutDuration: 0.1,
-      fadeOutAt: 0.9,
-    });
+    return createTimeline(0.2);
   } else {
-    return createTimeline({
-      end: "+=100%",
-      fadeInDuration: 0.1,
-      fadeOutDuration: 0.2,
-      fadeOutAt: 0.8,
-    });
+    return createTimeline(0.1);
   }
 };
 

@@ -42,7 +42,7 @@ const headerScrollTriggerTimeline = (): GSAPTimeline[] => {
         trigger,
         id: "menu-color",
         start: "top top",
-        end: "bottom+=120% bottom",
+        end: "bottom+=10% bottom",
         toggleClass: { targets: menuLinks, className: "text-white" },
         onEnter: showWhiteLogo,
         onLeave: showBlackLogo,
