@@ -28,7 +28,6 @@ const companyScrollTriggerZoomTimeline = (): GSAPTimeline | void => {
         start,
         end,
         scrub: true,
-        markers: true,
       },
     });
 
