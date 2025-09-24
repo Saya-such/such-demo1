@@ -7,6 +7,7 @@ interface Props {
   text?: string;
   en?: boolean;
   sm?: boolean;
+  visible?: boolean;
 }
 
 const {
@@ -14,12 +15,14 @@ const {
   text = "More",
   en = true,
   sm = false,
+  visible = true,
 } = Astro.props as Props;
 
 const btnWrapper = cn({
   "justify-end": right,
   "absolute right-5 bottom-5": sm,
   "flex pt-8": !sm,
+  invisible: !visible,
 });
 
 const btnContent = cn(
