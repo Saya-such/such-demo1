@@ -13,6 +13,9 @@ const setupOffsetY = (target: HTMLElement, link: HTMLElement) => {
   return offsetY;
 };
 
+/**
+ * @description メニューリンククリック時のスクロール処理。
+ */
 const startMenuClickHandler = (e: MouseEvent) => {
   //クリックした要素のaタグを取得
   const link = (e.target as HTMLElement).closest("a");
@@ -21,12 +24,14 @@ const startMenuClickHandler = (e: MouseEvent) => {
   const target = document.querySelector(link.getAttribute("href") || "");
   if (!target) return;
 
+  //offsetYを設定
   const offsetY = setupOffsetY(target as HTMLElement, link);
 
+  //スクロール処理
   gsap.to(window, {
     scrollTo: { y: target, offsetY },
     duration: 1,
-    ease: "power2.out",
+    ease: "power3.out",
   });
 };
 

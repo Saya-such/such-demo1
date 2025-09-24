@@ -31,6 +31,7 @@ const manageMenuAnimations = () => {
     bgTextTimelines = [];
   };
 
+  //メニュー開閉時
   buttonEl.addEventListener("click", () => {
     resetMenuTimelines();
 
@@ -39,17 +40,22 @@ const manageMenuAnimations = () => {
       menuTimeline = createMenuOpenTimeline({ flipEl, menuEl, buttonEl });
       bgTextTimelines = createMenuBgTextTimelines();
     } else {
-      //閉じた際のアニメーション開始
+      //メニューを閉じた際のアニメーション開始
       createMenuCloseTimeline({ flipEl, menuEl, buttonEl });
     }
   });
 
+  //SPメニューのリンククリック時
+  // - Timelineをリセット
+  // - アンカーリンクスクロール処理を実行
+  // - メニューを閉じるアニメーションを実行
   menuEl.addEventListener("click", (e) => {
     resetMenuTimelines();
     startMenuClickHandler(e);
     createMenuCloseTimeline({ flipEl, menuEl, buttonEl });
   });
 
+  // PCメニューのリンククリック時
   menuPCEl.addEventListener("click", (e) => {
     startMenuClickHandler(e);
   });
