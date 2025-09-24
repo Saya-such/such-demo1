@@ -48,7 +48,8 @@ const barClass = (position: "top" | "middle" | "bottom") =>
         ))
       }
     </ul>
-    <Btn text="Back to such" sm={true} />
+    <!-- 自社サイト完成時にvisible={false}削除 -->
+    <Btn text="Back to such" sm={true} visible={false} />
     <div id="menu-deco" class="menu-deco -z-1">
       <Catch
         h1={false}
