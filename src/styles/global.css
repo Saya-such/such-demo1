@@ -55,10 +55,6 @@
   transition: background-color 0.5s ease-in 0.1s;
 }
 
-#concept #catch-scroll span.scroll {
-  display: block;
-}
-
 #page-root[data-color="dark"] #concept #catch-scroll span.scroll {
   color: #fff;
   opacity: 0.2;
@@ -73,4 +69,9 @@
   transition:
     color 0.2s,
     opacity 0.2s;
+}
+
+/* AstroのScoped CSSの仕様を避けるため例外的にここに記述 */
+#concept #catch-scroll span.scroll {
+  display: block;
 }
