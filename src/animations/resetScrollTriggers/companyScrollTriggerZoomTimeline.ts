@@ -28,18 +28,19 @@ const companyScrollTriggerZoomTimeline = (): GSAPTimeline | void => {
         start,
         end,
         scrub: true,
+        markers: true,
       },
     });
 
     //初期状態
-    tl.set(".company-wrapper", {
+    tl.set(".company-scale", {
       scale: 0.9,
       opacity: 0,
     });
 
     //フェードイン
     tl.to(
-      ".company-wrapper",
+      ".company-scale",
       {
         opacity: 1.0,
         duration: fadeInDuration,
@@ -50,7 +51,7 @@ const companyScrollTriggerZoomTimeline = (): GSAPTimeline | void => {
 
     //スケールアップ
     tl.to(
-      ".company-wrapper",
+      ".company-scale",
       {
         scale: 1.0,
         opacity: 1.0,
@@ -62,7 +63,7 @@ const companyScrollTriggerZoomTimeline = (): GSAPTimeline | void => {
 
     //スケールダウン
     tl.to(
-      ".company-wrapper",
+      ".company-scale",
       {
         scale: 0.9,
         opacity: 0.9,
@@ -74,7 +75,7 @@ const companyScrollTriggerZoomTimeline = (): GSAPTimeline | void => {
 
     //フェードアウト
     tl.to(
-      ".company-wrapper",
+      ".company-scale",
       {
         opacity: 0,
         duration: 0.1,
