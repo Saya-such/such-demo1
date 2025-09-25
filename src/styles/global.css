@@ -14,3 +14,64 @@
     @apply mx-auto max-w-[96rem] px-5 md:px-8 lg:px-16;
   }
 }
+
+@layer utilities {
+  .text-fill-transparent {
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+#page-root[data-color="light"] #concept,
+#page-root[data-color="light"] #works,
+#page-root[data-color="light"] #service,
+#page-root[data-color="light"] #news,
+#page-root[data-color="light"] #company {
+  background-color: #fff;
+  transition: background-color 0.5s ease-in 0.1s;
+}
+
+#page-root[data-color="light"] #concept #catch-scroll span.scroll {
+  color: #000;
+  opacity: 0.05;
+  transition:
+    color 0.2s,
+    opacity 0.2s;
+}
+
+#page-root[data-color="light"] #works #loop-text {
+  color: #000;
+  opacity: 0.15;
+  transition:
+    color 0.2s,
+    opacity 0.2s;
+}
+
+#page-root[data-color="dark"] #concept,
+#page-root[data-color="dark"] #works,
+#page-root[data-color="dark"] #service,
+#page-root[data-color="dark"] #news,
+#page-root[data-color="dark"] #company {
+  background-color: #ddd;
+  transition: background-color 0.5s ease-in 0.1s;
+}
+
+#page-root[data-color="dark"] #concept #catch-scroll span.scroll {
+  color: #fff;
+  opacity: 0.2;
+  transition:
+    color 0.2s,
+    opacity 0.2s;
+}
+
+#page-root[data-color="dark"] #works #loop-text {
+  color: #fff;
+  opacity: 0.45;
+  transition:
+    color 0.2s,
+    opacity 0.2s;
+}
+
+/* AstroのScoped CSSの仕様を避けるため例外的にここに記述 */
+#concept #catch-scroll span.scroll {
+  display: block;
+}

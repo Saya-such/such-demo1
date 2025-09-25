@@ -1,0 +1,39 @@
+---
+import worksSlidersData from "@/data/works/worksSlidersData";
+import WorksGallery from "./WorksGallery.astro";
+---
+
+<div
+  id="works"
+  class="works relative overflow-hidden pt-16 pb-50 duration-300 md:pt-34 md:pb-85 lg:pb-96 xl:pt-50 xl:pb-104 2xl:pt-50 2xl:pb-140 portrait:lg:pt-80 portrait:lg:pb-120"
+>
+  <div class="works-gallery relative z-10 w-max -translate-x-20">
+    <!-- ループ処理のためダミーも出力 -->
+    <ul id="works-list" class="works-list flex h-full w-full">
+      {worksSlidersData.map((work) => <WorksGallery work={work} />)}
+      {worksSlidersData.map((work) => <WorksGallery work={work} />)}
+    </ul>
+  </div>
+
+  <!-- ループ処理のためダミーも出力 -->
+  <div
+    id="loop-text"
+    class="absolute bottom-32 z-1 flex w-max md:bottom-56 lg:bottom-50 xl:bottom-72 portrait:lg:bottom-60"
+    aria-hidden="true"
+  >
+    <span
+      class="font-en block px-7 text-8xl md:px-14 md:text-9xl lg:text-[240px]"
+      >We Are Strategists with Purpose.</span
+    >
+    <span
+      class="font-en block px-7 text-8xl md:px-14 md:text-9xl lg:text-[240px]"
+      >We Are Strategists with Purpose.</span
+    >
+  </div>
+</div>
+
+<script>
+  import manageWorksLoopAnimations from "./manageWorksLoopAnimations";
+
+  manageWorksLoopAnimations();
+</script>

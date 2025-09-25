@@ -1,26 +1,44 @@
 ---
+import type { ColorMode } from "@/types/ColorMode";
 import Layout from "@/layout/Layout.astro";
-import Hero from "@/components/Hero.astro";
-import Concept from "@/components/Concept.astro";
-import Works from "@/components/Works.astro";
-import Service from "@/components/Service/index.astro";
+import Hero from "@/components/Hero/index.astro";
+import Concept from "@/components/Concept/index.astro";
+import Works from "@/components/Works/index.astro";
+import Service from "@/components/Service.astro";
 import News from "@/components/News/index.astro";
-import Company from "@/components/Company.astro";
-import Bottom from "@/components/Bottom.astro";
+import Company from "@/components/Company/index.astro";
+import Bottom from "@/components/Bottom/index.astro";
+import Cursor from "@/components/Cursor/index.astro";
+
+interface Props {
+  color: ColorMode;
+}
+
+const { color = "light" } = Astro.props as Props;
 ---
 
 <Layout>
-  <Hero />
+  <div id="page-root" data-color={color}>
+    <Hero />
 
-  <Concept />
+    <Concept />
 
-  <Works />
+    <Works />
 
-  <Service />
+    <Service />
 
-  <News />
+    <News />
 
-  <Company />
+    <Company />
 
-  <Bottom />
+    <Bottom />
+  </div>
+
+  <Cursor />
 </Layout>
+
+<script>
+  import setupColorMode from "@/libs/setupColorMode";
+
+  setupColorMode();
+</script>

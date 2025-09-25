@@ -1,0 +1,39 @@
+---
+import heroSlidersData from "@/data/hero/heroSlidersData";
+---
+
+<div id="hero-slider" class="swiper z-0 h-full w-full rounded">
+  <div class="swiper-wrapper h-full w-full">
+    {
+      heroSlidersData.map((img) => (
+        <div class="swiper-slide h-full w-full">
+          <img src={img.sp} class="h-full w-full object-cover md:hidden" />
+          <img
+            src={img.src}
+            class="hidden h-full w-full object-cover md:block"
+          />
+        </div>
+      ))
+    }
+  </div>
+  <div
+    class="swiper-bg absolute inset-0 z-1 h-lvh w-lvw origin-top-left overflow-y-hidden bg-white"
+  >
+  </div>
+</div>
+
+<script>
+  import manageHeroSwiper from "./manageHeroSwiper";
+
+  manageHeroSwiper();
+</script>
+
+<style>
+  .swiper-slide img {
+    transition: transform 5s ease-in;
+  }
+
+  .swiper-slide-active img {
+    transform: scale(1.05);
+  }
+</style>

@@ -1,14 +1,27 @@
 // @ts-check
 import { defineConfig } from "astro/config";
-import react from "@astrojs/react";
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
-  // ...
-  // base: process.env.TARGET === "gh-pages" ? "/triangle-inc/" : "/",
-  integrations: [react()],
-
+  base: "/such-demo1/",
   vite: {
     plugins: [tailwindcss()],
+    build: {
+      rollupOptions: {
+        output: {
+          entryFileNames: `_astro/[hash].js`,
+          chunkFileNames: `_astro/[hash].js`,
+          assetFileNames: (assetInfo) => {
+            // 画像はimagesフォルダへ
+            if (
+              /\.(png|jpg|jpeg|gif|svg|webp|avif)$/.test(assetInfo.name ?? "")
+            ) {
+              return "images/[name].[hash][extname]";
+            }
+            return "_astro/[name].[hash][extname]";
+          },
+        },
+      },
+    },
   },
 });

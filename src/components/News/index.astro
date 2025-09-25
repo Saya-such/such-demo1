@@ -1,13 +1,17 @@
 ---
-import SectionTitle from "@/components/SectionTitle.astro";
-import Item from "./Item.astro";
 import Btn from "@/components/Btn.astro";
+import SectionTitle from "@/components/SectionTitle.astro";
+import NewsItem from "./NewsItem.astro";
 ---
 
-<section id="news">
+<section id="news" class="relative bg-white pt-11 md:pt-4 lg:pt-36">
   <div class="container-base pt-16 pb-20 md:pb-48">
-    <SectionTitle title="News" others="pb-10 lg:pb-17 xl:pb-20" />
-    <Item />
+    <SectionTitle
+      title="News"
+      others="pb-10 lg:pb-17 xl:pb-20"
+      animation={true}
+    />
+    <NewsItem />
     <Btn />
   </div>
 </section>

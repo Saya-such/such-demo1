@@ -1,0 +1,18 @@
+---
+import Catch from "@/components/Catch.astro";
+---
+
+<div
+  id="loader"
+  class="fixed z-1000 h-lvh w-lvw origin-top-left overflow-y-hidden bg-white p-1 md:p-2"
+>
+  <Catch
+    h1={false}
+    others="loader-catch bottom-2 opacity-0 xl:bottom-9 min-[1728px]:bottom-11"
+  />
+</div>
+
+<script>
+  import startLoaderAnimation from "./startLoaderAnimation";
+  startLoaderAnimation();
+</script>

@@ -6,48 +6,69 @@ interface Props {
   right?: boolean;
   text?: string;
   en?: boolean;
+  sm?: boolean;
+  visible?: boolean;
 }
 
-const { right = true, text = "More", en = true } = Astro.props as Props;
+const {
+  right = true,
+  text = "More",
+  en = true,
+  sm = false,
+  visible = true,
+} = Astro.props as Props;
 
-const btnWrapper = cn("flex pt-8", {
+const btnWrapper = cn({
   "justify-end": right,
+  "absolute right-5 bottom-5": sm,
+  "flex pt-8": !sm,
+  invisible: !visible,
 });
 
 const btnContent = cn(
-  "group/item flex items-end cursor-pointer lg:py-6 hover:opacity-80 duration-300",
+  "group/item flex items-end cursor-pointer duration-300 lg:py-6 hover:opacity-80",
   {
     "pl-6": right,
     "flex-row-reverse pr-6": !right,
   },
 );
 
-const btnText = cn(
-  "pb-1 lg:pb-2 text-lg lg:text-2xl tracking-wide text-black",
-  {
-    "pr-4 lg:pr-6": right,
-    "pl-4 lg:pl-6": !right,
-    "font-en": en,
-    "font-primary font-bold": !en,
-  },
-);
+const btnText = cn("text-black lg:pb-2 lg:text-2xl", {
+  "pr-4 lg:pr-6": right && !sm,
+  "pl-4 lg:pl-6": !right,
+  "font-en": en && !sm,
+  "font-primary font-bold": !en && !sm,
+  "font-menu text-sm pr-2.5 pb-0.5 tracking-[0.15em]": sm,
+  "pb-1 text-lg tracking-wide": !sm,
+});
 
 const btnDeco = cn("relative", {
   "scale-x-[-1]": !right,
 });
+
+const arrowStyle = cn(
+  "absolute z-10 duration-300 group-hover/item:translate-x-1 lg:-left-3",
+  {
+    "bottom-3 -left-1": !sm,
+    "bottom-1.5 -left-3 scale-75": sm,
+  },
+);
+
+const circleStyle = cn(
+  "-z-0 rounded-full bg-black duration-300 group-hover/item:scale-125 lg:h-12 lg:w-12",
+  {
+    "h-6 w-6": sm,
+    "h-10 w-10": !sm,
+  },
+);
 ---
 
 <div class={btnWrapper}>
   <div class={btnContent}>
     <p class={btnText}>{text}</p>
     <div class={btnDeco}>
-      <Arrow
-        others="absolute bottom-3 -left-1 lg:-left-3 z-10 duration-300 group-hover/item:translate-x-1"
-      />
-      <div
-        class="-z-0 h-10 w-10 rounded-full bg-black duration-300 group-hover/item:scale-125 lg:h-12 lg:w-12"
-      >
-      </div>
+      <Arrow others={arrowStyle} />
+      <div class={circleStyle}></div>
     </div>
   </div>
 </div>
