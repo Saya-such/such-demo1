@@ -4,6 +4,9 @@ import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   base: "/such-demo1/",
+  build: {
+    assetsPrefix: "./",
+  },
   vite: {
     plugins: [tailwindcss()],
     build: {
