@@ -1,5 +1,5 @@
 import Swiper from "swiper";
-import "swiper/css/bundle";
+import "swiper/swiper-bundle.css";
 import { Autoplay, EffectFade } from "swiper/modules";
 import { gsap } from "gsap";
 
