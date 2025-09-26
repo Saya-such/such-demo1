@@ -15,13 +15,12 @@ export default defineConfig({
           entryFileNames: `_astro/[hash].js`,
           chunkFileNames: `_astro/[hash].js`,
           assetFileNames: (assetInfo) => {
-            // 画像はimagesフォルダへ
+            // 画像はimagesフォルダへ(それ以外は_astroフォルダへ)
             if (
               /\.(png|jpg|jpeg|gif|svg|webp|avif)$/.test(assetInfo.name ?? "")
             ) {
               return "images/[name].[hash][extname]";
             }
-            // 画像以外(css/jsなど)は_astroフォルダへ
             return "_astro/[name].[hash][extname]";
           },
         },
