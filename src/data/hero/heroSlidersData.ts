@@ -3,23 +3,23 @@ import type { Img } from "@/types/Img";
 const heroSlidersData: Img[] = [
   {
     id: 1,
-    src: "./images/slider1.jpg",
-    sp: "./images/slider1-sp.jpg",
+    src: "./images/slider1.webp",
+    sp: "./images/slider1-sp.webp",
   },
   {
     id: 2,
-    src: "./images/slider2.jpg",
-    sp: "./images/slider2-sp.jpg",
+    src: "./images/slider2.webp",
+    sp: "./images/slider2-sp.webp",
   },
   {
     id: 3,
-    src: "./images/slider3.jpg",
-    sp: "./images/slider3-sp.jpg",
+    src: "./images/slider3.webp",
+    sp: "./images/slider3-sp.webp",
   },
   {
     id: 4,
-    src: "./images/slider4.jpg",
-    sp: "./images/slider4-sp.jpg",
+    src: "./images/slider4.webp",
+    sp: "./images/slider4-sp.webp",
   },
 ];
 
