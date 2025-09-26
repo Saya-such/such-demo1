@@ -16,7 +16,7 @@ const createHeroSwiper = (selector: HTMLElement): Swiper => {
     modules: [Autoplay, EffectFade],
     loop: slidesCount > 1,
     autoplay: {
-      delay: 5000,
+      delay: 8000,
       disableOnInteraction: false,
       waitForTransition: false,
     },
