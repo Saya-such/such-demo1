@@ -21,6 +21,7 @@ export default defineConfig({
             ) {
               return "images/[name].[hash][extname]";
             }
+            // 画像以外(css/jsなど)は_astroフォルダへ
             return "_astro/[name].[hash][extname]";
           },
         },
