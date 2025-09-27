@@ -1,13 +1,17 @@
 @import "tailwindcss";
-@import "@fontsource/archivo-black/400.css";
+
+@font-face {
+  font-family: "Archivo Black";
+  src: url("/fonts/archivo-black.woff2") format("woff2");
+  font-weight: 400;
+}
 
 @theme {
   --font-primary:
     "YuGothic", "Yu Gothic", "Hiragino Kaku Gothic ProN", var(--font-sans),
     sans-serif;
   --font-en:
-    /* "Arial Black", "Archivo Black", "Arial", var(--font-sans), sans-serif; */
-    "Archivo Black", "Arial", var(--font-sans), sans-serif;
+    "Arial Black", "Archivo Black", "Arial", var(--font-sans), sans-serif;
   --font-menu: "Arial", var(--font-sans), sans-serif;
   --color-light-gray: #dddddd;
 }
