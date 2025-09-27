@@ -6,7 +6,8 @@
     "YuGothic", "Yu Gothic", "Hiragino Kaku Gothic ProN", var(--font-sans),
     sans-serif;
   --font-en:
-    "Arial Black", "Archivo Black", "Arial", var(--font-sans), sans-serif;
+    /* "Arial Black", "Archivo Black", "Arial", var(--font-sans), sans-serif; */
+    "Archivo Black", "Arial", var(--font-sans), sans-serif;
   --font-menu: "Arial", var(--font-sans), sans-serif;
   --color-light-gray: #dddddd;
 }
