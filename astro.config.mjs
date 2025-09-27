@@ -2,8 +2,11 @@
 import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 
+//開発モードか公開用(GitHub Pages)か判別
+const isGhPages = process.env.DEPLOY_ENV === "gh-pages";
+
 export default defineConfig({
-  base: "/such-demo1/",
+  base: isGhPages ? "/such-demo1/" : "",
   build: {
     assetsPrefix: "./",
   },
