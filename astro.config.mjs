@@ -6,7 +6,7 @@ import tailwindcss from "@tailwindcss/vite";
 const isGhPages = process.env.DEPLOY_ENV === "gh-pages";
 
 export default defineConfig({
-  base: isGhPages ? "/such-demo1/" : "",
+  base: "/such-demo1/",
   build: {
     assetsPrefix: "./",
   },
