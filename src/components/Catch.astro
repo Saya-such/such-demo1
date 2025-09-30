@@ -7,10 +7,10 @@ interface Props {
   others?: string;
 }
 
-const { id, h1 = true, others } = Astro.props as Props;
+const { id, h1 = false, others } = Astro.props as Props;
 
 const catchWrapperStyle = cn(
-  `absolute left-4 h-65 z-10 md:left-6 lg:h-30 xl:h-38 2xl:h-48 portrait:md:h-95 portrait:lg:h-135`,
+  `absolute left-4 h-65 md:left-6 lg:h-30 xl:h-38 2xl:h-48 portrait:md:h-95 portrait:lg:h-135`,
   others,
 );
 

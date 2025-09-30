@@ -3,28 +3,18 @@ import BoldText from "@/components/BoldText.astro";
 import Catch from "@/components/Catch.astro";
 ---
 
-<section
-  id="concept"
-  class="relative overflow-hidden portrait:lg:overflow-visible"
->
-  <div id="concept-fixed" class="relative h-svh w-svw p-1 md:p-2">
-    <div
-      id="concept-catch"
-      class="concept-catch fixed top-0 left-0 h-full w-full"
-    >
-      <Catch h1={false} others="bottom-0 opacity-5 md:opacity-10" />
-    </div>
-  </div>
-  <div id="catch-scroll" class="catch-scroll relative">
-    <Catch
-      h1={false}
-      others="bottom-0 opacity-5 top-[25px] origin-top-left md:opacity-10"
-    />
-  </div>
+<section id="concept" class="overflow-hidden portrait:lg:overflow-visible">
   <div
-    id="concept-main"
-    class="container-base m-auto flex flex-col opacity-0 duration-1000"
+    id="concept-catch"
+    class="fixed top-0 left-0 z-10 h-svh w-svw p-1 md:p-2"
   >
+    <Catch id="catch-clone" others="bottom-0 opacity-5 md:opacity-10" />
+  </div>
+  <div id="concept-main" class="container-base relative m-auto bg-white">
+    <Catch
+      id="catch-bg"
+      others="hidden bottom-0 opacity-5 top-[25px] origin-top-left md:opacity-10"
+    />
     <h2
       class="pt-20 pb-16 text-right text-[1.5rem] font-bold tracking-[0.3em] min-[375px]:text-[1.58rem] md:pt-64 md:pb-48 md:text-[3.2rem] lg:py-48 2xl:pt-80 landscape:lg:text-left"
     >
@@ -54,10 +44,4 @@ import Catch from "@/components/Catch.astro";
   </div>
 </section>
 
-<script>
-  import startConceptCatchFillAnimation from "./startConceptCatchFillAnimation";
-  import startConceptCatchSkewAnimation from "./startConceptCatchSkewAnimation";
-
-  startConceptCatchFillAnimation();
-  startConceptCatchSkewAnimation();
-</script>
+<script></script>
