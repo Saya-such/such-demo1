@@ -13,13 +13,13 @@ gsap.registerPlugin(ScrollTrigger);
  */
 const startConceptCatchFillAnimation = () => {
   const trigger = document.getElementById("concept-catch");
-  const catchEl = trigger?.querySelector("span");
+  const catchEl = trigger?.querySelector("p");
   const catchHeight = catchEl?.clientHeight;
   const fixedEl = document.getElementById("concept-fixed");
   const mainEl = document.getElementById("concept-main");
   const catchScrollEl = document
     .getElementById("catch-scroll")
-    ?.querySelector("span");
+    ?.querySelector("p");
 
   if (!trigger || !catchEl || !catchHeight || !catchScrollEl) return;
 
