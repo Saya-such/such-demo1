@@ -5,9 +5,11 @@ import Catch from "@/components/Catch.astro";
 
 <section
   id="concept"
-  class="relative overflow-hidden bg-white p-1 md:p-2 portrait:lg:overflow-visible"
+  class="relative overflow-hidden bg-white portrait:lg:overflow-visible"
 >
-  <Catch id="catch-clone" others="fixed bottom-0 opacity-10" />
+  <div id="concept-fixed" class="fixed top-0 left-0 h-svh w-svw">
+    <Catch id="catch-clone" others="absolute bottom-0 opacity-10" />
+  </div>
   <div class="container-base m-auto">
     <Catch
       id="catch-scroll"

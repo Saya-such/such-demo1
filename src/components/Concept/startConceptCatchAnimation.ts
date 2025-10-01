@@ -12,10 +12,10 @@ gsap.registerPlugin(ScrollTrigger);
  */
 const startConceptCatchAnimation = () => {
   const trigger = document.getElementById("catch-scroll");
-  const fixedCatch = document.getElementById("catch-clone");
+  const fixedEl = document.getElementById("concept-fixed");
   const mainEl = document.getElementById("concept-main");
 
-  if (!trigger || !fixedCatch || !mainEl) return;
+  if (!trigger || !fixedEl || !mainEl) return;
 
   let isFirst: boolean = true;
 
@@ -27,12 +27,12 @@ const startConceptCatchAnimation = () => {
       end: "top top",
       scrub: true,
       onEnter: () => {
-        fixedCatch.classList.add("hidden");
+        fixedEl.classList.add("hidden");
         trigger.classList.remove("hidden");
         mainEl.classList.replace("opacity-0", "opacity-100");
       },
       onLeaveBack: () => {
-        fixedCatch.classList.remove("hidden");
+        fixedEl.classList.remove("hidden");
         trigger.classList.add("hidden");
         mainEl.classList.replace("opacity-100", "opacity-0");
       },
