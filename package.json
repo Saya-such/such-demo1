@@ -12,9 +12,6 @@
   },
   "dependencies": {
     "@astrojs/react": "4.3.0",
-    "@fontsource/anton": "^5.2.7",
-    "@fontsource/archivo-black": "^5.2.8",
-    "@fontsource/poppins": "^5.2.7",
     "@tailwindcss/vite": "4.1.11",
     "clsx": "2.1.1",
     "gsap": "3.13.0",
