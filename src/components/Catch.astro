@@ -10,12 +10,12 @@ interface Props {
 const { id, h1 = false, others } = Astro.props as Props;
 
 const catchWrapperStyle = cn(
-  `absolute left-4 h-65 md:left-6 lg:h-30 xl:h-38 2xl:h-48 portrait:md:h-95 portrait:lg:h-135`,
+  `absolute pt-5 left-4 h-68 md:left-6 lg:h-33 xl:h-41 2xl:h-51 portrait:md:h-98 portrait:lg:h-138`,
   others,
 );
 
 const catchStyle = cn(
-  `font-en font-bold text-[68px] leading-[1.16] lg:text-7xl xl:text-8xl xl:leading-none 2xl:text-9xl portrait:md:text-[100px] portrait:lg:text-[144px]`,
+  `font-en font-bold text-[68px] leading-[1.16] lg:text-7xl xl:text-8xl 2xl:text-9xl portrait:md:text-[100px] portrait:lg:text-[144px]`,
 );
 ---
 
