@@ -9,9 +9,9 @@ const startLoaderAnimation = () => {
     () => {
       const loaderEl: HTMLElement | null = document.getElementById("loader");
       const loaderCatchEl: HTMLElement | null =
-        document.querySelector(".loader-catch");
+        document.getElementById("loader-catch");
       const heroCatchEl: HTMLElement | null =
-        document.querySelector(".hero-catch");
+        document.getElementById("hero-catch");
 
       if (!loaderEl || !loaderCatchEl || !heroCatchEl) return;
 

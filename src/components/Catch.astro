@@ -2,48 +2,51 @@
 import cn from "@/libs/cn";
 
 interface Props {
+  id?: string;
   h1?: boolean;
-  scroll?: boolean;
   others?: string;
 }
 
-const { h1 = true, scroll = false, others } = Astro.props as Props;
+const { id, h1 = false, others } = Astro.props as Props;
+
+const catchWrapperStyle = cn(
+  `absolute left-4 h-65 md:left-6 lg:h-30 xl:h-38 2xl:h-48 portrait:md:h-95 portrait:lg:h-135`,
+  others,
+);
 
 const catchStyle = cn(
-  `font-en absolute left-4 font-bold text-[68px] leading-[1.16] z-10 md:left-6 lg:text-7xl xl:text-8xl xl:leading-none 2xl:text-9xl portrait:md:text-[100px] portrait:lg:text-[144px]`,
-  {
-    "pb-3": !scroll,
-  },
-  others,
+  `font-en font-bold text-[68px] leading-[1.16] lg:text-7xl xl:text-8xl xl:leading-none 2xl:text-9xl portrait:md:text-[100px] portrait:lg:text-[144px]`,
 );
 ---
 
-{
-  h1 ? (
-    <h1 class={catchStyle}>
-      <span class="lg:hidden portrait:lg:block">
-        Hype
-        <br />
-        Meets
-        <br />
-        Strategy.
-      </span>
-      <span class="hidden lg:block portrait:lg:hidden">
-        Hype Meets Strategy.
-      </span>
-    </h1>
-  ) : (
-    <span aria-hidden="true" class={catchStyle}>
-      <span class="lg:hidden portrait:lg:block">
-        Hype
-        <br />
-        Meets
-        <br />
-        Strategy.
-      </span>
-      <span class="hidden lg:block portrait:lg:hidden">
-        Hype Meets Strategy.
-      </span>
-    </span>
-  )
-}
+<div id={id} class={catchWrapperStyle}>
+  {
+    h1 ? (
+      <h1 class={catchStyle}>
+        <span class="lg:hidden portrait:lg:block">
+          Hype
+          <br />
+          Meets
+          <br />
+          Strategy.
+        </span>
+        <span class="hidden lg:block portrait:lg:hidden">
+          Hype Meets Strategy.
+        </span>
+      </h1>
+    ) : (
+      <p class={catchStyle} aria-hidden="true">
+        <span class="lg:hidden portrait:lg:block">
+          Hype
+          <br />
+          Meets
+          <br />
+          Strategy.
+        </span>
+        <span class="hidden lg:block portrait:lg:hidden">
+          Hype Meets Strategy.
+        </span>
+      </p>
+    )
+  }
+</div>

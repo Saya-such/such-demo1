@@ -13,7 +13,7 @@ const startConceptCatchSkewAnimation = () => {
   const trigger = document.getElementById("concept");
   const catchScrollEl = document
     .getElementById("catch-scroll")
-    ?.querySelector("span");
+    ?.querySelector("p");
 
   if (!trigger || !catchScrollEl) return;
 
