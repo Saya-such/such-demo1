@@ -20,6 +20,7 @@ const startConceptCatchAnimation = () => {
 
   let isFirst: boolean = true;
 
+  //スマホのUIバー対策のため、fixedElの高さをビューポートに合わせる
   setupElementHeight(fixedEl);
 
   const tl = gsap.timeline({

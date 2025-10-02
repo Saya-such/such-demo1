@@ -1,3 +1,4 @@
+import setupElementHeight from "@/libs/setupElementHeight";
 import createLoaderTimeline from "./createLoaderTimeline";
 
 /**
@@ -8,12 +9,18 @@ const startLoaderAnimation = () => {
     "DOMContentLoaded",
     () => {
       const loaderEl: HTMLElement | null = document.getElementById("loader");
+      const loaderContainerEl: HTMLElement | null =
+        document.getElementById("loader-container");
       const loaderCatchEl: HTMLElement | null =
         document.getElementById("loader-catch");
       const heroCatchEl: HTMLElement | null =
         document.getElementById("hero-catch");
 
-      if (!loaderEl || !loaderCatchEl || !heroCatchEl) return;
+      if (!loaderEl || !loaderContainerEl || !loaderCatchEl || !heroCatchEl)
+        return;
+
+      //スマホのUIバー対策のため、コンテナーの高さをビューポートに合わせる
+      setupElementHeight(loaderContainerEl);
 
       //ローディングアニメーション実行
       createLoaderTimeline({ loaderEl, loaderCatchEl, heroCatchEl });
