@@ -1,4 +1,5 @@
 ---
+import { SEO } from "astro-seo";
 import "@/styles/global.css";
 import Header from "@/components/Header/index.astro";
 import Loader from "@/components/Loader/index.astro";
@@ -18,7 +19,20 @@ import Main from "@/components/Main.astro";
     <link rel="apple-touch-icon" href="./images/icon.png" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>△△ inc. | suchのデモページだよ~</title>
+    <SEO
+      title="△△ inc. | suchのデモページです"
+      description="Astro × GSAPで制作したsuchのデモページです。"
+      openGraph={{
+        basic: {
+          title: "△△ inc. | suchのデモページです",
+          type: "website",
+          image: "./images/such-demo1-caputure.jpg",
+        },
+      }}
+      twitter={{
+        creator: "@Chaya0815",
+      }}
+    />
   </head>
   <body class="font-primary h-screen w-screen overflow-x-hidden">
     <Loader />
