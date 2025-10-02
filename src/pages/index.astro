@@ -4,7 +4,7 @@ import Layout from "@/layout/Layout.astro";
 import Hero from "@/components/Hero/index.astro";
 import Concept from "@/components/Concept/index.astro";
 import Works from "@/components/Works/index.astro";
-import Service from "@/components/Service.astro";
+import Service from "@/components/Service/index.astro";
 import News from "@/components/News/index.astro";
 import Company from "@/components/Company/index.astro";
 import Bottom from "@/components/Bottom/index.astro";
@@ -39,6 +39,8 @@ const { color = "light" } = Astro.props as Props;
 
 <script>
   import setupColorMode from "@/libs/setupColorMode";
+  import startSectionTitleAnimation from "@/animations/startSectionTitleAnimation";
 
   setupColorMode();
+  startSectionTitleAnimation();
 </script>

@@ -4,15 +4,13 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 /**
- * worksセクション内画像リストの慣性スクロールのTimelineを生成する。
- * - DOM取得 → Timelineを生成 → 配列で返却
- * - resetScrollTriggerTimelinesによって一括再生成される。
+ * worksセクション内画像リストの慣性スクロールのTimelineを生成し実行する。
+ * - DOM取得 → Timelineを生成/実行
  */
-const worksScrollTriggerTimeline = () => {
+const enableWorksScrollSmoothing = () => {
   const trigger = document.getElementById("works-list");
-  const timelines: GSAPTimeline[] = [];
 
-  if (!trigger) return timelines;
+  if (!trigger) return;
 
   const mm = gsap.matchMedia();
 
@@ -35,14 +33,12 @@ const worksScrollTriggerTimeline = () => {
   };
 
   mm.add("(max-width: 1023px)", () => {
-    timelines.push(createTimeLine(-50));
+    createTimeLine(-50);
   });
 
   mm.add("(min-width: 1024px)", () => {
-    timelines.push(createTimeLine(-80));
+    createTimeLine(-80);
   });
-
-  return timelines;
 };
 
-export default worksScrollTriggerTimeline;
+export default enableWorksScrollSmoothing;

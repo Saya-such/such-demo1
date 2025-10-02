@@ -1,7 +1,6 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import setupElementHeight from "@/libs/setupElementHeight";
-import resetScrollTriggerTimelines from "@/animations/resetScrollTriggers/managers/resetScrollTriggerTimelines";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -22,8 +21,6 @@ const startConceptCatchAnimation = () => {
 
   if (!trigger || !mainEl) return;
 
-  let isFirst: boolean = true;
-
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger,
@@ -41,13 +38,6 @@ const startConceptCatchAnimation = () => {
         trigger.classList.add("hidden");
         mainEl.classList.replace("opacity-100", "opacity-0");
       },
-    },
-    onComplete: () => {
-      //後で削除する！！
-      if (isFirst) {
-        isFirst = false;
-        resetScrollTriggerTimelines();
-      }
     },
   });
 

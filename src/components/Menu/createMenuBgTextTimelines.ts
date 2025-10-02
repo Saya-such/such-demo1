@@ -1,5 +1,5 @@
 import { gsap } from "gsap";
-import { createTextGradientTimeline } from "@/animations/common/createTextGradientTimeline";
+import { createTextGradientTimeline } from "@/animations/createTextGradientTimeline";
 
 /**
  * @description メニュー背景のテキストアニメーションのTimelineを生成する
