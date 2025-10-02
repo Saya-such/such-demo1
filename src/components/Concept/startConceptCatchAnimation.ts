@@ -28,7 +28,7 @@ const startConceptCatchAnimation = () => {
     scrollTrigger: {
       trigger,
       id: "catchAnimation",
-      start: "bottom bottom",
+      start: `bottom ${window.innerHeight}px`,
       end: "top top",
       scrub: true,
       onEnter: () => {
