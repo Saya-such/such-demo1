@@ -38,9 +38,11 @@ const { color = "light" } = Astro.props as Props;
 </Layout>
 
 <script>
-  import setupColorMode from "@/libs/setupColorMode";
   import startSectionTitleAnimation from "@/animations/startSectionTitleAnimation";
+  import enableHeaderColorWhite from "@/animations/enableHeaderColorWhite";
+  import setupColorMode from "@/libs/setupColorMode";
 
-  setupColorMode();
   startSectionTitleAnimation();
+  enableHeaderColorWhite();
+  setupColorMode();
 </script>
