@@ -26,7 +26,7 @@ const createCompanyZoomTimeline = (): GSAPTimeline | void => {
         id: "company-scale",
         start,
         end,
-        scrub: true,
+        scrub: 0.8,
       },
     });
 
@@ -89,15 +89,15 @@ const createCompanyZoomTimeline = (): GSAPTimeline | void => {
     window.matchMedia("(orientation: portrait) and (max-width: 700px)").matches
   ) {
     return createTimeline({
-      start: "top-=15% bottom",
-      end: "bottom+=100% top",
+      start: "top-=20% bottom",
+      end: "bottom+=120% top",
       fadeInDuration: 0.1,
       fadeInPos: "<0.15",
       scaleUpPos: 0.25,
     });
   } else {
     return createTimeline({
-      start: "top bottom",
+      start: "top-=20% bottom",
       end: "bottom+=50% top",
       fadeInDuration: 0.2,
     });

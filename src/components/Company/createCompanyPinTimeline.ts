@@ -15,7 +15,7 @@ const createCompanyPinTimeline = (): GSAPTimeline | void => {
         start: "top top",
         end: "+=100%",
         pin: true,
-        scrub: true,
+        scrub: 0.8,
       },
     });
 
