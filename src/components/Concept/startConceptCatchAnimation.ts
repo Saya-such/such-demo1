@@ -1,5 +1,6 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import setupElementHeight from "@/libs/setupElementHeight";
 import resetScrollTriggerTimelines from "@/animations/resetScrollTriggers/managers/resetScrollTriggerTimelines";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -19,11 +20,13 @@ const startConceptCatchAnimation = () => {
 
   let isFirst: boolean = true;
 
+  setupElementHeight(fixedEl);
+
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger,
       id: "catchAnimation",
-      start: () => `bottom ${window.innerHeight}`,
+      start: "bottom bottom",
       end: "top top",
       scrub: true,
       onEnter: () => {
