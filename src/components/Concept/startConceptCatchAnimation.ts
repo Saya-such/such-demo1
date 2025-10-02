@@ -12,16 +12,17 @@ gsap.registerPlugin(ScrollTrigger);
  * - これらの要素の非表示/表示により、同一の要素(キャッチコピー)が固定を解除されscale, skewが変化するかのような演出。
  */
 const startConceptCatchAnimation = () => {
-  const trigger = document.getElementById("catch-scroll");
   const fixedEl = document.getElementById("concept-fixed");
-  const mainEl = document.getElementById("concept-main");
-
-  if (!trigger || !fixedEl || !mainEl) return;
-
-  let isFirst: boolean = true;
-
+  if (!fixedEl) return;
   //スマホのUIバー対策のため、fixedElの高さをビューポートに合わせる
   setupElementHeight(fixedEl);
+
+  const trigger = document.getElementById("catch-scroll");
+  const mainEl = document.getElementById("concept-main");
+
+  if (!trigger || !mainEl) return;
+
+  let isFirst: boolean = true;
 
   const tl = gsap.timeline({
     scrollTrigger: {
