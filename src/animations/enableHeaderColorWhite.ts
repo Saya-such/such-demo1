@@ -41,7 +41,6 @@ const enableHeaderColorWhite = () => {
       id: "menu-color",
       start: "top top",
       end: "bottom+=10% bottom",
-      markers: true,
       toggleClass: { targets: menuLinks, className: "text-white" },
       onEnter: showWhiteLogo,
       onLeave: showBlackLogo,
