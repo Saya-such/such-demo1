@@ -4,10 +4,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 /**
- * @description companyセクション用のZOOMアニメーションのTimelineを生成する。
- * - Timeline生成 → 配列で返却 → companyScrollTriggerTimelineにて管理
+ * @description companyセクション用のZOOMアニメーションのTimelineを生成し返却する。
  */
-const companyScrollTriggerZoomTimeline = (): GSAPTimeline | void => {
+const createCompanyZoomTimeline = (): GSAPTimeline | void => {
   const createTimeline = ({
     start,
     end,
@@ -105,4 +104,4 @@ const companyScrollTriggerZoomTimeline = (): GSAPTimeline | void => {
   }
 };
 
-export default companyScrollTriggerZoomTimeline;
+export default createCompanyZoomTimeline;

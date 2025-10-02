@@ -1,15 +1,14 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { createTextGradientTimeline } from "@/animations/common/createTextGradientTimeline";
+import { createTextGradientTimeline } from "@/animations/createTextGradientTimeline";
 
 gsap.registerPlugin(ScrollTrigger);
 
 /**
  * 各セクションタイトル用のScrollTriggerのTimelineを生成する。
- * - DOM取得 → 展開してTimelineを各々生成 → 配列で返却
- * - resetScrollTriggerTimelinesによって一括再生成される。
+ * - DOM取得 → 展開してTimelineを各々生成/実行
  */
-const sectionTitleScrollTriggerTimeline = (): GSAPTimeline[] => {
+const startSectionTitleAnimation = (): GSAPTimeline[] => {
   const triggers = document.querySelectorAll<HTMLElement>(".sec-tit.animation");
 
   return Array.from(triggers).map((el) => {
@@ -47,4 +46,4 @@ const sectionTitleScrollTriggerTimeline = (): GSAPTimeline[] => {
   });
 };
 
-export default sectionTitleScrollTriggerTimeline;
+export default startSectionTitleAnimation;

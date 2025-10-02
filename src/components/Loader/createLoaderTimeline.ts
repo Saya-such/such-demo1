@@ -1,6 +1,6 @@
 import { gsap } from "gsap";
-import createPageFlipTimeline from "@/animations/common/createPageFlipTimeline";
-import { createTextGradientTimeline } from "@/animations/common/createTextGradientTimeline";
+import createPageFlipTimeline from "@/animations/createPageFlipTimeline";
+import { createTextGradientTimeline } from "@/animations/createTextGradientTimeline";
 
 /**
  * @description ローディングアニメーション後、Loader要素を非表示にし、Hero要素の表示へ繋げる。
