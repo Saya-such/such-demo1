@@ -25,6 +25,7 @@ const createMenuOpenTimeline = ({
   tl.add(() => {
     //メニューボタンのスタイリング変更
     buttonEl.classList.add("is-open");
+    buttonEl.setAttribute("aria-expanded", "true");
   })
     //ページめくり風アニメーション
     .to(flipEl, {

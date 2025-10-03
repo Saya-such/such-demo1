@@ -26,6 +26,7 @@ const createMenuCloseTimeline = ({
     //メニューの非表示
     menuEl.classList.add("invisible");
     menuEl.classList.remove("is-open", "visible");
+    buttonEl.setAttribute("aria-expanded", "false");
   })
     //ページめくり風アニメーション
     .to(flipEl, {
