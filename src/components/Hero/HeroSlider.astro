@@ -7,10 +7,15 @@ import heroSlidersData from "@/data/hero/heroSlidersData";
     {
       heroSlidersData.map((img) => (
         <div class="swiper-slide h-full w-full">
-          <img src={img.sp} class="h-full w-full object-cover md:hidden" />
+          <img
+            src={img.sp}
+            class="h-full w-full object-cover md:hidden"
+            alt=""
+          />
           <img
             src={img.src}
             class="hidden h-full w-full object-cover md:block"
+            alt=""
           />
         </div>
       ))
