@@ -17,7 +17,11 @@ const barClass = (position: "top" | "middle" | "bottom") =>
 <button
   id="menu-button"
   class="group/button absolute top-2 right-2 z-10 h-11 w-11 rounded-full bg-black lg:hidden"
+  aria-expanded="false"
 >
+  <!-- スクリーンリーダー専用 -->
+  <span class="sr-only">メニューを開く</span>
+
   <span class="relative m-auto block h-[2px] w-5">
     <span class={barClass("top")}></span>
     <span class={barClass("middle")}></span>

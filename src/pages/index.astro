@@ -9,16 +9,10 @@ import News from "@/components/News/index.astro";
 import Company from "@/components/Company/index.astro";
 import Bottom from "@/components/Bottom/index.astro";
 import Cursor from "@/components/Cursor/index.astro";
-
-interface Props {
-  color: ColorMode;
-}
-
-const { color = "light" } = Astro.props as Props;
 ---
 
 <Layout>
-  <div id="page-root" data-color={color}>
+  <div id="page-root" data-color="light">
     <Hero />
 
     <Concept />
