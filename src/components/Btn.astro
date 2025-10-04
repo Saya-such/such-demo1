@@ -8,6 +8,7 @@ interface Props {
   en?: boolean;
   sm?: boolean;
   visible?: boolean;
+  link?: string;
 }
 
 const {
@@ -16,6 +17,7 @@ const {
   en = true,
   sm = false,
   visible = true,
+  link = "#",
 } = Astro.props as Props;
 
 const btnWrapper = cn({
@@ -64,11 +66,11 @@ const circleStyle = cn(
 ---
 
 <div class={btnWrapper}>
-  <div class={btnContent}>
+  <a href={link} class={btnContent}>
     <p class={btnText}>{text}</p>
     <div class={btnDeco}>
       <Arrow others={arrowStyle} />
       <div class={circleStyle}></div>
     </div>
-  </div>
+  </a>
 </div>

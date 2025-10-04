@@ -2,14 +2,18 @@
 import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 
+import sitemap from "@astrojs/sitemap";
+
 //開発モードか公開用(GitHub Pages)か判別
 const isGhPages = process.env.DEPLOY_ENV === "gh-pages";
 
 export default defineConfig({
   base: "/such-demo1/",
+
   build: {
     assetsPrefix: "./",
   },
+
   vite: {
     plugins: [tailwindcss()],
     build: {
@@ -30,4 +34,7 @@ export default defineConfig({
       },
     },
   },
+
+  site: "https://saya-such.github.io/such-demo1/",
+  integrations: [sitemap()],
 });
