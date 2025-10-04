@@ -34,6 +34,20 @@ import Main from "@/components/Main.astro";
         creator: "@Chaya0815",
       }}
     />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "CreativeWork",
+        "name": "Such Astro × GSAP Demo Page",
+        "description": "A demo showcasing smooth GSAP animations and interactive UI.",
+        "creator": {
+          "@type": "Person",
+          "name": "Saya Saito"
+        },
+        "dateCreated": "2025-10-04",
+        "url": "https://saya-such.github.io/such-demo1/"
+      }
+    </script>
   </head>
   <body class="font-primary h-screen w-screen overflow-x-hidden">
     <Loader />
