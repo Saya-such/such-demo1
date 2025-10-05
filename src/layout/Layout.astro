@@ -1,4 +1,5 @@
 ---
+import { SEO } from "astro-seo";
 import "@/styles/global.css";
 import Header from "@/components/Header/index.astro";
 import Loader from "@/components/Loader/index.astro";
@@ -13,10 +14,40 @@ import Main from "@/components/Main.astro";
       checkFirstVisit();
     </script>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="./images/logo.png" />
+    <link rel="icon" href="./images/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="./images/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="./images/icon.png" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>△△ inc. | suchのデモページだよ~</title>
+    <link rel="sitemap" href="./sitemap-index.xml" />
+    <SEO
+      title="△△ inc. | suchのデモページです"
+      description="Astro × GSAPで制作したsuchのデモページです。"
+      openGraph={{
+        basic: {
+          title: "△△ inc. | suchのデモページです",
+          type: "website",
+          image: "./images/such-demo1-caputure.jpg",
+        },
+      }}
+      twitter={{
+        creator: "@Chaya0815",
+      }}
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "CreativeWork",
+        "name": "such Astro × GSAP Demo Page",
+        "description": "A demo showcasing smooth GSAP animations and interactive UI.",
+        "creator": {
+          "@type": "Person",
+          "name": "Saya Saito"
+        },
+        "dateCreated": "2025-10-04",
+        "url": "https://saya-such.github.io/such-demo1/"
+      }
+    </script>
   </head>
   <body class="font-primary h-screen w-screen overflow-x-hidden">
     <Loader />

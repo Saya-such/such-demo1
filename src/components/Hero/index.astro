@@ -4,8 +4,14 @@ import HeroSlider from "./HeroSlider.astro";
 ---
 
 <section id="hero" class="relative h-svh w-svw">
-  <div class="hero-fixed fixed top-0 left-0 h-full w-full p-1 md:p-2">
-    <Catch others="hero-catch bottom-2 xl:bottom-9 min-[1728px]:bottom-11" />
+  <div class="hero-fixed fixed top-0 left-0 h-svh w-full p-1 md:p-2">
+    <Catch id="hero-catch" h1={true} others="bottom-0 z-10" />
     <HeroSlider />
   </div>
 </section>
+
+<script>
+  import manageHero from "./manageHero";
+
+  manageHero();
+</script>

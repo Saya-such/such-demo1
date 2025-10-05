@@ -7,17 +7,22 @@ import heroSlidersData from "@/data/hero/heroSlidersData";
     {
       heroSlidersData.map((img) => (
         <div class="swiper-slide h-full w-full">
-          <img src={img.sp} class="h-full w-full object-cover md:hidden" />
+          <img
+            src={img.sp}
+            class="h-full w-full object-cover md:hidden"
+            alt=""
+          />
           <img
             src={img.src}
             class="hidden h-full w-full object-cover md:block"
+            alt=""
           />
         </div>
       ))
     }
   </div>
   <div
-    class="swiper-bg absolute inset-0 z-1 h-lvh w-lvw origin-top-left overflow-y-hidden bg-white"
+    class="swiper-bg absolute inset-0 z-1 h-svh w-lvw origin-top-left overflow-y-hidden bg-white"
   >
   </div>
 </div>
@@ -29,11 +34,12 @@ import heroSlidersData from "@/data/hero/heroSlidersData";
 </script>
 
 <style>
+  /* スライダーの拡大アニメーション */
   .swiper-slide img {
-    transition: transform 5s ease-in;
+    transition: transform 8s ease-in;
   }
 
   .swiper-slide-active img {
-    transform: scale(1.05);
+    transform: scale(1.07);
   }
 </style>

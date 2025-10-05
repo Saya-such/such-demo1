@@ -4,21 +4,15 @@ import Layout from "@/layout/Layout.astro";
 import Hero from "@/components/Hero/index.astro";
 import Concept from "@/components/Concept/index.astro";
 import Works from "@/components/Works/index.astro";
-import Service from "@/components/Service.astro";
+import Service from "@/components/Service/index.astro";
 import News from "@/components/News/index.astro";
 import Company from "@/components/Company/index.astro";
 import Bottom from "@/components/Bottom/index.astro";
 import Cursor from "@/components/Cursor/index.astro";
-
-interface Props {
-  color: ColorMode;
-}
-
-const { color = "light" } = Astro.props as Props;
 ---
 
 <Layout>
-  <div id="page-root" data-color={color}>
+  <div id="page-root" data-color="light">
     <Hero />
 
     <Concept />
@@ -38,7 +32,11 @@ const { color = "light" } = Astro.props as Props;
 </Layout>
 
 <script>
+  import startSectionTitleAnimation from "@/animations/startSectionTitleAnimation";
+  import enableHeaderColorWhite from "@/animations/enableHeaderColorWhite";
   import setupColorMode from "@/libs/setupColorMode";
 
+  startSectionTitleAnimation();
+  enableHeaderColorWhite();
   setupColorMode();
 </script>

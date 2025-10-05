@@ -5,63 +5,49 @@ import Catch from "@/components/Catch.astro";
 
 <section
   id="concept"
-  class="relative overflow-hidden portrait:lg:overflow-visible"
+  class="relative overflow-hidden bg-white portrait:lg:overflow-visible"
 >
-  <div id="concept-fixed" class="relative h-svh w-svw p-1 md:p-2">
-    <div
-      id="concept-catch"
-      class="concept-catch fixed top-0 left-0 h-full w-full"
-    >
-      <Catch
-        h1={false}
-        others="bottom-2 opacity-5 md:opacity-10 xl:bottom-9 min-[1728px]:bottom-11"
-      />
-    </div>
+  <div id="concept-fixed" class="fixed top-0 left-0 h-svh w-svw">
+    <Catch id="catch-clone" others="absolute bottom-0 opacity-10" />
   </div>
-  <div id="catch-scroll" class="catch-scroll relative">
+  <div class="container-base m-auto">
     <Catch
-      h1={false}
-      scroll={true}
-      others="bottom-2 opacity-5 top-[25px] origin-top-left md:opacity-10 xl:bottom-9 min-[1728px]:bottom-11"
+      id="catch-scroll"
+      others="absolute hidden top-0 opacity-10 origin-top-left"
     />
-  </div>
-  <div
-    id="concept-main"
-    class="container-base m-auto flex flex-col opacity-0 duration-1000"
-  >
-    <h2
-      class="pt-20 pb-16 text-right text-[1.5rem] font-bold tracking-[0.3em] min-[375px]:text-[1.58rem] md:pt-64 md:pb-48 md:text-[3.2rem] lg:py-48 2xl:pt-80 landscape:lg:text-left"
-    >
-      話題性と戦略の出会い
-    </h2>
-    <div class="md:hidden">
-      <BoldText others="pb-6">
-        伝えたいメッセージを、<br />
-        的確に、<br />
-        効果的に届ける。
-      </BoldText>
-      <BoldText others="pb-6">
-        △△ inc. は<br />
-        ブランドを体現する人材を起用し、<br />訴求力のあるキャッチコピーや<br
-        />広告設計まで一貫してご提案。
-      </BoldText>
-      <BoldText others="pb-6">
-        あなたに寄り添った<br />ブランディングを実現します。
+    <div id="concept-main" class="opacity-0 duration-1000">
+      <h2
+        class="pt-20 pb-16 text-right text-[1.5rem] font-bold tracking-[0.3em] min-[375px]:text-[1.58rem] md:pt-64 md:pb-48 md:text-[3.2rem] lg:py-48 2xl:pt-80 landscape:lg:text-left"
+      >
+        話題性と戦略の出会い
+      </h2>
+      <div class="md:hidden">
+        <BoldText others="pb-6">
+          伝えたいメッセージを、<br />
+          的確に、<br />
+          効果的に届ける。
+        </BoldText>
+        <BoldText others="pb-6">
+          △△ inc. は<br />
+          ブランドを体現する人材を起用し、<br />訴求力のあるキャッチコピーや<br
+          />広告設計まで一貫してご提案。
+        </BoldText>
+        <BoldText others="pb-6">
+          あなたに寄り添った<br />ブランディングを実現します。
+        </BoldText>
+      </div>
+      <BoldText others="hidden self-end md:block">
+        伝えたいメッセージを、的確に、効果的に届ける。<br />
+        △△ inc. はブランドを体現する人材を起用し、訴求力のあるキャッチコピーや広告設計まで一貫してご提案。<br
+        />
+        あなたに寄り添ったブランディングを実現します。
       </BoldText>
     </div>
-    <BoldText others="hidden self-end md:block">
-      伝えたいメッセージを、的確に、効果的に届ける。<br />
-      △△ inc. はブランドを体現する人材を起用し、訴求力のあるキャッチコピーや広告設計まで一貫してご提案。<br
-      />
-      あなたに寄り添ったブランディングを実現します。
-    </BoldText>
   </div>
 </section>
 
 <script>
-  import startConceptCatchFillAnimation from "./startConceptCatchFillAnimation";
-  import startConceptCatchSkewAnimation from "./startConceptCatchSkewAnimation";
+  import startConceptCatchAnimation from "./startConceptCatchAnimation";
 
-  startConceptCatchFillAnimation();
-  startConceptCatchSkewAnimation();
+  startConceptCatchAnimation();
 </script>

@@ -9,5 +9,5 @@ const { work } = Astro.props as Props;
 ---
 
 <li class={`mx-7 h-full md:mx-12 lg:mx-16 2xl:mx-30 ${work.class}`}>
-  <img src={work.src} class="w-full rounded object-contain" />
+  <img src={work.src} class="w-full rounded object-contain" alt={work.alt} />
 </li>
