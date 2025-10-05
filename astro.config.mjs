@@ -8,7 +8,7 @@ import sitemap from "@astrojs/sitemap";
 const isGhPages = process.env.DEPLOY_ENV === "gh-pages";
 
 export default defineConfig({
-  base: "/such-demo1/",
+  base: isGhPages ? "/such-demo1/" : "",
 
   build: {
     assetsPrefix: "./",
