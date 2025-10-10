@@ -75,6 +75,13 @@ import companyBgImgData from "@/data/company/companyBgImgData";
   import enableCompanyCursorEffect from "./enableCompanyCursorEffect";
   import startCompanyAnimation from "./startCompanyAnimation";
 
-  enableCompanyCursorEffect();
-  startCompanyAnimation();
+  /**
+   * Bottomコンポーネント内にDOM要素がvisibility: hiddenの状態で存在するため、
+   * ScrollTriggerの高さ計算が早すぎると誤差が生じる可能性がある。
+   * そのため、全DOM構築完了後にPINアニメーションのTimelineを生成する。
+   */
+  window.addEventListener("DOMContentLoaded", () => {
+    enableCompanyCursorEffect();
+    startCompanyAnimation();
+  });
 </script>
