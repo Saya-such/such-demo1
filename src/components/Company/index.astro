@@ -72,6 +72,7 @@ import companyBgImgData from "@/data/company/companyBgImgData";
 </section>
 
 <script>
+  import enableHeaderColorWhite from "@/animations/enableHeaderColorWhite";
   import enableCompanyCursorEffect from "./enableCompanyCursorEffect";
   import startCompanyAnimation from "./startCompanyAnimation";
 
@@ -79,9 +80,13 @@ import companyBgImgData from "@/data/company/companyBgImgData";
    * Bottomコンポーネント内にDOM要素がvisibility: hiddenの状態で存在するため、
    * ScrollTriggerの高さ計算が早すぎると誤差が生じる可能性がある。
    * そのため、全DOM構築完了後にPINアニメーションのTimelineを生成する。
+   *
+   * また、Companyセクションの位置をトリガーとしてHeaderの配色を切り替える処理も
+   * 同一タイミングで正しく動作させる必要があるため、同イベントリスナー内で初期化する。
    */
   window.addEventListener("DOMContentLoaded", () => {
     enableCompanyCursorEffect();
     startCompanyAnimation();
+    enableHeaderColorWhite();
   });
 </script>
